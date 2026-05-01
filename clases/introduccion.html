@@ -1,0 +1,2837 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 1: Cómo funciona esto — Frontend desde Cero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/introduccion.css" />
+  </head>
+  <body>
+    <!-- Barra de progreso -->
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-label="Progreso de lectura"
+    ></div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero section">
+      <div class="container text-center">
+        <svg
+          class="hero__globe"
+          viewBox="0 0 150 150"
+          role="img"
+          aria-label="Globo terráqueo con conexiones animadas"
+        >
+          <circle class="globe-circle" cx="75" cy="75" r="60" />
+          <ellipse
+            class="globe-line"
+            cx="75"
+            cy="75"
+            rx="60"
+            ry="30"
+            fill="none"
+          />
+          <ellipse
+            class="globe-line"
+            cx="75"
+            cy="75"
+            rx="30"
+            ry="60"
+            fill="none"
+          />
+          <line class="globe-line" x1="15" y1="75" x2="135" y2="75" />
+          <line class="globe-line" x1="75" y1="15" x2="75" y2="135" />
+          <circle class="connection-dot" cx="45" cy="40" r="3" />
+          <circle class="connection-dot" cx="105" cy="50" r="3" />
+          <circle class="connection-dot" cx="60" cy="100" r="3" />
+          <circle class="connection-dot" cx="100" cy="90" r="3" />
+          <circle class="connection-dot" cx="75" cy="60" r="3" />
+        </svg>
+        <h1 class="hero__title">Clase 1: Cómo funciona esto</h1>
+        <p class="hero__subtitle">
+          Vas a entender qué pasa cuando abrís una página web, y vas a preparar
+          tus herramientas de trabajo.
+        </p>
+        <a href="#seccion-internet" class="btn btn-primary hero__cta"
+          >Arranquemos</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== SECCIÓN 1: Cómo funciona internet ===== -->
+      <section id="seccion-internet" class="section">
+        <div class="container">
+          <span class="section__number">Sección 1</span>
+          <h2 class="section__title">Cómo funciona internet</h2>
+
+          <!-- 1.1 Pregunta disparadora -->
+          <div class="question-section">
+            <h2>
+              Cuando abrís Instagram, Netflix o Google... ¿de dónde sale toda
+              esa información?
+            </h2>
+          </div>
+
+          <!-- 1.2 Diagrama interactivo -->
+          <div class="diagram-internet mt-4">
+            <svg
+              class="diagram-internet__svg"
+              viewBox="0 0 800 250"
+              role="img"
+              aria-label="Diagrama: cómo tu computadora se comunica con un servidor a través de internet"
+            >
+              <!-- Cliente -->
+              <g data-step="0" class="diagram-step visible">
+                <rect
+                  x="20"
+                  y="80"
+                  width="140"
+                  height="90"
+                  rx="12"
+                  fill="#EFF6FF"
+                  stroke="#3B82F6"
+                  stroke-width="2"
+                />
+                <rect
+                  x="50"
+                  y="100"
+                  width="80"
+                  height="50"
+                  rx="4"
+                  fill="#3B82F6"
+                  opacity="0.2"
+                />
+                <rect
+                  x="60"
+                  y="105"
+                  width="60"
+                  height="35"
+                  rx="2"
+                  fill="#3B82F6"
+                  opacity="0.4"
+                />
+                <text
+                  x="90"
+                  y="165"
+                  text-anchor="middle"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#1E293B"
+                >
+                  Vos (el cliente)
+                </text>
+              </g>
+
+              <!-- DNS -->
+              <g data-step="1" class="diagram-step">
+                <rect
+                  x="250"
+                  y="20"
+                  width="130"
+                  height="80"
+                  rx="12"
+                  fill="#F5F3FF"
+                  stroke="#8B5CF6"
+                  stroke-width="2"
+                />
+                <rect
+                  x="275"
+                  y="35"
+                  width="40"
+                  height="50"
+                  rx="4"
+                  fill="#8B5CF6"
+                  opacity="0.2"
+                />
+                <circle cx="340" cy="55" r="12" fill="#8B5CF6" opacity="0.3" />
+                <text
+                  x="315"
+                  y="95"
+                  text-anchor="middle"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#1E293B"
+                >
+                  DNS (la guía)
+                </text>
+              </g>
+
+              <!-- Internet/Mozo -->
+              <g data-step="2" class="diagram-step">
+                <rect
+                  x="420"
+                  y="80"
+                  width="130"
+                  height="90"
+                  rx="12"
+                  fill="#FFFBEB"
+                  stroke="#F59E0B"
+                  stroke-width="2"
+                />
+                <circle cx="485" cy="110" r="12" fill="#F59E0B" opacity="0.3" />
+                <rect
+                  x="475"
+                  y="122"
+                  width="20"
+                  height="30"
+                  rx="4"
+                  fill="#F59E0B"
+                  opacity="0.3"
+                />
+                <text
+                  x="485"
+                  y="165"
+                  text-anchor="middle"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#1E293B"
+                >
+                  Internet (el mozo)
+                </text>
+              </g>
+
+              <!-- Servidor -->
+              <g data-step="2" class="diagram-step">
+                <rect
+                  x="630"
+                  y="80"
+                  width="150"
+                  height="90"
+                  rx="12"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="2"
+                />
+                <rect
+                  x="670"
+                  y="100"
+                  width="70"
+                  height="50"
+                  rx="4"
+                  fill="#10B981"
+                  opacity="0.2"
+                />
+                <line
+                  x1="685"
+                  y1="110"
+                  x2="685"
+                  y2="140"
+                  stroke="#10B981"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+                <line
+                  x1="705"
+                  y1="110"
+                  x2="705"
+                  y2="140"
+                  stroke="#10B981"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+                <line
+                  x1="725"
+                  y1="110"
+                  x2="725"
+                  y2="140"
+                  stroke="#10B981"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+                <text
+                  x="705"
+                  y="165"
+                  text-anchor="middle"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#1E293B"
+                >
+                  Servidor (la cocina)
+                </text>
+              </g>
+
+              <!-- Flechas -->
+              <path
+                data-step="1"
+                class="diagram-step arrow-animated"
+                d="M160 110 Q 200 60 250 55"
+                fill="none"
+                stroke="#8B5CF6"
+                stroke-width="2"
+                marker-end="url(#arrowhead-purple)"
+              />
+              <text
+                data-step="1"
+                class="diagram-step"
+                x="190"
+                y="55"
+                font-size="9"
+                fill="#8B5CF6"
+              >
+                ¿Qué número tiene youtube.com?
+              </text>
+
+              <path
+                data-step="1"
+                class="diagram-step arrow-animated"
+                d="M250 70 Q 200 90 160 120"
+                fill="none"
+                stroke="#8B5CF6"
+                stroke-width="2"
+                stroke-dasharray="5,3"
+              />
+              <text
+                data-step="1"
+                class="diagram-step"
+                x="180"
+                y="110"
+                font-size="9"
+                fill="#8B5CF6"
+              >
+                142.250.185.46
+              </text>
+
+              <path
+                data-step="2"
+                class="diagram-step arrow-animated"
+                d="M160 135 Q 300 200 420 130"
+                fill="none"
+                stroke="#F59E0B"
+                stroke-width="2"
+                marker-end="url(#arrowhead-amber)"
+              />
+              <path
+                data-step="2"
+                class="diagram-step arrow-animated"
+                d="M550 125 L 630 125"
+                fill="none"
+                stroke="#F59E0B"
+                stroke-width="2"
+                marker-end="url(#arrowhead-amber)"
+              />
+              <text
+                data-step="2"
+                class="diagram-step"
+                x="350"
+                y="195"
+                font-size="9"
+                fill="#F59E0B"
+              >
+                Mandame tu página
+              </text>
+
+              <path
+                data-step="3"
+                class="diagram-step arrow-animated"
+                d="M630 140 Q 400 220 160 145"
+                fill="none"
+                stroke="#10B981"
+                stroke-width="2"
+                marker-end="url(#arrowhead-green)"
+                stroke-dasharray="5,3"
+              />
+              <text
+                data-step="3"
+                class="diagram-step"
+                x="380"
+                y="225"
+                font-size="9"
+                fill="#10B981"
+              >
+                Acá tenés: HTML + CSS + JS
+              </text>
+
+              <!-- Marcadores de flecha -->
+              <defs>
+                <marker
+                  id="arrowhead-purple"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#8B5CF6" />
+                </marker>
+                <marker
+                  id="arrowhead-amber"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#F59E0B" />
+                </marker>
+                <marker
+                  id="arrowhead-green"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#10B981" />
+                </marker>
+              </defs>
+            </svg>
+
+            <div class="diagram-internet__controls">
+              <button class="btn btn-sm btn-secondary" data-diagram-step="1">
+                Paso 1
+              </button>
+              <button class="btn btn-sm btn-secondary" data-diagram-step="2">
+                Paso 2
+              </button>
+              <button class="btn btn-sm btn-secondary" data-diagram-step="3">
+                Paso 3
+              </button>
+              <button class="btn btn-sm btn-primary" data-diagram-step="all">
+                Ver todo junto
+              </button>
+            </div>
+
+            <p class="diagram-internet__explanation">
+              Hacé click en los pasos para ver cómo se comunica tu compu con un
+              servidor.
+            </p>
+          </div>
+
+          <!-- 1.3 Lo clave -->
+          <div class="callout callout-info">
+            <p>
+              <strong>Siempre hay DOS computadoras:</strong> la tuya (que pide)
+              y la del otro lado (que responde). Toda la web funciona así:
+              pedido y respuesta.
+            </p>
+          </div>
+
+          <!-- 1.4 Mitos vs Realidad -->
+          <h3 class="mt-4 mb-3">Mitos vs Realidad</h3>
+          <div class="flip-cards">
+            <div
+              class="flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Tarjeta: Internet y Google son lo mismo. Click para ver la realidad."
+            >
+              <div class="flip-card__inner">
+                <div class="flip-card__front">
+                  <p>"Internet y Google son lo mismo"</p>
+                </div>
+                <div class="flip-card__back" aria-live="polite">
+                  <p>
+                    Google es UN servicio dentro de internet. Como un local
+                    dentro de un shopping.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Tarjeta: Las páginas están en el navegador. Click para ver la realidad."
+            >
+              <div class="flip-card__inner">
+                <div class="flip-card__front">
+                  <p>"Las páginas están en el navegador"</p>
+                </div>
+                <div class="flip-card__back" aria-live="polite">
+                  <p>
+                    Las páginas están en servidores en algún lugar del mundo. Tu
+                    navegador solo las muestra.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Tarjeta: WiFi es igual a Internet. Click para ver la realidad."
+            >
+              <div class="flip-card__inner">
+                <div class="flip-card__front">
+                  <p>"WiFi = Internet"</p>
+                </div>
+                <div class="flip-card__back" aria-live="polite">
+                  <p>
+                    WiFi es CÓMO te conectás (el cable invisible). Internet es
+                    la red A la que te conectás.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1.5 Ejercicio mental -->
+          <div class="callout mt-4">
+            <p class="callout-icon">🧠</p>
+            <p>
+              La próxima vez que abras una página, pensá:
+              <em
+                >"Mi compu le está pidiendo archivos a un servidor que está en
+                algún lugar del mundo"</em
+              >. Parece boludo, pero fija el concepto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCIÓN 2: Archivos, carpetas y extensiones ===== -->
+      <section id="seccion-archivos" class="section">
+        <div class="container">
+          <span class="section__number">Sección 2</span>
+          <h2 class="section__title">Archivos, carpetas y extensiones</h2>
+
+          <!-- 2.1 Analogía de la biblioteca -->
+          <svg
+            class="library-svg"
+            viewBox="0 0 500 350"
+            role="img"
+            aria-label="Ilustración: tu computadora es una biblioteca con carpetas y archivos organizados"
+          >
+            <!-- Estantería -->
+            <rect
+              x="50"
+              y="30"
+              width="400"
+              height="300"
+              rx="8"
+              fill="#F8FAFC"
+              stroke="#CBD5E1"
+              stroke-width="2"
+            />
+            <!-- Estantes -->
+            <line
+              x1="50"
+              y1="130"
+              x2="450"
+              y2="130"
+              stroke="#CBD5E1"
+              stroke-width="2"
+            />
+            <line
+              x1="50"
+              y1="230"
+              x2="450"
+              y2="230"
+              stroke="#CBD5E1"
+              stroke-width="2"
+            />
+
+            <!-- Nivel 1: Documentos -->
+            <rect
+              x="100"
+              y="55"
+              width="160"
+              height="55"
+              rx="6"
+              fill="#FFFBEB"
+              stroke="#F59E0B"
+              stroke-width="2"
+            />
+            <text
+              x="180"
+              y="87"
+              text-anchor="middle"
+              font-size="14"
+              font-weight="600"
+              fill="#92400E"
+            >
+              Documentos/
+            </text>
+
+            <!-- Nivel 2: mi-proyecto -->
+            <rect
+              x="120"
+              y="155"
+              width="180"
+              height="55"
+              rx="6"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <text
+              x="210"
+              y="187"
+              text-anchor="middle"
+              font-size="14"
+              font-weight="600"
+              fill="#1E40AF"
+            >
+              mi-proyecto/
+            </text>
+
+            <!-- Nivel 3: Archivos -->
+            <rect
+              x="90"
+              y="255"
+              width="100"
+              height="55"
+              rx="6"
+              fill="#FFF7ED"
+              stroke="#F97316"
+              stroke-width="1.5"
+            />
+            <text
+              x="140"
+              y="278"
+              text-anchor="middle"
+              font-family="monospace"
+              font-size="11"
+              font-weight="600"
+              fill="#C2410C"
+            >
+              index.html
+            </text>
+            <text
+              x="140"
+              y="298"
+              text-anchor="middle"
+              font-size="9"
+              fill="#64748B"
+            >
+              Estructura
+            </text>
+
+            <rect
+              x="200"
+              y="255"
+              width="100"
+              height="55"
+              rx="6"
+              fill="#F5F3FF"
+              stroke="#8B5CF6"
+              stroke-width="1.5"
+            />
+            <text
+              x="250"
+              y="278"
+              text-anchor="middle"
+              font-family="monospace"
+              font-size="11"
+              font-weight="600"
+              fill="#6D28D9"
+            >
+              estilos.css
+            </text>
+            <text
+              x="250"
+              y="298"
+              text-anchor="middle"
+              font-size="9"
+              fill="#64748B"
+            >
+              Diseño
+            </text>
+
+            <rect
+              x="310"
+              y="255"
+              width="100"
+              height="55"
+              rx="6"
+              fill="#FEFCE8"
+              stroke="#EAB308"
+              stroke-width="1.5"
+            />
+            <text
+              x="360"
+              y="278"
+              text-anchor="middle"
+              font-family="monospace"
+              font-size="11"
+              font-weight="600"
+              fill="#A16207"
+            >
+              app.js
+            </text>
+            <text
+              x="360"
+              y="298"
+              text-anchor="middle"
+              font-size="9"
+              fill="#64748B"
+            >
+              Interactividad
+            </text>
+
+            <!-- Flechas conectoras -->
+            <path
+              d="M180 110 L 180 130 L 210 155"
+              fill="none"
+              stroke="#CBD5E1"
+              stroke-width="1.5"
+              stroke-dasharray="4,2"
+            />
+            <path
+              d="M210 210 L 140 230 L 140 255"
+              fill="none"
+              stroke="#CBD5E1"
+              stroke-width="1.5"
+              stroke-dasharray="4,2"
+            />
+            <path
+              d="M210 210 L 250 230 L 250 255"
+              fill="none"
+              stroke="#CBD5E1"
+              stroke-width="1.5"
+              stroke-dasharray="4,2"
+            />
+            <path
+              d="M210 210 L 360 230 L 360 255"
+              fill="none"
+              stroke="#CBD5E1"
+              stroke-width="1.5"
+              stroke-dasharray="4,2"
+            />
+          </svg>
+
+          <!-- 2.2 Tarjetas de extensiones -->
+          <h3 class="mt-4 mb-3">Las extensiones más comunes</h3>
+          <div class="grid grid-3">
+            <div class="card extension-card extension-card--html">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono HTML"
+              >
+                <rect
+                  x="8"
+                  y="4"
+                  width="32"
+                  height="40"
+                  rx="4"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="2"
+                />
+                <line
+                  x1="14"
+                  y1="14"
+                  x2="34"
+                  y2="14"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+                <line
+                  x1="14"
+                  y1="22"
+                  x2="28"
+                  y2="22"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+                <line
+                  x1="14"
+                  y1="30"
+                  x2="30"
+                  y2="30"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  opacity="0.5"
+                />
+              </svg>
+              <p class="extension-card__name">.html</p>
+              <p class="extension-card__desc">Los ladrillos de la casa</p>
+            </div>
+
+            <div class="card extension-card extension-card--css">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono CSS"
+              >
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="18"
+                  fill="#F5F3FF"
+                  stroke="#8B5CF6"
+                  stroke-width="2"
+                />
+                <circle cx="18" cy="20" r="4" fill="#8B5CF6" opacity="0.4" />
+                <circle cx="30" cy="20" r="4" fill="#8B5CF6" opacity="0.6" />
+                <circle cx="24" cy="30" r="4" fill="#8B5CF6" opacity="0.8" />
+              </svg>
+              <p class="extension-card__name">.css</p>
+              <p class="extension-card__desc">La pintura y los muebles</p>
+            </div>
+
+            <div class="card extension-card extension-card--js">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono JavaScript"
+              >
+                <rect
+                  x="8"
+                  y="8"
+                  width="32"
+                  height="32"
+                  rx="6"
+                  fill="#FEFCE8"
+                  stroke="#EAB308"
+                  stroke-width="2"
+                />
+                <path
+                  d="M18 20 L24 28 L30 20"
+                  fill="none"
+                  stroke="#EAB308"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="extension-card__name">.js</p>
+              <p class="extension-card__desc">La electricidad y los aparatos</p>
+            </div>
+
+            <div class="card extension-card extension-card--txt">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono texto"
+              >
+                <rect
+                  x="8"
+                  y="4"
+                  width="32"
+                  height="40"
+                  rx="4"
+                  fill="#F8FAFC"
+                  stroke="#64748B"
+                  stroke-width="2"
+                />
+                <line
+                  x1="14"
+                  y1="16"
+                  x2="34"
+                  y2="16"
+                  stroke="#64748B"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="14"
+                  y1="24"
+                  x2="30"
+                  y2="24"
+                  stroke="#64748B"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="14"
+                  y1="32"
+                  x2="26"
+                  y2="32"
+                  stroke="#64748B"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p class="extension-card__name">.txt</p>
+              <p class="extension-card__desc">Una hoja en blanco</p>
+            </div>
+
+            <div class="card extension-card extension-card--img">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono imagen"
+              >
+                <rect
+                  x="6"
+                  y="10"
+                  width="36"
+                  height="28"
+                  rx="4"
+                  fill="#FDF2F8"
+                  stroke="#EC4899"
+                  stroke-width="2"
+                />
+                <circle cx="18" cy="22" r="4" fill="#EC4899" opacity="0.4" />
+                <path
+                  d="M10 34 L20 26 L28 32 L36 24 L42 30"
+                  fill="none"
+                  stroke="#EC4899"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p class="extension-card__name">.jpg</p>
+              <p class="extension-card__desc">Una foto o imagen</p>
+            </div>
+
+            <div class="card extension-card extension-card--pdf">
+              <svg
+                class="extension-card__icon"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Icono PDF"
+              >
+                <rect
+                  x="8"
+                  y="4"
+                  width="32"
+                  height="40"
+                  rx="4"
+                  fill="#FEF2F2"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                />
+                <text
+                  x="24"
+                  y="30"
+                  text-anchor="middle"
+                  font-size="12"
+                  font-weight="700"
+                  fill="#EF4444"
+                >
+                  PDF
+                </text>
+              </svg>
+              <p class="extension-card__name">.pdf</p>
+              <p class="extension-card__desc">Un documento para leer</p>
+            </div>
+          </div>
+
+          <!-- 2.3 Simulador de extensión -->
+          <h3 class="mt-4 mb-3">Probá: cambiá la extensión</h3>
+          <div class="extension-simulator">
+            <div class="extension-simulator__icon">
+              <svg
+                viewBox="0 0 64 64"
+                role="img"
+                aria-label="Icono del archivo según su extensión"
+              >
+                <circle cx="32" cy="32" r="28" fill="#64748B" />
+                <text
+                  x="32"
+                  y="38"
+                  text-anchor="middle"
+                  font-size="14"
+                  font-weight="700"
+                  fill="#fff"
+                >
+                  .txt
+                </text>
+              </svg>
+            </div>
+            <input
+              type="text"
+              class="extension-simulator__input"
+              value="documento.txt"
+              aria-label="Nombre del archivo — editá la extensión para ver cómo cambia el icono"
+            />
+            <p class="extension-simulator__message">
+              Texto plano — se abre con el bloc de notas
+            </p>
+            <p class="mt-2 text-secondary extension-simulator__note">
+              La extensión NO cambia el contenido. Solo le dice a la compu cómo
+              tratarlo.
+            </p>
+          </div>
+
+          <!-- 2.4 Alerta importante -->
+          <div class="callout callout-warning">
+            <p class="callout-icon">⚠️</p>
+            <p>
+              <strong
+                >En Windows, las extensiones vienen OCULTAS por default.</strong
+              >
+              Si no las ves, podés estar creando <code>index.html.txt</code> sin
+              darte cuenta.
+            </p>
+            <p class="mt-2">
+              Activá <em>"Mostrar extensiones"</em> ya mismo: Explorador de
+              archivos → Vista → Extensiones de nombre de archivo.
+            </p>
+            <svg
+              viewBox="0 0 400 50"
+              role="img"
+              aria-label="Diagrama mostrando dónde activar extensiones en Windows"
+              class="mt-2 windows-alert-svg"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="400"
+                height="50"
+                rx="4"
+                fill="#F1F5F9"
+                stroke="#CBD5E1"
+                stroke-width="1"
+              />
+              <text x="20" y="30" font-size="11" fill="#64748B">Archivo</text>
+              <text x="80" y="30" font-size="11" fill="#64748B">Inicio</text>
+              <text
+                x="140"
+                y="30"
+                font-size="11"
+                font-weight="700"
+                fill="#1E293B"
+              >
+                Vista
+              </text>
+              <rect
+                x="130"
+                y="10"
+                width="50"
+                height="30"
+                rx="3"
+                fill="none"
+                stroke="#3B82F6"
+                stroke-width="2"
+              />
+              <text
+                x="210"
+                y="30"
+                font-size="10"
+                fill="#3B82F6"
+                font-weight="600"
+              >
+                ☑ Extensiones de nombre de archivo
+              </text>
+            </svg>
+          </div>
+
+          <!-- 2.5 Checklist -->
+          <h3 class="mt-4 mb-3">Ejercicio: armá tu primer proyecto</h3>
+          <div id="checklist-archivos" class="card">
+            <ul class="checklist">
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-ext"
+                />
+                <label class="checklist__label" for="check-ext"
+                  >Activar "Mostrar extensiones de archivo" en tu sistema</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-carpeta"
+                />
+                <label class="checklist__label" for="check-carpeta"
+                  >Crear la carpeta <code>frontend-desde-cero</code> en
+                  Documentos</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-html"
+                />
+                <label class="checklist__label" for="check-html"
+                  >Dentro, crear <code>index.html</code></label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-css"
+                />
+                <label class="checklist__label" for="check-css"
+                  >Crear <code>estilos.css</code></label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-js"
+                />
+                <label class="checklist__label" for="check-js"
+                  >Crear <code>app.js</code></label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="check-abrir"
+                />
+                <label class="checklist__label" for="check-abrir"
+                  >Hacer doble clic en cada uno y ver qué programa los
+                  abre</label
+                >
+              </li>
+            </ul>
+            <div class="checklist__completion">
+              🎉 ¡Listo! Ya tenés tu proyecto armado.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCIÓN 3: Usar la compu con soltura ===== -->
+      <section id="seccion-atajos" class="section">
+        <div class="container">
+          <span class="section__number">Sección 3</span>
+          <h2 class="section__title">Usar la computadora con soltura</h2>
+
+          <!-- 3.1 Intro -->
+          <p class="mb-4">
+            Si la compu la usás solo para WhatsApp Web y YouTube, hay cosas que
+            necesitás manejar antes de programar. No es difícil, pero sin esto
+            te vas a trabar.
+          </p>
+
+          <!-- 3.2 Atajos de teclado -->
+          <div class="shortcuts-grid">
+            <div
+              class="shortcut-card"
+              tabindex="0"
+              role="button"
+              aria-label="Atajo Alt + Tab: cambiar entre programas"
+            >
+              <div class="shortcut-card__keys">
+                <kbd>Alt</kbd> + <kbd>Tab</kbd>
+              </div>
+              <p class="shortcut-card__action">Cambiar entre programas</p>
+              <p class="shortcut-card__desc">
+                Saltá de una ventana a otra sin usar el mouse.
+              </p>
+              <div class="shortcut-card__extra">
+                <p><strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>Tab</kbd></p>
+                <p>
+                  Tip: Mantené Alt apretado y apretá Tab varias veces para
+                  elegir.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="shortcut-card"
+              tabindex="0"
+              role="button"
+              aria-label="Atajo Ctrl + C, V, X: copiar, pegar, cortar"
+            >
+              <div class="shortcut-card__keys">
+                <kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>V</kbd> / <kbd>X</kbd>
+              </div>
+              <p class="shortcut-card__action">Copiar, pegar, cortar</p>
+              <p class="shortcut-card__desc">
+                Los tres atajos más usados del universo.
+              </p>
+              <div class="shortcut-card__extra">
+                <p>
+                  <strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>C</kbd> /
+                  <kbd>V</kbd> / <kbd>X</kbd>
+                </p>
+                <p>Tip: X es como cortar con tijera (eXtirpar).</p>
+              </div>
+            </div>
+
+            <div
+              class="shortcut-card"
+              tabindex="0"
+              role="button"
+              aria-label="Atajo Ctrl + F: buscar en cualquier lado"
+            >
+              <div class="shortcut-card__keys">
+                <kbd>Ctrl</kbd> + <kbd>F</kbd>
+              </div>
+              <p class="shortcut-card__action">Buscar en cualquier lado</p>
+              <p class="shortcut-card__desc">
+                Funciona en el navegador, en el editor, en PDFs...
+              </p>
+              <div class="shortcut-card__extra">
+                <p><strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>F</kbd></p>
+                <p>Tip: Probá apretar Ctrl+F ahora mismo en esta página.</p>
+              </div>
+            </div>
+
+            <div
+              class="shortcut-card"
+              tabindex="0"
+              role="button"
+              aria-label="Atajo Ctrl + T y Ctrl + W: nueva pestaña y cerrar pestaña"
+            >
+              <div class="shortcut-card__keys">
+                <kbd>Ctrl</kbd> + <kbd>T</kbd> / <kbd>W</kbd>
+              </div>
+              <p class="shortcut-card__action">
+                Nueva pestaña / cerrar pestaña
+              </p>
+              <p class="shortcut-card__desc">
+                T de "Tab" nueva, W de "Window close".
+              </p>
+              <div class="shortcut-card__extra">
+                <p>
+                  <strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>T</kbd> /
+                  <kbd>W</kbd>
+                </p>
+                <p>Tip: Ctrl+Shift+T reabre la última pestaña que cerraste.</p>
+              </div>
+            </div>
+
+            <div
+              class="shortcut-card"
+              tabindex="0"
+              role="button"
+              aria-label="Atajo Win + flechas: dividir pantalla"
+            >
+              <div class="shortcut-card__keys">
+                <kbd>Win</kbd> + <kbd>←</kbd> <kbd>→</kbd>
+              </div>
+              <p class="shortcut-card__action">Dividir pantalla</p>
+              <p class="shortcut-card__desc">
+                Poné el editor a un lado y el navegador al otro.
+              </p>
+              <div class="shortcut-card__extra">
+                <p>
+                  <strong>Mac:</strong> Mantené el botón verde de la ventana.
+                </p>
+                <p>
+                  Tip: Ideal para programar: código a la izquierda, resultado a
+                  la derecha.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-3 text-secondary text-center">
+            Probá apretar alguno de estos atajos — la tarjeta correspondiente se
+            va a iluminar.
+          </p>
+
+          <!-- 3.3 Analogía cocina -->
+          <div class="callout mt-4">
+            <p class="callout-icon">🍳</p>
+            <p>
+              Programar es como cocinar un plato complejo. Necesitás tener todo
+              a mano. Si cada vez que necesitás la sal tenés que ir al
+              supermercado, se te quema todo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCIÓN 4: Editor y navegador ===== -->
+      <section id="seccion-editor" class="section">
+        <div class="container">
+          <span class="section__number">Sección 4</span>
+          <h2 class="section__title">El editor de código y el navegador</h2>
+
+          <!-- 4.1 Anatomía VS Code -->
+          <h3 class="mb-3">Anatomía de VS Code</h3>
+          <svg
+            class="vscode-svg"
+            viewBox="0 0 700 400"
+            role="img"
+            aria-label="Diagrama de las zonas de VS Code: explorador, editor, terminal y pestañas"
+          >
+            <!-- Fondo general -->
+            <rect x="0" y="0" width="700" height="400" rx="8" fill="#1E293B" />
+
+            <!-- Barra superior (pestañas) -->
+            <rect x="0" y="0" width="700" height="35" rx="8" fill="#0F172A" />
+            <rect x="140" y="5" width="90" height="25" rx="4" fill="#1E293B" />
+            <text
+              x="185"
+              y="22"
+              text-anchor="middle"
+              font-size="10"
+              fill="#94A3B8"
+              font-family="monospace"
+            >
+              index.html
+            </text>
+            <rect
+              x="235"
+              y="5"
+              width="80"
+              height="25"
+              rx="4"
+              fill="#0F172A"
+              stroke="#334155"
+              stroke-width="1"
+            />
+            <text
+              x="275"
+              y="22"
+              text-anchor="middle"
+              font-size="10"
+              fill="#64748B"
+              font-family="monospace"
+            >
+              style.css
+            </text>
+
+            <!-- Zona izquierda: Explorador -->
+            <rect x="0" y="35" width="140" height="365" fill="#1E293B" />
+            <line
+              x1="140"
+              y1="35"
+              x2="140"
+              y2="400"
+              stroke="#334155"
+              stroke-width="1"
+            />
+            <text
+              x="15"
+              y="60"
+              font-size="9"
+              fill="#94A3B8"
+              font-weight="600"
+              text-transform="uppercase"
+            >
+              EXPLORADOR
+            </text>
+            <text x="20" y="85" font-size="10" fill="#CBD5E1">
+              📁 mi-proyecto
+            </text>
+            <text
+              x="32"
+              y="105"
+              font-size="10"
+              fill="#F97316"
+              font-family="monospace"
+            >
+              index.html
+            </text>
+            <text
+              x="32"
+              y="125"
+              font-size="10"
+              fill="#8B5CF6"
+              font-family="monospace"
+            >
+              estilos.css
+            </text>
+            <text
+              x="32"
+              y="145"
+              font-size="10"
+              fill="#EAB308"
+              font-family="monospace"
+            >
+              app.js
+            </text>
+
+            <!-- Zona central: Editor -->
+            <rect x="140" y="35" width="560" height="280" fill="#0F172A" />
+            <text
+              x="160"
+              y="70"
+              font-size="10"
+              fill="#475569"
+              font-family="monospace"
+            >
+              1
+            </text>
+            <text
+              x="180"
+              y="70"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;!DOCTYPE html&gt;
+            </text>
+            <text
+              x="160"
+              y="90"
+              font-size="10"
+              fill="#475569"
+              font-family="monospace"
+            >
+              2
+            </text>
+            <text
+              x="180"
+              y="90"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;html&gt;
+            </text>
+            <text
+              x="160"
+              y="110"
+              font-size="10"
+              fill="#475569"
+              font-family="monospace"
+            >
+              3
+            </text>
+            <text
+              x="180"
+              y="110"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;head&gt;
+            </text>
+            <text
+              x="160"
+              y="130"
+              font-size="10"
+              fill="#475569"
+              font-family="monospace"
+            >
+              4
+            </text>
+            <text
+              x="180"
+              y="130"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;title&gt;
+            </text>
+            <text
+              x="260"
+              y="130"
+              font-size="10"
+              fill="#F8FAFC"
+              font-family="monospace"
+            >
+              Hola mundo
+            </text>
+            <text
+              x="345"
+              y="130"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;/title&gt;
+            </text>
+            <text
+              x="160"
+              y="150"
+              font-size="10"
+              fill="#475569"
+              font-family="monospace"
+            >
+              5
+            </text>
+            <text
+              x="180"
+              y="150"
+              font-size="10"
+              fill="#3B82F6"
+              font-family="monospace"
+            >
+              &lt;/head&gt;
+            </text>
+
+            <!-- Zona inferior: Terminal -->
+            <rect x="0" y="315" width="700" height="85" fill="#000" />
+            <line
+              x1="0"
+              y1="315"
+              x2="700"
+              y2="315"
+              stroke="#334155"
+              stroke-width="1"
+            />
+            <text x="15" y="335" font-size="9" fill="#94A3B8" font-weight="600">
+              TERMINAL
+            </text>
+            <text
+              x="15"
+              y="360"
+              font-size="10"
+              fill="#10B981"
+              font-family="monospace"
+            >
+              ~/mi-proyecto $
+            </text>
+            <rect
+              x="145"
+              y="350"
+              width="8"
+              height="14"
+              fill="#10B981"
+              opacity="0.8"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.8;0;0.8"
+                dur="1.2s"
+                repeatCount="indefinite"
+              />
+            </rect>
+
+            <!-- Números de zona -->
+            <circle cx="70" cy="200" r="14" fill="#3B82F6" />
+            <text
+              x="70"
+              y="205"
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#fff"
+            >
+              1
+            </text>
+
+            <circle cx="420" cy="180" r="14" fill="#3B82F6" />
+            <text
+              x="420"
+              y="185"
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#fff"
+            >
+              2
+            </text>
+
+            <circle cx="350" cy="360" r="14" fill="#3B82F6" />
+            <text
+              x="350"
+              y="365"
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#fff"
+            >
+              3
+            </text>
+
+            <circle cx="350" cy="18" r="14" fill="#3B82F6" />
+            <text
+              x="350"
+              y="23"
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#fff"
+            >
+              4
+            </text>
+          </svg>
+
+          <div class="grid grid-2 mt-2 mb-4">
+            <div class="card">
+              <p>
+                <strong>1. Explorador:</strong> Acá ves tus archivos y carpetas.
+              </p>
+            </div>
+            <div class="card">
+              <p>
+                <strong>2. Editor:</strong> Donde escribís código con colores y
+                ayuda.
+              </p>
+            </div>
+            <div class="card">
+              <p>
+                <strong>3. Terminal:</strong> Una línea de comandos integrada.
+              </p>
+            </div>
+            <div class="card">
+              <p>
+                <strong>4. Pestañas:</strong> Cada archivo abierto es una
+                pestaña.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4.2 Comparación -->
+          <h3 class="mt-4 mb-3">Bloc de notas vs VS Code</h3>
+          <div class="editor-compare">
+            <div class="editor-panel editor-panel--notepad">
+              <div class="editor-panel__header">Bloc de notas</div>
+              <div class="editor-panel__code">
+                &lt;h1&gt;Hola mundo&lt;/h1&gt;<br />&lt;p&gt;Mi primera
+                página&lt;/p&gt;
+              </div>
+            </div>
+            <div class="editor-panel editor-panel--vscode">
+              <div class="editor-panel__header">VS Code</div>
+              <div class="editor-panel__code">
+                <span class="line-number">1</span
+                ><span class="token-tag">&lt;h1&gt;</span>Hola mundo<span
+                  class="token-tag"
+                  >&lt;/h1&gt;</span
+                ><br />
+                <span class="line-number">2</span
+                ><span class="token-tag">&lt;p&gt;</span>Mi primera página<span
+                  class="token-tag"
+                  >&lt;/p&gt;</span
+                >
+              </div>
+            </div>
+          </div>
+          <p class="text-center text-secondary mt-2">
+            Es como comparar escribir a mano vs un procesador de texto con
+            corrector.
+          </p>
+
+          <!-- 4.3 Inspector simulado -->
+          <h3 class="mt-4 mb-3">Simulador de DevTools</h3>
+          <p class="mb-3 text-secondary">
+            Hacé click en cualquier elemento del panel izquierdo para
+            "inspeccionarlo".
+          </p>
+          <div class="inspector">
+            <div class="inspector__page">
+              <div
+                class="inspector__page-element"
+                data-inspector-id="titulo"
+                data-html="&lt;h1&gt;Mi página&lt;/h1&gt;"
+              >
+                <h1 class="inspector__page-title">Mi página</h1>
+              </div>
+              <div
+                class="inspector__page-element"
+                data-inspector-id="parrafo"
+                data-html="&lt;p&gt;Esto es un párrafo de ejemplo.&lt;/p&gt;"
+              >
+                <p>Esto es un párrafo de ejemplo.</p>
+              </div>
+              <div
+                class="inspector__page-element"
+                data-inspector-id="boton"
+                data-html='&lt;button class="btn"&gt;Click acá&lt;/button&gt;'
+              >
+                <span class="btn btn-primary btn-sm">Click acá</span>
+              </div>
+              <div
+                class="inspector__page-element"
+                data-inspector-id="imagen"
+                data-html='&lt;img src="foto.jpg" alt="Placeholder"&gt;'
+              >
+                <div class="inspector__page-image">[ imagen ]</div>
+              </div>
+            </div>
+            <div class="inspector__panel">
+              <p class="inspector__panel-title">Elementos</p>
+              <div class="inspector__panel-code">
+                Hacé click en un elemento para ver su código
+              </div>
+              <label class="inspector__panel-title mt-2" for="inspector-edit"
+                >Editar texto:</label
+              >
+              <input
+                type="text"
+                class="inspector__panel-edit"
+                id="inspector-edit"
+                placeholder="Seleccioná un elemento primero"
+                disabled
+                aria-label="Editar el texto del elemento seleccionado"
+              />
+            </div>
+          </div>
+          <p class="text-center text-secondary mt-2">
+            Esto es lo que hacen las DevTools de Chrome. Los cambios son
+            temporales.
+          </p>
+
+          <!-- 4.4 Cómo abrir DevTools -->
+          <h3 class="mt-4 mb-3">Cómo abrir DevTools</h3>
+          <div class="devtools-options">
+            <div class="devtools-option">
+              <span>🖱️</span>
+              <span>Click derecho → <strong>Inspeccionar</strong></span>
+            </div>
+            <div class="devtools-option">
+              <span>⌨️</span>
+              <span><kbd>F12</kbd></span>
+            </div>
+            <div class="devtools-option">
+              <span>⌨️</span>
+              <span
+                ><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>
+                <small>(Mac: Cmd+Opt+I)</small></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCIÓN 5: Frontend vs Backend ===== -->
+      <section id="seccion-frontend-backend" class="section">
+        <div class="container">
+          <span class="section__number">Sección 5</span>
+          <h2 class="section__title">Frontend vs Backend</h2>
+
+          <!-- 5.1 Diagrama restaurante -->
+          <svg
+            class="restaurant-svg"
+            viewBox="0 0 700 300"
+            role="img"
+            aria-label="Diagrama de restaurante: frontend es lo que el cliente ve, backend es la cocina"
+          >
+            <!-- Frontend -->
+            <rect
+              x="10"
+              y="10"
+              width="330"
+              height="280"
+              rx="12"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <text
+              x="175"
+              y="40"
+              text-anchor="middle"
+              font-size="16"
+              font-weight="700"
+              fill="#1E40AF"
+            >
+              Frontend
+            </text>
+            <text
+              x="175"
+              y="60"
+              text-anchor="middle"
+              font-size="11"
+              fill="#3B82F6"
+            >
+              Lo que el cliente ve y toca
+            </text>
+            <!-- Mesas -->
+            <circle
+              cx="80"
+              cy="120"
+              r="25"
+              fill="#DBEAFE"
+              stroke="#93C5FD"
+              stroke-width="1"
+            />
+            <circle
+              cx="180"
+              cy="150"
+              r="25"
+              fill="#DBEAFE"
+              stroke="#93C5FD"
+              stroke-width="1"
+            />
+            <circle
+              cx="280"
+              cy="120"
+              r="25"
+              fill="#DBEAFE"
+              stroke="#93C5FD"
+              stroke-width="1"
+            />
+            <!-- Menú -->
+            <rect
+              x="60"
+              y="200"
+              width="50"
+              height="60"
+              rx="4"
+              fill="#fff"
+              stroke="#93C5FD"
+              stroke-width="1"
+            />
+            <line
+              x1="68"
+              y1="215"
+              x2="102"
+              y2="215"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <line
+              x1="68"
+              y1="225"
+              x2="95"
+              y2="225"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <line
+              x1="68"
+              y1="235"
+              x2="100"
+              y2="235"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <!-- Decoración -->
+            <rect
+              x="150"
+              y="200"
+              width="30"
+              height="50"
+              rx="3"
+              fill="#BFDBFE"
+            />
+            <circle cx="165" cy="190" r="15" fill="#93C5FD" opacity="0.5" />
+            <text x="250" y="250" font-size="10" fill="#64748B">🪑 🍽️ 💡</text>
+
+            <!-- Línea divisoria -->
+            <line
+              x1="350"
+              y1="20"
+              x2="350"
+              y2="280"
+              stroke="#64748B"
+              stroke-width="2"
+              stroke-dasharray="8,4"
+            />
+            <text
+              x="350"
+              y="295"
+              text-anchor="middle"
+              font-size="9"
+              fill="#64748B"
+            >
+              El cliente no pasa de acá
+            </text>
+
+            <!-- Backend -->
+            <rect
+              x="360"
+              y="10"
+              width="330"
+              height="280"
+              rx="12"
+              fill="#ECFDF5"
+              stroke="#10B981"
+              stroke-width="2"
+            />
+            <text
+              x="525"
+              y="40"
+              text-anchor="middle"
+              font-size="16"
+              font-weight="700"
+              fill="#065F46"
+            >
+              Backend
+            </text>
+            <text
+              x="525"
+              y="60"
+              text-anchor="middle"
+              font-size="11"
+              fill="#10B981"
+            >
+              Lo que pasa en la cocina
+            </text>
+            <!-- Cocina -->
+            <rect
+              x="400"
+              y="90"
+              width="80"
+              height="60"
+              rx="6"
+              fill="#D1FAE5"
+              stroke="#6EE7B7"
+              stroke-width="1"
+            />
+            <text
+              x="440"
+              y="125"
+              text-anchor="middle"
+              font-size="10"
+              fill="#065F46"
+            >
+              Cocina
+            </text>
+            <!-- Heladera -->
+            <rect
+              x="520"
+              y="90"
+              width="50"
+              height="70"
+              rx="4"
+              fill="#D1FAE5"
+              stroke="#6EE7B7"
+              stroke-width="1"
+            />
+            <text
+              x="545"
+              y="130"
+              text-anchor="middle"
+              font-size="9"
+              fill="#065F46"
+            >
+              ❄️
+            </text>
+            <!-- Inventario -->
+            <rect
+              x="400"
+              y="180"
+              width="70"
+              height="50"
+              rx="4"
+              fill="#D1FAE5"
+              stroke="#6EE7B7"
+              stroke-width="1"
+            />
+            <text
+              x="435"
+              y="210"
+              text-anchor="middle"
+              font-size="9"
+              fill="#065F46"
+            >
+              Inventario
+            </text>
+            <!-- Caja -->
+            <rect
+              x="520"
+              y="190"
+              width="60"
+              height="40"
+              rx="4"
+              fill="#D1FAE5"
+              stroke="#6EE7B7"
+              stroke-width="1"
+            />
+            <text
+              x="550"
+              y="215"
+              text-anchor="middle"
+              font-size="9"
+              fill="#065F46"
+            >
+              Caja 💰
+            </text>
+          </svg>
+
+          <!-- 5.2 Triada HTML/CSS/JS -->
+          <h3 class="mt-4 mb-3">La triada del frontend: HTML + CSS + JS</h3>
+          <div class="triada">
+            <div class="triada__controls">
+              <button class="triada__btn active" data-state="html">
+                Solo HTML
+              </button>
+              <button class="triada__btn" data-state="css">HTML + CSS</button>
+              <button class="triada__btn" data-state="js">
+                HTML + CSS + JS
+              </button>
+            </div>
+            <div class="triada__display">
+              <!-- Estado HTML -->
+              <div class="triada__state active" data-state="html">
+                <svg
+                  viewBox="0 0 300 250"
+                  role="img"
+                  aria-label="Casa solo con estructura HTML: líneas sin color"
+                >
+                  <text
+                    x="150"
+                    y="20"
+                    text-anchor="middle"
+                    font-size="12"
+                    font-weight="600"
+                    fill="#F97316"
+                  >
+                    HTML = Estructura
+                  </text>
+                  <!-- Casa wireframe -->
+                  <polygon
+                    points="150,50 50,120 250,120"
+                    fill="none"
+                    stroke="#1E293B"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="75"
+                    y="120"
+                    width="150"
+                    height="100"
+                    fill="none"
+                    stroke="#1E293B"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="125"
+                    y="170"
+                    width="50"
+                    height="50"
+                    fill="none"
+                    stroke="#1E293B"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="85"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="none"
+                    stroke="#1E293B"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="185"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="none"
+                    stroke="#1E293B"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <!-- Estado CSS -->
+              <div class="triada__state" data-state="css">
+                <svg
+                  viewBox="0 0 300 250"
+                  role="img"
+                  aria-label="Casa con colores y estilos CSS aplicados"
+                >
+                  <text
+                    x="150"
+                    y="20"
+                    text-anchor="middle"
+                    font-size="12"
+                    font-weight="600"
+                    fill="#8B5CF6"
+                  >
+                    CSS = Presentación
+                  </text>
+                  <!-- Casa con colores -->
+                  <polygon
+                    points="150,50 50,120 250,120"
+                    fill="#DC2626"
+                    stroke="#991B1B"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="75"
+                    y="120"
+                    width="150"
+                    height="100"
+                    fill="#FEF3C7"
+                    stroke="#92400E"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="125"
+                    y="170"
+                    width="50"
+                    height="50"
+                    fill="#7C3AED"
+                    stroke="#5B21B6"
+                    stroke-width="2"
+                  />
+                  <circle cx="140" cy="195" r="3" fill="#EAB308" />
+                  <rect
+                    x="85"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="#BFDBFE"
+                    stroke="#1E40AF"
+                    stroke-width="1.5"
+                  />
+                  <line
+                    x1="100"
+                    y1="135"
+                    x2="100"
+                    y2="165"
+                    stroke="#1E40AF"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="85"
+                    y1="150"
+                    x2="115"
+                    y2="150"
+                    stroke="#1E40AF"
+                    stroke-width="1"
+                  />
+                  <rect
+                    x="185"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="#BFDBFE"
+                    stroke="#1E40AF"
+                    stroke-width="1.5"
+                  />
+                  <line
+                    x1="200"
+                    y1="135"
+                    x2="200"
+                    y2="165"
+                    stroke="#1E40AF"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="185"
+                    y1="150"
+                    x2="215"
+                    y2="150"
+                    stroke="#1E40AF"
+                    stroke-width="1"
+                  />
+                  <!-- Jardín -->
+                  <rect
+                    x="50"
+                    y="220"
+                    width="200"
+                    height="30"
+                    fill="#86EFAC"
+                    rx="4"
+                  />
+                </svg>
+              </div>
+              <!-- Estado JS -->
+              <div class="triada__state" data-state="js">
+                <svg
+                  viewBox="0 0 300 250"
+                  role="img"
+                  aria-label="Casa con colores, estilos y animaciones JavaScript"
+                >
+                  <text
+                    x="150"
+                    y="20"
+                    text-anchor="middle"
+                    font-size="12"
+                    font-weight="600"
+                    fill="#EAB308"
+                  >
+                    JavaScript = Comportamiento
+                  </text>
+                  <!-- Casa completa con animaciones -->
+                  <polygon
+                    points="150,50 50,120 250,120"
+                    fill="#DC2626"
+                    stroke="#991B1B"
+                    stroke-width="2"
+                  />
+                  <!-- Humo de chimenea -->
+                  <circle cx="200" cy="40" r="6" fill="#94A3B8" opacity="0.6">
+                    <animate
+                      attributeName="cy"
+                      values="40;25;40"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0.6;0.2;0.6"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                  <circle cx="205" cy="30" r="4" fill="#94A3B8" opacity="0.4">
+                    <animate
+                      attributeName="cy"
+                      values="30;15;30"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0.4;0.1;0.4"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                  <rect x="190" y="50" width="20" height="25" fill="#64748B" />
+                  <rect
+                    x="75"
+                    y="120"
+                    width="150"
+                    height="100"
+                    fill="#FEF3C7"
+                    stroke="#92400E"
+                    stroke-width="2"
+                  />
+                  <!-- Puerta que se abre -->
+                  <rect
+                    x="125"
+                    y="170"
+                    width="50"
+                    height="50"
+                    fill="#7C3AED"
+                    stroke="#5B21B6"
+                    stroke-width="2"
+                  >
+                    <animate
+                      attributeName="width"
+                      values="50;30;50"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <circle cx="140" cy="195" r="3" fill="#EAB308" />
+                  <!-- Ventanas con luz -->
+                  <rect
+                    x="85"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="#FEF08A"
+                    stroke="#1E40AF"
+                    stroke-width="1.5"
+                  >
+                    <animate
+                      attributeName="fill"
+                      values="#FEF08A;#BFDBFE;#FEF08A"
+                      dur="4s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <rect
+                    x="185"
+                    y="135"
+                    width="30"
+                    height="30"
+                    fill="#BFDBFE"
+                    stroke="#1E40AF"
+                    stroke-width="1.5"
+                  >
+                    <animate
+                      attributeName="fill"
+                      values="#BFDBFE;#FEF08A;#BFDBFE"
+                      dur="4s"
+                      repeatCount="indefinite"
+                    />
+                  </rect>
+                  <!-- Jardín -->
+                  <rect
+                    x="50"
+                    y="220"
+                    width="200"
+                    height="30"
+                    fill="#86EFAC"
+                    rx="4"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5.3 Tabla comparativa -->
+          <h3 class="mt-4 mb-3">¿Qué hace cada lado?</h3>
+          <div class="compare-table">
+            <div class="compare-column compare-column--frontend">
+              <p class="compare-column__title">🎨 Frontend</p>
+              <ul class="compare-column__list">
+                <li>Lo que el usuario ve</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Botones, formularios, animaciones</li>
+                <li>Se ejecuta en TU navegador</li>
+                <li>Diseño y experiencia</li>
+              </ul>
+            </div>
+            <div class="compare-column compare-column--backend">
+              <p class="compare-column__title">⚙️ Backend</p>
+              <ul class="compare-column__list">
+                <li>Lo que el usuario NO ve</li>
+                <li>Python, Java, Node.js, bases de datos</li>
+                <li>Lógica, seguridad, datos</li>
+                <li>Se ejecuta en un SERVIDOR</li>
+                <li>Procesamiento y almacenamiento</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5.4 Drag & Drop -->
+          <h3 class="mt-4 mb-3">Ejercicio: ¿Frontend o Backend?</h3>
+          <p class="mb-3 text-secondary">
+            Arrastrá cada tarjeta a la columna correcta (o hacé click en la
+            tarjeta y después en la zona).
+          </p>
+          <div class="dragdrop">
+            <div class="dragdrop__items">
+              <div
+                class="dragdrop__item"
+                data-item-id="1"
+                data-correct="frontend"
+              >
+                Botón que cambia de color
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="2"
+                data-correct="backend"
+              >
+                Verificar tu contraseña
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="3"
+                data-correct="frontend"
+              >
+                Animación de carga
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="4"
+                data-correct="backend"
+              >
+                Guardar tu foto de perfil
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="5"
+                data-correct="frontend"
+              >
+                Formulario de login
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="6"
+                data-correct="backend"
+              >
+                Comprobar si el email existe
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="7"
+                data-correct="frontend"
+              >
+                Menú hamburguesa que se abre
+              </div>
+              <div
+                class="dragdrop__item"
+                data-item-id="8"
+                data-correct="backend"
+              >
+                Recomendaciones personalizadas
+              </div>
+            </div>
+            <div class="dragdrop__zones">
+              <div
+                class="dragdrop__zone dragdrop__zone--frontend"
+                data-zone="frontend"
+              >
+                <span class="dragdrop__zone-title">Frontend</span>
+              </div>
+              <div
+                class="dragdrop__zone dragdrop__zone--backend"
+                data-zone="backend"
+              >
+                <span class="dragdrop__zone-title">Backend</span>
+              </div>
+            </div>
+            <div class="dragdrop__result">
+              <p><strong>🎉 ¡Completaste todo!</strong></p>
+              <p class="mt-2 text-secondary">
+                El formulario de login es frontend porque es lo que VES, pero la
+                verificación de la contraseña es backend porque involucra
+                comprobar datos guardados en un servidor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCIÓN 6: Cierre ===== -->
+      <section id="seccion-cierre" class="section">
+        <div class="container">
+          <span class="section__number">Sección 6</span>
+          <h2 class="section__title">Cierre y próximos pasos</h2>
+
+          <!-- 6.1 Mapa mental -->
+          <svg
+            class="mindmap-svg"
+            viewBox="0 0 600 400"
+            role="img"
+            aria-label="Mapa mental resumen de la clase 1 con 5 ramas: internet, archivos, herramientas, editor y frontend"
+          >
+            <!-- Centro -->
+            <circle
+              cx="300"
+              cy="200"
+              r="45"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="3"
+            />
+            <text
+              x="300"
+              y="195"
+              text-anchor="middle"
+              font-size="12"
+              font-weight="700"
+              fill="#1E293B"
+            >
+              Clase 1
+            </text>
+            <text
+              x="300"
+              y="212"
+              text-anchor="middle"
+              font-size="9"
+              fill="#64748B"
+            >
+              Introducción
+            </text>
+
+            <!-- Rama 1: Internet -->
+            <path
+              d="M260 170 Q 200 120 140 100"
+              fill="none"
+              stroke="#3B82F6"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="120"
+              cy="90"
+              r="30"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <text
+              x="120"
+              y="85"
+              text-anchor="middle"
+              font-size="10"
+              fill="#1E293B"
+            >
+              🌐
+            </text>
+            <text
+              x="120"
+              y="100"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              Pedido y
+            </text>
+            <text
+              x="120"
+              y="112"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              respuesta
+            </text>
+
+            <!-- Rama 2: Archivos -->
+            <path
+              d="M340 170 Q 400 130 470 110"
+              fill="none"
+              stroke="#F59E0B"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="490"
+              cy="100"
+              r="30"
+              fill="#FFFBEB"
+              stroke="#F59E0B"
+              stroke-width="2"
+            />
+            <text
+              x="490"
+              y="95"
+              text-anchor="middle"
+              font-size="10"
+              fill="#1E293B"
+            >
+              📁
+            </text>
+            <text
+              x="490"
+              y="110"
+              text-anchor="middle"
+              font-size="7"
+              fill="#64748B"
+            >
+              .html .css .js
+            </text>
+
+            <!-- Rama 3: Herramientas -->
+            <path
+              d="M255 200 Q 170 200 100 220"
+              fill="none"
+              stroke="#8B5CF6"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="80"
+              cy="230"
+              r="30"
+              fill="#F5F3FF"
+              stroke="#8B5CF6"
+              stroke-width="2"
+            />
+            <text
+              x="80"
+              y="225"
+              text-anchor="middle"
+              font-size="10"
+              fill="#1E293B"
+            >
+              🔧
+            </text>
+            <text
+              x="80"
+              y="240"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              Atajos y
+            </text>
+            <text
+              x="80"
+              y="252"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              ventanas
+            </text>
+
+            <!-- Rama 4: Editor -->
+            <path
+              d="M280 240 Q 220 300 160 330"
+              fill="none"
+              stroke="#10B981"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="140"
+              cy="340"
+              r="30"
+              fill="#ECFDF5"
+              stroke="#10B981"
+              stroke-width="2"
+            />
+            <text
+              x="140"
+              y="335"
+              text-anchor="middle"
+              font-size="10"
+              fill="#1E293B"
+            >
+              💻
+            </text>
+            <text
+              x="140"
+              y="350"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              VS Code +
+            </text>
+            <text
+              x="140"
+              y="362"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              DevTools
+            </text>
+
+            <!-- Rama 5: Frontend -->
+            <path
+              d="M340 225 Q 420 280 480 310"
+              fill="none"
+              stroke="#F97316"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="500"
+              cy="320"
+              r="30"
+              fill="#FFF7ED"
+              stroke="#F97316"
+              stroke-width="2"
+            />
+            <text
+              x="500"
+              y="315"
+              text-anchor="middle"
+              font-size="10"
+              fill="#1E293B"
+            >
+              🖥️
+            </text>
+            <text
+              x="500"
+              y="330"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              Lo que
+            </text>
+            <text
+              x="500"
+              y="342"
+              text-anchor="middle"
+              font-size="8"
+              fill="#64748B"
+            >
+              se ve
+            </text>
+          </svg>
+
+          <!-- 6.2 Tarea para la próxima -->
+          <h3 class="mt-4 mb-3">Tarea para la próxima clase</h3>
+          <div id="checklist-tarea" class="persistent-checklist">
+            <p class="persistent-checklist__progress">0/5 completadas</p>
+            <div class="persistent-checklist__bar">
+              <div class="persistent-checklist__bar-fill"></div>
+            </div>
+            <ul class="checklist">
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-vscode"
+                />
+                <label class="checklist__label" for="tarea-vscode"
+                  >Instalar VS Code</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-chrome"
+                />
+                <label class="checklist__label" for="tarea-chrome"
+                  >Instalar Google Chrome</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-carpeta"
+                />
+                <label class="checklist__label" for="tarea-carpeta"
+                  >Crear carpeta <code>frontend-desde-cero</code> con
+                  <code>index.html</code>, <code>estilos.css</code>,
+                  <code>app.js</code></label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-devtools"
+                />
+                <label class="checklist__label" for="tarea-devtools"
+                  >Abrir DevTools en 2 páginas distintas e inspeccionar
+                  algo</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-bonus"
+                />
+                <label class="checklist__label" for="tarea-bonus"
+                  >(Bonus) Escribir "Hola, soy [tu nombre]" en index.html y
+                  verlo en el navegador</label
+                >
+              </li>
+            </ul>
+            <div class="checklist__completion">
+              🚀 ¡Genial! Estás listo/a para la próxima clase.
+            </div>
+          </div>
+
+          <!-- 6.3 Recursos -->
+          <h3 class="mt-4 mb-3">Recursos</h3>
+          <div class="resources-grid">
+            <a
+              href="https://code.visualstudio.com/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono descarga"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#EFF6FF"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M20 12 L20 26 M14 22 L20 28 L26 22"
+                  fill="none"
+                  stroke="#3B82F6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Descargar VS Code</p>
+                <p class="text-secondary">Editor gratuito de Microsoft</p>
+              </div>
+            </a>
+            <a
+              href="https://www.google.com/chrome/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono navegador"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <circle cx="20" cy="20" r="8" fill="#10B981" opacity="0.3" />
+                <circle cx="20" cy="20" r="4" fill="#10B981" />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Descargar Chrome</p>
+                <p class="text-secondary">Navegador con las mejores DevTools</p>
+              </div>
+            </a>
+            <a
+              href="https://developer.mozilla.org/es/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono documentación"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#F5F3FF"
+                  stroke="#8B5CF6"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="13"
+                  y="12"
+                  width="14"
+                  height="18"
+                  rx="2"
+                  fill="none"
+                  stroke="#8B5CF6"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="16"
+                  y1="17"
+                  x2="24"
+                  y2="17"
+                  stroke="#8B5CF6"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="21"
+                  x2="24"
+                  y2="21"
+                  stroke="#8B5CF6"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="25"
+                  x2="22"
+                  y2="25"
+                  stroke="#8B5CF6"
+                  stroke-width="1"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">MDN Web Docs (en español)</p>
+                <p class="text-secondary">
+                  La mejor referencia para HTML, CSS y JS
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://www.freecodecamp.org/espanol/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono práctica"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFFBEB"
+                  stroke="#F59E0B"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M14 20 L18 24 L26 16"
+                  fill="none"
+                  stroke="#F59E0B"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">freeCodeCamp en español</p>
+                <p class="text-secondary">Ejercicios prácticos gratuitos</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="clase-footer">
+      <p>Frontend desde Cero — Clase 1: Introducción</p>
+    </footer>
+
+    <script src="js/introduccion.js"></script>
+  </body>
+</html>

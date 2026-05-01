@@ -12,9 +12,10 @@ Curso de frontend para personas que empiezan desde cero. Cada clase es una pági
 
 ## Reglas del proyecto
 
-- **CSS y JS siempre externos**: nunca `<style>` ni `<script>` inline dentro del HTML.
+- **CSS y JS siempre externos**: nunca `<style>` ni `<script>` inline dentro del HTML. Tampoco atributos `style=""` (los atributos propios de SVG como `fill`, `stroke`, etc. sí están permitidos).
 - **Estilo consistente**: todas las páginas comparten la misma estructura visual y navegación entre clases.
 - **Navegación**: cada página debe tener links a las demás clases.
+- **Índice en la homepage**: cada vez que se crea una nueva clase, se debe agregar una entrada en `index.html` (la homepage raíz del proyecto) dentro de la sección `<div class="clases-grid">`, siguiendo el formato de tarjeta existente (`clase-card`).
 
 ## Flujo de creación de clases
 

@@ -1,0 +1,225 @@
+/* ==========================================================================
+   homepage.css — Estilos de la página principal del curso
+   ========================================================================== */
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+  padding: 4rem 1.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero__accent {
+  color: #3b82f6;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition:
+    background 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+.hero__cta:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.hero__badge {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+/* Sección de clases */
+.clases-section {
+  padding: 5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clases-section__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.clases-section__subtitle {
+  color: #64748b;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+
+/* Tarjetas de clases */
+.clases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .clases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.clase-card {
+  display: block;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    border-color 0.2s ease-out;
+}
+
+.clase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-color: #3b82f6;
+}
+
+.clase-card__number {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+}
+
+.clase-card__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.clase-card__desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.clase-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.clase-card__tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background: #f1f5f9;
+  border-radius: 4px;
+  color: #475569;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Sección "Sobre este curso" */
+.about-section {
+  padding: 4rem 1.5rem;
+  background: #f1f5f9;
+}
+
+.about-section__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-item {
+  text-align: center;
+}
+
+.about-item__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.75rem;
+  background: #3b82f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-item__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.about-item__title {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.about-item__desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
