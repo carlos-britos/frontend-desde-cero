@@ -1,0 +1,1583 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 2: Git — Control de versiones — Frontend desde Cero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/git.css" />
+  </head>
+  <body>
+    <!-- Barra de progreso -->
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-label="Progreso de lectura"
+    ></div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero section">
+      <div class="container text-center">
+        <svg
+          class="hero__timeline"
+          viewBox="0 0 500 120"
+          role="img"
+          aria-label="Timeline de commits con una rama que se bifurca y vuelve a unirse"
+        >
+          <!-- Linea principal -->
+          <line class="main-line" x1="50" y1="80" x2="450" y2="80" />
+          <!-- Rama secundaria -->
+          <path
+            class="branch-line"
+            d="M175 80 Q200 40 250 35 L320 35 Q370 35 390 80"
+          />
+          <!-- Nodos main -->
+          <circle class="commit-node" cx="100" cy="80" r="10" />
+          <circle class="commit-node" cx="175" cy="80" r="10" />
+          <circle class="commit-node" cx="310" cy="80" r="10" />
+          <circle class="commit-node" cx="390" cy="80" r="10" />
+          <!-- Nodos rama -->
+          <circle class="branch-node" cx="250" cy="35" r="8" />
+          <circle class="branch-node" cx="320" cy="35" r="8" />
+          <!-- Cursor -->
+          <rect
+            class="cursor-blink"
+            x="440"
+            y="72"
+            width="3"
+            height="16"
+            fill="#3B82F6"
+          />
+        </svg>
+        <h1 class="hero__title">Clase 2: Git — Tu proyecto con memoria</h1>
+        <p class="hero__subtitle">
+          Vas a aprender a guardar el historial completo de tu proyecto, volver
+          atras en el tiempo, y trabajar en equipo sin pisar el trabajo del
+          otro.
+        </p>
+        <a href="#seccion-que-es-git" class="btn btn-primary hero__cta"
+          >Arranquemos</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== SECCION 1: Que es Git ===== -->
+      <section id="seccion-que-es-git" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 1</span>
+          <h2 class="section__title">Que es Git y por que existe</h2>
+
+          <!-- Problema disparador -->
+          <div class="question-section">
+            <p>
+              Imaginate que haces un cambio grande en tu proyecto y todo se
+              rompe. Queres volver a como estaba antes... pero no te acordas que
+              tocaste.
+            </p>
+            <p>
+              Ahora imaginate eso pero con 5 personas tocando los mismos
+              archivos.
+            </p>
+          </div>
+
+          <!-- Sin Git vs Con Git -->
+          <div class="git-compare">
+            <div class="git-compare__panel git-compare__panel--chaos">
+              <h3>Sin Git</h3>
+              <p class="text-secondary mb-2">El caos de los backups manuales</p>
+              <ul class="git-compare__files">
+                <li>index.html</li>
+                <li>index-backup.html</li>
+                <li>index-FINAL.html</li>
+                <li>index-FINAL-FINAL.html</li>
+                <li>index-NO-TOCAR.html</li>
+              </ul>
+            </div>
+            <div class="git-compare__panel git-compare__panel--order">
+              <h3>Con Git</h3>
+              <p class="text-secondary mb-2">Historial limpio y organizado</p>
+              <div class="git-compare__timeline-item">
+                <span class="git-compare__timeline-dot"></span>
+                <span class="git-compare__timeline-msg">Agrego header</span>
+              </div>
+              <div class="git-compare__timeline-item">
+                <span class="git-compare__timeline-dot"></span>
+                <span class="git-compare__timeline-msg">Corrijo typo</span>
+              </div>
+              <div class="git-compare__timeline-item">
+                <span class="git-compare__timeline-dot"></span>
+                <span class="git-compare__timeline-msg">Agrego contacto</span>
+              </div>
+              <p class="text-secondary mt-2 text-sm">
+                Puedo volver a cualquier punto cuando quiera.
+              </p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" data-reveal-git>
+            Con Git es asi:
+          </button>
+
+          <!-- Git vs GitHub -->
+          <h3 class="mt-4 mb-3">Git vs GitHub</h3>
+          <div class="git-vs-github">
+            <div class="git-vs-github__card">
+              <h4>Git</h4>
+              <p>Herramienta en tu compu</p>
+              <p>No necesita internet</p>
+              <p>Maneja tu historial local</p>
+            </div>
+            <div class="git-vs-github__card">
+              <h4>GitHub</h4>
+              <p>Plataforma web</p>
+              <p>Necesita internet</p>
+              <p>Aloja tu repo en la nube</p>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <p>
+              Git es como Word. GitHub es como Google Drive. Uno crea los
+              documentos, el otro los guarda en la nube.
+            </p>
+          </div>
+
+          <!-- Dato historico -->
+          <div class="dato-historico">
+            Git fue creado en 2005 por Linus Torvalds (el mismo que creo Linux).
+            Hoy lo usa el 95%+ de los equipos de desarrollo del mundo.
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 2: El repositorio ===== -->
+      <section id="seccion-repositorio" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 2</span>
+          <h2 class="section__title">
+            El repositorio — tu proyecto con memoria
+          </h2>
+
+          <!-- Ilustracion SVG carpeta con .git -->
+          <svg
+            class="repo-svg"
+            viewBox="0 0 400 300"
+            role="img"
+            aria-label="Un repositorio es una carpeta con un diario secreto (.git) adentro"
+          >
+            <!-- Carpeta principal -->
+            <rect
+              x="60"
+              y="30"
+              width="280"
+              height="200"
+              rx="12"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <rect x="60" y="20" width="120" height="20" rx="6" fill="#3B82F6" />
+            <text
+              x="200"
+              y="55"
+              text-anchor="middle"
+              font-size="14"
+              font-weight="700"
+              fill="#1E40AF"
+            >
+              mi-proyecto/
+            </text>
+
+            <!-- Archivos normales -->
+            <rect
+              x="90"
+              y="75"
+              width="120"
+              height="30"
+              rx="4"
+              fill="#fff"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <text
+              x="100"
+              y="95"
+              font-size="11"
+              font-family="monospace"
+              fill="#1E293B"
+            >
+              index.html
+            </text>
+            <rect
+              x="90"
+              y="115"
+              width="120"
+              height="30"
+              rx="4"
+              fill="#fff"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <text
+              x="100"
+              y="135"
+              font-size="11"
+              font-family="monospace"
+              fill="#1E293B"
+            >
+              style.css
+            </text>
+            <rect
+              x="90"
+              y="155"
+              width="120"
+              height="30"
+              rx="4"
+              fill="#fff"
+              stroke="#CBD5E1"
+              stroke-width="1"
+            />
+            <text
+              x="100"
+              y="175"
+              font-size="11"
+              font-family="monospace"
+              fill="#1E293B"
+            >
+              app.js
+            </text>
+
+            <!-- Carpeta .git -->
+            <rect
+              x="240"
+              y="90"
+              width="80"
+              height="100"
+              rx="6"
+              fill="#1E293B"
+              opacity="0.9"
+            />
+            <text
+              x="280"
+              y="130"
+              text-anchor="middle"
+              font-size="12"
+              font-family="monospace"
+              font-weight="700"
+              fill="#10B981"
+            >
+              .git/
+            </text>
+            <text
+              x="280"
+              y="150"
+              text-anchor="middle"
+              font-size="9"
+              fill="#94A3B8"
+            >
+              (diario
+            </text>
+            <text
+              x="280"
+              y="165"
+              text-anchor="middle"
+              font-size="9"
+              fill="#94A3B8"
+            >
+              secreto)
+            </text>
+
+            <!-- Label -->
+            <text
+              x="200"
+              y="270"
+              text-anchor="middle"
+              font-size="12"
+              fill="#64748B"
+              font-weight="500"
+            >
+              Un repo es una carpeta con un diario secreto adentro
+            </text>
+          </svg>
+
+          <!-- Como crear un repo -->
+          <h3 class="mt-4 mb-3">Como se crea un repositorio</h3>
+          <div class="repo-cards">
+            <div class="repo-card repo-card--init">
+              <h4>Crear uno nuevo</h4>
+              <code>git init</code>
+              <p class="text-secondary mt-1">
+                Le dice a Git: "Empeza a seguir los cambios de esta carpeta"
+              </p>
+            </div>
+            <div class="repo-card repo-card--clone">
+              <h4>Bajarte uno que ya existe</h4>
+              <code>git clone &lt;url&gt;</code>
+              <p class="text-secondary mt-1">
+                Te baja la carpeta completa con todo su historial
+              </p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <p>
+              No toques NUNCA la carpeta <code>.git</code>. Es la memoria de
+              Git. Si la borras, perdes todo el historial.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 3: Commits ===== -->
+      <section id="seccion-commits" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 3</span>
+          <h2 class="section__title">Commits — las fotos de tu proyecto</h2>
+
+          <!-- Analogia -->
+          <p class="mb-4">
+            Imaginate que estas renovando tu depto. Cada vez que terminas algo
+            importante (pintaste una pared, pusiste un mueble, cambiaste el
+            piso), sacas una foto y le pones una nota. Un commit es exactamente
+            eso.
+          </p>
+
+          <!-- Diagrama flujo 3 pasos -->
+          <div class="flow-diagram">
+            <div class="flow-diagram__zones">
+              <div
+                class="flow-diagram__zone flow-diagram__zone--working"
+                data-flow-zone="working"
+              >
+                <div class="flow-diagram__zone-title">Working Directory</div>
+                <div class="flow-diagram__zone-desc">
+                  Tus archivos (donde editas)
+                </div>
+                <div class="flow-diagram__files"></div>
+              </div>
+              <div class="flow-diagram__arrows">
+                <div class="flow-diagram__arrow flow-diagram__arrow--add">
+                  git add →
+                </div>
+              </div>
+              <div
+                class="flow-diagram__zone flow-diagram__zone--staging"
+                data-flow-zone="staging"
+              >
+                <div class="flow-diagram__zone-title">Staging Area</div>
+                <div class="flow-diagram__zone-desc">
+                  La zona de preparacion
+                </div>
+                <div class="flow-diagram__files"></div>
+              </div>
+              <div class="flow-diagram__arrows">
+                <div class="flow-diagram__arrow flow-diagram__arrow--commit">
+                  git commit →
+                </div>
+              </div>
+              <div
+                class="flow-diagram__zone flow-diagram__zone--repo"
+                data-flow-zone="repo"
+              >
+                <div class="flow-diagram__zone-title">Repository</div>
+                <div class="flow-diagram__zone-desc">
+                  El historial (commits)
+                </div>
+                <div class="flow-diagram__files"></div>
+              </div>
+            </div>
+            <div class="flow-diagram__controls">
+              <button class="btn btn-sm btn-secondary" data-flow-action="add">
+                git add
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-flow-action="commit"
+              >
+                git commit
+              </button>
+              <button class="btn btn-sm btn-secondary" data-flow-action="reset">
+                Reiniciar
+              </button>
+            </div>
+            <p class="flow-diagram__explanation"></p>
+          </div>
+
+          <!-- Analogia carrito -->
+          <div class="callout">
+            <p>
+              Pensalo asi: estas en un super. <code>git add</code> es meter
+              productos al carrito. <code>git commit</code> es pasar por caja.
+              Lo que no pusiste en el carrito queda en la gondola esperando.
+            </p>
+          </div>
+
+          <!-- ===== SIMULADOR DE TERMINAL ===== -->
+          <h3 class="mt-4 mb-3">Simulador de terminal</h3>
+          <p class="text-secondary mb-3">
+            Escribi comandos de Git aca abajo. El panel de la derecha te muestra
+            que pasa con tus archivos en tiempo real.
+          </p>
+
+          <div class="terminal-container">
+            <div class="terminal">
+              <div class="terminal__header">
+                <span class="terminal__dot terminal__dot--red"></span>
+                <span class="terminal__dot terminal__dot--yellow"></span>
+                <span class="terminal__dot terminal__dot--green"></span>
+                <span class="terminal__title">Terminal — mi-proyecto</span>
+              </div>
+              <div class="terminal__body" aria-live="polite">
+                <div class="terminal__output-line terminal__output-line--info">
+                  Bienvenido al simulador de Git. Escribi "help" para ver los
+                  comandos.
+                </div>
+                <div class="terminal__input-line">
+                  <span class="terminal__prompt">~/mi-proyecto $</span>
+                  <input
+                    type="text"
+                    class="terminal__input"
+                    aria-label="Entrada de comando de terminal"
+                    autocomplete="off"
+                    spellcheck="false"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel visual -->
+            <div class="terminal-visual">
+              <div class="terminal-visual__title">Estado del repo</div>
+              <div class="terminal-visual__branch">rama: main</div>
+
+              <div
+                class="terminal-visual__section terminal-visual__section--working"
+              >
+                <div class="terminal-visual__section-title">
+                  Working Directory
+                </div>
+                <div class="terminal-visual__content"></div>
+              </div>
+
+              <div
+                class="terminal-visual__section terminal-visual__section--staging"
+              >
+                <div class="terminal-visual__section-title">Staging Area</div>
+                <div class="terminal-visual__content"></div>
+              </div>
+
+              <div
+                class="terminal-visual__section terminal-visual__section--commits"
+              >
+                <div class="terminal-visual__section-title">Commits</div>
+                <div class="terminal-visual__content"></div>
+              </div>
+
+              <!-- Tutorial -->
+              <div class="terminal-tutorial">
+                <div class="terminal-tutorial__title">Guia paso a paso</div>
+                <div class="terminal-tutorial__step" data-tutorial-step="0">
+                  <span class="terminal-tutorial__step-icon"></span>
+                  <span
+                    >Escribi <code>git status</code> para ver los archivos</span
+                  >
+                </div>
+                <div class="terminal-tutorial__step" data-tutorial-step="1">
+                  <span class="terminal-tutorial__step-icon"></span>
+                  <span
+                    >Escribi <code>git add index.html</code> para
+                    prepararlo</span
+                  >
+                </div>
+                <div class="terminal-tutorial__step" data-tutorial-step="2">
+                  <span class="terminal-tutorial__step-icon"></span>
+                  <span
+                    >Escribi <code>git status</code> de nuevo — fijate como
+                    cambio</span
+                  >
+                </div>
+                <div class="terminal-tutorial__step" data-tutorial-step="3">
+                  <span class="terminal-tutorial__step-icon"></span>
+                  <span
+                    >Hace el commit:
+                    <code>git commit -m "Creo pagina principal"</code></span
+                  >
+                </div>
+                <div class="terminal-tutorial__step" data-tutorial-step="4">
+                  <span class="terminal-tutorial__step-icon"></span>
+                  <span
+                    >Escribi <code>git log</code> para ver tu historial</span
+                  >
+                </div>
+                <div class="terminal-tutorial__congrats">
+                  Felicitaciones! Completaste tu primer flujo de Git.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buenos mensajes de commit -->
+          <h3 class="mt-4 mb-3">Buenos mensajes de commit</h3>
+          <div class="commits-compare">
+            <div class="commits-compare__col commits-compare__col--bad">
+              <h4>Mal</h4>
+              <div class="commits-compare__item">"cambios"</div>
+              <div class="commits-compare__item">"arregle cosas"</div>
+              <div class="commits-compare__item">"wip"</div>
+              <div class="commits-compare__item">"asdfghj"</div>
+            </div>
+            <div class="commits-compare__col commits-compare__col--good">
+              <h4>Bien</h4>
+              <div class="commits-compare__item">
+                "Agrego formulario de contacto"
+              </div>
+              <div class="commits-compare__item">
+                "Corrijo error en validacion de email"
+              </div>
+              <div class="commits-compare__item">
+                "Agrego estilos al header"
+              </div>
+              <div class="commits-compare__item">
+                "Elimino archivos de prueba"
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-info">
+            <p>
+              El mensaje tiene que explicar QUE hiciste de forma que si lo lees
+              en 3 meses, entiendas sin abrir el codigo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 4: Ramas ===== -->
+      <section id="seccion-ramas" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 4</span>
+          <h2 class="section__title">Ramas — universos paralelos</h2>
+
+          <!-- Analogia visual casa -->
+          <svg
+            class="branches-svg"
+            viewBox="0 0 700 200"
+            role="img"
+            aria-label="Analogia: main es tu casa funcional, una rama es donde probas cambios"
+          >
+            <!-- Casa main -->
+            <rect
+              x="40"
+              y="80"
+              width="150"
+              height="100"
+              rx="6"
+              fill="#EFF6FF"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <polygon
+              points="115,40 40,80 190,80"
+              fill="#3B82F6"
+              opacity="0.3"
+            />
+            <text
+              x="115"
+              y="195"
+              text-anchor="middle"
+              font-size="10"
+              fill="#3B82F6"
+              font-weight="600"
+            >
+              main — tu casa funcional
+            </text>
+
+            <!-- Flecha -->
+            <path
+              d="M200 100 Q280 60 350 80"
+              fill="none"
+              stroke="#8B5CF6"
+              stroke-width="2"
+              stroke-dasharray="6,3"
+            />
+            <text x="275" y="55" font-size="9" fill="#8B5CF6">
+              Creo una rama
+            </text>
+
+            <!-- Casa + pileta (rama) -->
+            <rect
+              x="360"
+              y="60"
+              width="150"
+              height="100"
+              rx="6"
+              fill="#F5F3FF"
+              stroke="#8B5CF6"
+              stroke-width="2"
+            />
+            <polygon
+              points="435,20 360,60 510,60"
+              fill="#8B5CF6"
+              opacity="0.3"
+            />
+            <ellipse
+              cx="470"
+              cy="130"
+              rx="25"
+              ry="12"
+              fill="#93C5FD"
+              opacity="0.5"
+            />
+            <text
+              x="435"
+              y="180"
+              text-anchor="middle"
+              font-size="10"
+              fill="#8B5CF6"
+              font-weight="600"
+            >
+              rama — probas la pileta
+            </text>
+
+            <!-- Resultados -->
+            <path
+              d="M520 90 L580 70"
+              fill="none"
+              stroke="#10B981"
+              stroke-width="2"
+            />
+            <text x="590" y="65" font-size="9" fill="#10B981">
+              Quedo bien → merge
+            </text>
+            <path
+              d="M520 130 L580 150"
+              fill="none"
+              stroke="#EF4444"
+              stroke-width="2"
+            />
+            <text x="590" y="155" font-size="9" fill="#EF4444">
+              Quedo mal → la borras
+            </text>
+          </svg>
+
+          <!-- Diagrama interactivo de ramas -->
+          <div class="branches-diagram">
+            <svg class="branches-diagram__svg" viewBox="0 0 600 200">
+              <!-- Se dibuja con JS -->
+            </svg>
+            <div class="branches-diagram__controls">
+              <button
+                class="btn btn-sm btn-secondary"
+                data-branch-action="create"
+              >
+                Crear rama
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-branch-action="commit"
+              >
+                Commit en rama
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-branch-action="back"
+              >
+                Volver a main
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-branch-action="merge"
+              >
+                Merge
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-branch-action="reset"
+              >
+                Reiniciar
+              </button>
+            </div>
+            <p class="branches-diagram__explanation"></p>
+          </div>
+
+          <!-- Comandos de ramas -->
+          <h3 class="mt-4 mb-3">Comandos de ramas</h3>
+          <div class="branch-commands">
+            <div class="branch-command-card">
+              <code>git branch</code>
+              <p>Ver en que rama estas</p>
+            </div>
+            <div class="branch-command-card">
+              <code>git switch -c nombre</code>
+              <p>Crear rama y moverte</p>
+            </div>
+            <div class="branch-command-card">
+              <code>git switch main</code>
+              <p>Volver a main</p>
+            </div>
+          </div>
+
+          <!-- Convenciones de nombres -->
+          <div class="naming-conventions">
+            <p class="mb-2">
+              <strong>Convenciones de nombres de ramas:</strong>
+            </p>
+            <code>feature/nombre-de-lo-que-haces</code>
+            <code>fix/que-estas-arreglando</code>
+            <p class="text-secondary mt-2 text-sm">
+              Siempre en minusculas, sin espacios (usar guiones).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 5: Remoto y GitHub ===== -->
+      <section id="seccion-remoto" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 5</span>
+          <h2 class="section__title">El repositorio remoto y GitHub</h2>
+
+          <!-- Diagrama local vs remoto -->
+          <div class="remote-diagram">
+            <svg
+              class="remote-diagram__svg"
+              viewBox="0 0 700 280"
+              role="img"
+              aria-label="Diagrama de tu computadora (local) y GitHub (remoto) con flechas push, pull y clone"
+            >
+              <!-- Local -->
+              <rect
+                x="30"
+                y="30"
+                width="250"
+                height="220"
+                rx="12"
+                fill="#EFF6FF"
+                stroke="#3B82F6"
+                stroke-width="2"
+              />
+              <text
+                x="155"
+                y="60"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="700"
+                fill="#1E40AF"
+              >
+                Tu computadora
+              </text>
+              <text
+                x="155"
+                y="78"
+                text-anchor="middle"
+                font-size="10"
+                fill="#3B82F6"
+              >
+                (LOCAL)
+              </text>
+
+              <!-- Mini repo inside local -->
+              <rect
+                x="60"
+                y="100"
+                width="60"
+                height="40"
+                rx="4"
+                fill="#FFF7ED"
+                stroke="#F97316"
+                stroke-width="1"
+              />
+              <text
+                x="90"
+                y="125"
+                text-anchor="middle"
+                font-size="8"
+                fill="#9A3412"
+              >
+                Working
+              </text>
+              <rect
+                x="130"
+                y="100"
+                width="60"
+                height="40"
+                rx="4"
+                fill="#FFFBEB"
+                stroke="#F59E0B"
+                stroke-width="1"
+              />
+              <text
+                x="160"
+                y="125"
+                text-anchor="middle"
+                font-size="8"
+                fill="#92400E"
+              >
+                Staging
+              </text>
+              <rect
+                x="200"
+                y="100"
+                width="60"
+                height="40"
+                rx="4"
+                fill="#ECFDF5"
+                stroke="#10B981"
+                stroke-width="1"
+              />
+              <text
+                x="230"
+                y="125"
+                text-anchor="middle"
+                font-size="8"
+                fill="#065F46"
+              >
+                Repo
+              </text>
+
+              <!-- Commits locales -->
+              <circle cx="100" cy="190" r="8" fill="#3B82F6" />
+              <circle cx="140" cy="190" r="8" fill="#3B82F6" />
+              <circle cx="180" cy="190" r="8" fill="#3B82F6" />
+              <line
+                x1="108"
+                y1="190"
+                x2="132"
+                y2="190"
+                stroke="#3B82F6"
+                stroke-width="2"
+              />
+              <line
+                x1="148"
+                y1="190"
+                x2="172"
+                y2="190"
+                stroke="#3B82F6"
+                stroke-width="2"
+              />
+
+              <!-- Remote -->
+              <rect
+                x="420"
+                y="30"
+                width="250"
+                height="220"
+                rx="12"
+                fill="#F5F3FF"
+                stroke="#8B5CF6"
+                stroke-width="2"
+              />
+              <text
+                x="545"
+                y="60"
+                text-anchor="middle"
+                font-size="14"
+                font-weight="700"
+                fill="#5B21B6"
+              >
+                GitHub
+              </text>
+              <text
+                x="545"
+                y="78"
+                text-anchor="middle"
+                font-size="10"
+                fill="#8B5CF6"
+              >
+                (REMOTO)
+              </text>
+
+              <!-- Commits remotos -->
+              <circle cx="490" cy="150" r="8" fill="#8B5CF6" />
+              <circle cx="530" cy="150" r="8" fill="#8B5CF6" />
+              <circle cx="570" cy="150" r="8" fill="#8B5CF6" />
+              <line
+                x1="498"
+                y1="150"
+                x2="522"
+                y2="150"
+                stroke="#8B5CF6"
+                stroke-width="2"
+              />
+              <line
+                x1="538"
+                y1="150"
+                x2="562"
+                y2="150"
+                stroke="#8B5CF6"
+                stroke-width="2"
+              />
+
+              <!-- Flechas -->
+              <path
+                d="M280 140 L420 140"
+                fill="none"
+                stroke="#10B981"
+                stroke-width="2"
+                marker-end="url(#arrow-green-git)"
+              />
+              <text
+                x="350"
+                y="132"
+                text-anchor="middle"
+                font-size="11"
+                fill="#10B981"
+                font-weight="600"
+              >
+                git push
+              </text>
+
+              <path
+                d="M420 170 L280 170"
+                fill="none"
+                stroke="#F59E0B"
+                stroke-width="2"
+                marker-end="url(#arrow-amber-git)"
+              />
+              <text
+                x="350"
+                y="188"
+                text-anchor="middle"
+                font-size="11"
+                fill="#F59E0B"
+                font-weight="600"
+              >
+                git pull
+              </text>
+
+              <path
+                d="M420 210 L280 210"
+                fill="none"
+                stroke="#3B82F6"
+                stroke-width="2"
+                stroke-dasharray="6,3"
+                marker-end="url(#arrow-blue-git)"
+              />
+              <text
+                x="350"
+                y="228"
+                text-anchor="middle"
+                font-size="11"
+                fill="#3B82F6"
+                font-weight="600"
+              >
+                git clone
+              </text>
+
+              <!-- Particula animada -->
+              <circle
+                class="remote-particle"
+                cx="280"
+                cy="140"
+                r="6"
+                fill="#10B981"
+              />
+
+              <!-- Markers -->
+              <defs>
+                <marker
+                  id="arrow-green-git"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#10B981" />
+                </marker>
+                <marker
+                  id="arrow-amber-git"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#F59E0B" />
+                </marker>
+                <marker
+                  id="arrow-blue-git"
+                  markerWidth="8"
+                  markerHeight="6"
+                  refX="8"
+                  refY="3"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 8 3, 0 6" fill="#3B82F6" />
+                </marker>
+              </defs>
+            </svg>
+            <div class="remote-diagram__controls">
+              <button
+                class="btn btn-sm btn-secondary"
+                data-remote-action="push"
+              >
+                Simular push
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-remote-action="pull"
+              >
+                Simular pull
+              </button>
+              <button
+                class="btn btn-sm btn-secondary"
+                data-remote-action="clone"
+              >
+                Simular clone
+              </button>
+            </div>
+          </div>
+
+          <!-- Paso a paso para conectar -->
+          <h3 class="mt-4 mb-3">Paso a paso para conectar con GitHub</h3>
+          <div class="connect-steps">
+            <div class="connect-step">
+              <span class="connect-step__number">1</span>
+              <div>
+                <p>Crear repo en GitHub (boton "New repository")</p>
+              </div>
+            </div>
+            <div class="connect-step">
+              <span class="connect-step__number">2</span>
+              <div>
+                <p>Conectar</p>
+                <code>git remote add origin &lt;url&gt;</code>
+              </div>
+            </div>
+            <div class="connect-step">
+              <span class="connect-step__number">3</span>
+              <div>
+                <p>Subir</p>
+                <code>git push -u origin main</code>
+              </div>
+            </div>
+            <div class="connect-step">
+              <span class="connect-step__number">4</span>
+              <div>
+                <p>Verificar en GitHub que aparecio tu codigo</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-warning">
+            <p>
+              Subir codigo a GitHub NO es lo mismo que publicar una pagina web.
+              GitHub guarda el codigo, no lo ejecuta.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 6: Flujo de equipo ===== -->
+      <section id="seccion-equipo" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 6</span>
+          <h2 class="section__title">Flujo de trabajo en equipo</h2>
+
+          <div class="team-flow">
+            <div class="team-flow__controls">
+              <button class="btn btn-sm btn-primary" data-team-action="step">
+                Ver paso a paso
+              </button>
+              <button class="btn btn-sm btn-secondary" data-team-action="all">
+                Ver todo junto
+              </button>
+            </div>
+            <div class="team-flow__steps">
+              <div class="team-flow__step">
+                <span class="team-flow__step-icon">↓</span>
+                <div class="team-flow__step-content">
+                  <div class="team-flow__step-cmd">git pull</div>
+                  <div class="team-flow__step-desc">Bajo lo ultimo de main</div>
+                </div>
+              </div>
+              <div class="team-flow__step">
+                <span class="team-flow__step-icon">⑂</span>
+                <div class="team-flow__step-content">
+                  <div class="team-flow__step-cmd">
+                    git switch -c feature/mi-tarea
+                  </div>
+                  <div class="team-flow__step-desc">
+                    Creo mi espacio de trabajo
+                  </div>
+                </div>
+              </div>
+              <div class="team-flow__step">
+                <span class="team-flow__step-icon">●</span>
+                <div class="team-flow__step-content">
+                  <div class="team-flow__step-cmd">
+                    git add . && git commit -m "..."
+                  </div>
+                  <div class="team-flow__step-desc">
+                    Trabajo y voy guardando
+                  </div>
+                </div>
+              </div>
+              <div class="team-flow__step">
+                <span class="team-flow__step-icon">↑</span>
+                <div class="team-flow__step-content">
+                  <div class="team-flow__step-cmd">git push</div>
+                  <div class="team-flow__step-desc">
+                    Subo mi trabajo a GitHub
+                  </div>
+                </div>
+              </div>
+              <div class="team-flow__step">
+                <span class="team-flow__step-icon">✓</span>
+                <div class="team-flow__step-content">
+                  <div class="team-flow__step-cmd">Abrir Pull Request</div>
+                  <div class="team-flow__step-desc">
+                    Pido que revisen y aprueben
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout mt-4">
+            <p>
+              Un PR es como el control de calidad en una fabrica. Vos armas la
+              pieza (tu rama). Antes de que entre a produccion (main), alguien
+              la revisa. Si esta bien, se aprueba. Si hay algo para corregir, te
+              lo devuelven con notas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 7: Conceptos ===== -->
+      <section id="seccion-conceptos" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 7</span>
+          <h2 class="section__title">Conceptos que vas a escuchar</h2>
+
+          <!-- Merge y conflictos -->
+          <h3 class="mb-3">Merge y conflictos</h3>
+          <svg
+            class="merge-conflict-svg"
+            viewBox="0 0 400 120"
+            role="img"
+            aria-label="Dos ramas que modifican la misma linea generan un conflicto"
+          >
+            <line
+              x1="50"
+              y1="60"
+              x2="350"
+              y2="60"
+              stroke="#3B82F6"
+              stroke-width="3"
+            />
+            <path
+              d="M150 60 Q200 20 250 30"
+              fill="none"
+              stroke="#8B5CF6"
+              stroke-width="2"
+            />
+            <path
+              d="M150 60 Q200 100 250 90"
+              fill="none"
+              stroke="#F59E0B"
+              stroke-width="2"
+            />
+            <circle
+              cx="280"
+              cy="60"
+              r="15"
+              fill="none"
+              stroke="#EF4444"
+              stroke-width="2"
+            />
+            <text
+              x="280"
+              y="65"
+              text-anchor="middle"
+              font-size="16"
+              fill="#EF4444"
+            >
+              !
+            </text>
+            <text x="250" y="20" font-size="9" fill="#8B5CF6">
+              Persona A edita linea 5
+            </text>
+            <text x="250" y="110" font-size="9" fill="#F59E0B">
+              Persona B edita linea 5
+            </text>
+          </svg>
+          <p class="text-secondary">
+            Cuando dos personas tocan la misma linea, Git te pide que elijas. No
+            te asustes: es normal y tiene solucion.
+          </p>
+
+          <!-- .gitignore -->
+          <h3 class="mt-4 mb-3">.gitignore</h3>
+          <div class="gitignore-code">
+            node_modules/<br />.env<br />.DS_Store
+          </div>
+          <p class="text-secondary">
+            Este archivo le dice a Git que cosas NO seguir. Cosas pesadas,
+            secretos, archivos basura del sistema.
+          </p>
+
+          <!-- Tarjetas flip -->
+          <h3 class="mt-4 mb-3">Preguntas frecuentes</h3>
+          <div class="git-flip-cards">
+            <div
+              class="git-flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Pregunta: Necesitas internet para usar Git?"
+            >
+              <div class="git-flip-card__inner">
+                <div class="git-flip-card__front">
+                  <p>Necesitas internet para usar Git?</p>
+                </div>
+                <div class="git-flip-card__back" aria-live="polite">
+                  <p>
+                    No. Git funciona 100% local. Solo necesitas internet para
+                    push/pull.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="git-flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Pregunta: GitHub es la unica opcion?"
+            >
+              <div class="git-flip-card__inner">
+                <div class="git-flip-card__front">
+                  <p>GitHub es la unica opcion?</p>
+                </div>
+                <div class="git-flip-card__back" aria-live="polite">
+                  <p>
+                    No. Existen GitLab, Bitbucket, etc. La herramienta (Git) es
+                    la misma.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="git-flip-card"
+              tabindex="0"
+              role="button"
+              aria-label="Pregunta: Push y commit son lo mismo?"
+            >
+              <div class="git-flip-card__inner">
+                <div class="git-flip-card__front">
+                  <p>Push y commit son lo mismo?</p>
+                </div>
+                <div class="git-flip-card__back" aria-live="polite">
+                  <p>
+                    No. Commit guarda local. Push sube al remoto. Primero
+                    commit, despues push.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECCION 8: Cierre ===== -->
+      <section id="seccion-cierre" class="section">
+        <div class="container">
+          <span class="section__number">Seccion 8</span>
+          <h2 class="section__title">Cierre y proximos pasos</h2>
+
+          <!-- Resumen -->
+          <h3 class="mb-3">Resumen en 5 frases</h3>
+          <div class="summary-cards">
+            <div class="summary-card">
+              <span class="summary-card__number">1</span>
+              <p>
+                Git guarda el historial de tu proyecto. Cada checkpoint es un
+                commit.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">2</span>
+              <p>
+                El flujo: cambiar archivos → <code>git add</code> →
+                <code>git commit</code>.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">3</span>
+              <p>Las ramas te dejan probar cosas sin romper main.</p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">4</span>
+              <p>GitHub = backup + trabajo en equipo. Push sube, pull baja.</p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">5</span>
+              <p>
+                En equipo: pull, rama, commit, push, PR, merge. Ese es el ciclo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Checklist persistente -->
+          <h3 class="mt-4 mb-3">Tarea para la proxima clase</h3>
+          <div id="checklist-tarea-git" class="persistent-checklist">
+            <p class="persistent-checklist__progress">0/5 completadas</p>
+            <div class="persistent-checklist__bar">
+              <div class="persistent-checklist__bar-fill"></div>
+            </div>
+            <ul class="checklist">
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-git-install"
+                />
+                <label class="checklist__label" for="tarea-git-install"
+                  >Tener Git instalado (verificar con
+                  <code>git --version</code>)</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-git-github"
+                />
+                <label class="checklist__label" for="tarea-git-github"
+                  >Tener una cuenta en GitHub</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-git-commits"
+                />
+                <label class="checklist__label" for="tarea-git-commits"
+                  >Crear un repositorio local con al menos 3 commits
+                  descriptivos</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-git-push"
+                />
+                <label class="checklist__label" for="tarea-git-push"
+                  >Conectar el repo con GitHub y hacer push exitosamente</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-git-branch"
+                />
+                <label class="checklist__label" for="tarea-git-branch"
+                  >(Bonus) Crear una rama, hacer un cambio, commitear, y volver
+                  a main</label
+                >
+              </li>
+            </ul>
+            <div class="checklist__completion">
+              Genial! Estas listo/a para la proxima clase.
+            </div>
+          </div>
+
+          <!-- Recursos -->
+          <h3 class="mt-4 mb-3">Recursos</h3>
+          <div class="resources-grid">
+            <a
+              href="https://git-scm.com/doc"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono documentacion"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FEF2F2"
+                  stroke="#EF4444"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="13"
+                  y="12"
+                  width="14"
+                  height="18"
+                  rx="2"
+                  fill="none"
+                  stroke="#EF4444"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="16"
+                  y1="17"
+                  x2="24"
+                  y2="17"
+                  stroke="#EF4444"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="21"
+                  x2="24"
+                  y2="21"
+                  stroke="#EF4444"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="25"
+                  x2="22"
+                  y2="25"
+                  stroke="#EF4444"
+                  stroke-width="1"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Git — Documentacion oficial</p>
+                <p class="text-secondary">La referencia completa</p>
+              </div>
+            </a>
+            <a
+              href="https://docs.github.com/en/get-started"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono GitHub"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#F5F3FF"
+                  stroke="#8B5CF6"
+                  stroke-width="1.5"
+                />
+                <circle cx="20" cy="18" r="7" fill="#8B5CF6" opacity="0.3" />
+                <path
+                  d="M14 30 Q14 24 20 24 Q26 24 26 30"
+                  fill="#8B5CF6"
+                  opacity="0.3"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">
+                  GitHub — Guia para principiantes
+                </p>
+                <p class="text-secondary">Guia oficial para arrancar</p>
+              </div>
+            </a>
+            <a
+              href="https://ohshitgit.com/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono ayuda"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFFBEB"
+                  stroke="#F59E0B"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="20"
+                  y="26"
+                  text-anchor="middle"
+                  font-size="16"
+                  fill="#F59E0B"
+                >
+                  !
+                </text>
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Oh Shit, Git!?!</p>
+                <p class="text-secondary">
+                  Para cuando la cagas (ingles, muy util)
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://learngitbranching.js.org/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono juego interactivo"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M14 20 L18 24 L26 16"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Learn Git Branching</p>
+                <p class="text-secondary">
+                  Juego interactivo para entender ramas
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="clase-footer">
+      <nav aria-label="Navegacion entre clases">
+        <a href="introduccion.html">← Clase 1: Introduccion</a>
+      </nav>
+      <p class="mt-2">Frontend desde Cero — Clase 2: Git</p>
+    </footer>
+
+    <script src="js/git.js"></script>
+  </body>
+</html>
