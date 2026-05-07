@@ -1,0 +1,58 @@
+.flip-card {
+  perspective: 1000px;
+  height: 220px;
+  cursor: pointer;
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-out;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.flip-card__front {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-border);
+}
+
+.flip-card__front::after {
+  content: "Click para ver";
+  position: absolute;
+  bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.flip-card.flipped .flip-card__front::after {
+  content: none;
+}
+
+.flip-card__back {
+  background: #ecfdf5;
+  border: 2px solid var(--color-success);
+  transform: rotateY(180deg);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
