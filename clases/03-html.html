@@ -1,0 +1,3136 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 3: Fundamentos de HTML — Frontend desde Cero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/html.css" />
+  </head>
+  <body>
+    <!-- Barra de progreso -->
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-label="Progreso de lectura"
+    ></div>
+
+    <!-- Badge de progreso -->
+    <div class="progress-badge" aria-live="polite">Bloque 1 de 8</div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero section">
+      <div class="container text-center">
+        <!-- SVG: pagina que se construye -->
+        <svg
+          class="hero__browser"
+          viewBox="0 0 320 240"
+          role="img"
+          aria-label="Animacion de una pagina web construyendose: aparecen header, nav, main y footer"
+        >
+          <!-- Ventana de navegador -->
+          <rect
+            x="10"
+            y="10"
+            width="300"
+            height="220"
+            rx="12"
+            fill="#FFFFFF"
+            stroke="#CBD5E1"
+            stroke-width="2"
+          />
+          <!-- Barra superior -->
+          <rect x="10" y="10" width="300" height="30" rx="12" fill="#F1F5F9" />
+          <rect x="10" y="28" width="300" height="12" fill="#F1F5F9" />
+          <circle cx="30" cy="25" r="5" fill="#EF4444" />
+          <circle cx="48" cy="25" r="5" fill="#F59E0B" />
+          <circle cx="66" cy="25" r="5" fill="#10B981" />
+          <rect x="90" y="19" width="140" height="12" rx="3" fill="#E2E8F0" />
+          <text
+            x="160"
+            y="28"
+            text-anchor="middle"
+            font-size="7"
+            fill="#94A3B8"
+            font-family="monospace"
+          >
+            mi-pagina.html
+          </text>
+          <!-- Bloques que aparecen -->
+          <g class="hero-block" data-delay="0">
+            <rect
+              x="30"
+              y="52"
+              width="260"
+              height="28"
+              rx="4"
+              fill="#F97316"
+              opacity="0.15"
+            />
+            <rect x="30" y="52" width="3" height="28" rx="1" fill="#F97316" />
+            <text
+              x="44"
+              y="70"
+              font-size="9"
+              fill="#F97316"
+              font-family="monospace"
+            >
+              &lt;header&gt;
+            </text>
+          </g>
+          <g class="hero-block" data-delay="1">
+            <rect
+              x="30"
+              y="88"
+              width="80"
+              height="90"
+              rx="4"
+              fill="#F97316"
+              opacity="0.1"
+            />
+            <text
+              x="44"
+              y="138"
+              font-size="9"
+              fill="#F97316"
+              font-family="monospace"
+            >
+              &lt;nav&gt;
+            </text>
+          </g>
+          <g class="hero-block" data-delay="2">
+            <rect
+              x="118"
+              y="88"
+              width="172"
+              height="90"
+              rx="4"
+              fill="#F97316"
+              opacity="0.2"
+            />
+            <text
+              x="132"
+              y="138"
+              font-size="9"
+              fill="#F97316"
+              font-family="monospace"
+            >
+              &lt;main&gt;
+            </text>
+          </g>
+          <g class="hero-block" data-delay="3">
+            <rect
+              x="30"
+              y="186"
+              width="260"
+              height="28"
+              rx="4"
+              fill="#F97316"
+              opacity="0.15"
+            />
+            <rect x="30" y="186" width="3" height="28" rx="1" fill="#F97316" />
+            <text
+              x="44"
+              y="204"
+              font-size="9"
+              fill="#F97316"
+              font-family="monospace"
+            >
+              &lt;footer&gt;
+            </text>
+          </g>
+        </svg>
+
+        <h1 class="hero__title">Clase 3: HTML — Los cimientos de la web</h1>
+        <p class="hero__subtitle">
+          Vas a aprender a escribir la estructura de una pagina web desde cero.
+          Todo lo que ves en internet arranca aca.
+        </p>
+        <a href="#seccion-estructura" class="btn btn-primary hero__cta"
+          >Arranquemos</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== BLOQUE 1: Estructura basica del documento HTML ===== -->
+      <section id="seccion-estructura" class="section" data-block="1">
+        <div class="container">
+          <span class="section__number">Bloque 1</span>
+          <h2 class="section__title">Estructura basica del documento HTML</h2>
+
+          <!-- 1.1 Problema disparador -->
+          <div class="question-section">
+            <p>
+              En la Clase 1 creaste un archivo HTML y le pusiste "Hola mundo".
+              Funciono. Pero el navegador estaba adivinando.
+            </p>
+            <p>
+              Un HTML de verdad tiene una estructura base. Es siempre la misma,
+              como los cimientos de cualquier casa.
+            </p>
+          </div>
+
+          <!-- 1.2 Analogia carta formal -->
+          <div class="callout callout-info">
+            <p>
+              Un HTML es como una carta formal. Tiene un formato fijo:
+              remitente, encabezado, cuerpo. Si no lo seguis, puede llegar
+              igual... pero el cartero (navegador) puede interpretar cualquier
+              cosa.
+            </p>
+          </div>
+
+          <!-- 1.3 Diagrama del esqueleto HTML (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Las partes de un documento HTML</h3>
+          <div
+            class="skeleton-diagram"
+            role="group"
+            aria-label="Diagrama interactivo del esqueleto HTML"
+          >
+            <div class="skeleton-boxes">
+              <button
+                class="skeleton-box skeleton-box--doctype"
+                data-skeleton="doctype"
+                aria-expanded="false"
+              >
+                <span class="skeleton-box__tag">&lt;!DOCTYPE html&gt;</span>
+                <span class="skeleton-box__label">Declaracion: soy HTML5</span>
+              </button>
+              <div class="skeleton-box skeleton-box--html">
+                <button
+                  class="skeleton-box__header"
+                  data-skeleton="html"
+                  aria-expanded="false"
+                >
+                  <span class="skeleton-box__tag">&lt;html lang="es"&gt;</span>
+                  <span class="skeleton-box__label"
+                    >El sobre (todo va aca)</span
+                  >
+                </button>
+                <div class="skeleton-box__children">
+                  <button
+                    class="skeleton-box skeleton-box--head"
+                    data-skeleton="head"
+                    aria-expanded="false"
+                  >
+                    <span class="skeleton-box__tag">&lt;head&gt;</span>
+                    <span class="skeleton-box__label"
+                      >Info invisible (meta)</span
+                    >
+                    <div class="skeleton-box__content">
+                      <code>&lt;meta charset="UTF-8"&gt;</code>
+                      <code>&lt;title&gt;Mi pagina&lt;/title&gt;</code>
+                    </div>
+                  </button>
+                  <button
+                    class="skeleton-box skeleton-box--body"
+                    data-skeleton="body"
+                    aria-expanded="false"
+                  >
+                    <span class="skeleton-box__tag">&lt;body&gt;</span>
+                    <span class="skeleton-box__label"
+                      >Lo que el usuario ve</span
+                    >
+                    <div class="skeleton-box__content">
+                      <code>&lt;h1&gt;Hola&lt;/h1&gt;</code>
+                      <code>&lt;p&gt;Mi primer parrafo&lt;/p&gt;</code>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Panel de info -->
+            <div class="skeleton-info" aria-live="polite" hidden>
+              <p class="skeleton-info__name"></p>
+              <p class="skeleton-info__desc"></p>
+              <p class="skeleton-info__warning"></p>
+            </div>
+          </div>
+
+          <!-- 1.4 Codigo de la estructura base -->
+          <div class="code-block mt-4">
+            <div class="code-block__header">
+              <span class="code-block__filename">estructura.html</span>
+              <button
+                class="code-block__copy btn btn-sm btn-secondary"
+                aria-label="Copiar codigo"
+              >
+                Copiar
+              </button>
+            </div>
+            <pre
+              class="code-block__pre"
+            ><code><span class="token-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">lang</span>=<span class="token-value">"es"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;head&gt;</span>
+    <span class="token-tag">&lt;meta</span> <span class="token-attr">charset</span>=<span class="token-value">"UTF-8"</span> <span class="token-tag">/&gt;</span>
+    <span class="token-tag">&lt;title&gt;</span><span class="token-text">Mi primera pagina</span><span class="token-tag">&lt;/title&gt;</span>
+  <span class="token-tag">&lt;/head&gt;</span>
+  <span class="token-tag">&lt;body&gt;</span>
+    <span class="token-tag">&lt;h1&gt;</span><span class="token-text">Hola mundo</span><span class="token-tag">&lt;/h1&gt;</span>
+    <span class="token-tag">&lt;p&gt;</span><span class="token-text">Esta es mi primera pagina web.</span><span class="token-tag">&lt;/p&gt;</span>
+  <span class="token-tag">&lt;/body&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></code></pre>
+          </div>
+
+          <!-- 1.5 Callout charset -->
+          <div class="callout callout-warning">
+            <p>
+              Si te olvidas el <code>&lt;meta charset="UTF-8"&gt;</code>, las
+              tildes y enes se ven como <code>Ã©</code> o <code>â€™</code>.
+              UTF-8 incluye todos los caracteres del mundo: tildes, enes,
+              emojis, arabe, chino, todo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 2: Tags y anidamiento ===== -->
+      <section id="seccion-tags" class="section" data-block="2">
+        <div class="container">
+          <span class="section__number">Bloque 2</span>
+          <h2 class="section__title">Tags y anidamiento de elementos</h2>
+
+          <!-- 2.1 Anatomia de un tag -->
+          <h3 class="mb-3">Las partes de un elemento HTML</h3>
+          <svg
+            class="anatomy-svg"
+            viewBox="0 0 660 190"
+            role="img"
+            aria-label="Diagrama: anatomia de un elemento HTML con tag de apertura, contenido y tag de cierre"
+          >
+            <!-- Tag de apertura -->
+            <text
+              x="120"
+              y="40"
+              text-anchor="middle"
+              font-size="24"
+              font-family="'JetBrains Mono', monospace"
+              font-weight="700"
+              fill="#F97316"
+            >
+              &lt;p&gt;
+            </text>
+            <!-- Contenido -->
+            <text
+              x="330"
+              y="40"
+              text-anchor="middle"
+              font-size="24"
+              font-family="'JetBrains Mono', monospace"
+              fill="#3B82F6"
+            >
+              Este es un parrafo
+            </text>
+            <!-- Tag de cierre -->
+            <text
+              x="550"
+              y="40"
+              text-anchor="middle"
+              font-size="24"
+              font-family="'JetBrains Mono', monospace"
+              font-weight="700"
+              fill="#F97316"
+            >
+              &lt;/p&gt;
+            </text>
+
+            <!-- Indicador: tag de apertura -->
+            <line
+              x1="120"
+              y1="52"
+              x2="120"
+              y2="68"
+              stroke="#F97316"
+              stroke-width="2"
+            />
+            <line
+              x1="85"
+              y1="68"
+              x2="155"
+              y2="68"
+              stroke="#F97316"
+              stroke-width="2"
+            />
+            <text
+              x="120"
+              y="86"
+              text-anchor="middle"
+              font-size="12"
+              fill="#F97316"
+              font-weight="600"
+            >
+              Tag de apertura
+            </text>
+
+            <!-- Indicador: contenido -->
+            <line
+              x1="330"
+              y1="52"
+              x2="330"
+              y2="68"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <line
+              x1="195"
+              y1="68"
+              x2="465"
+              y2="68"
+              stroke="#3B82F6"
+              stroke-width="2"
+            />
+            <text
+              x="330"
+              y="86"
+              text-anchor="middle"
+              font-size="12"
+              fill="#3B82F6"
+              font-weight="600"
+            >
+              Contenido
+            </text>
+
+            <!-- Indicador: tag de cierre -->
+            <line
+              x1="550"
+              y1="52"
+              x2="550"
+              y2="68"
+              stroke="#F97316"
+              stroke-width="2"
+            />
+            <line
+              x1="510"
+              y1="68"
+              x2="590"
+              y2="68"
+              stroke="#F97316"
+              stroke-width="2"
+            />
+            <text
+              x="550"
+              y="86"
+              text-anchor="middle"
+              font-size="12"
+              fill="#F97316"
+              font-weight="600"
+            >
+              Tag de cierre
+            </text>
+            <text
+              x="550"
+              y="102"
+              text-anchor="middle"
+              font-size="10"
+              fill="#64748B"
+            >
+              la barra / indica cierre
+            </text>
+
+            <!-- Llave inferior -->
+            <path
+              d="M70 120 Q70 132 82 132 L320 132 Q330 132 330 144 Q330 132 340 132 L580 132 Q592 132 592 120"
+              fill="none"
+              stroke="#1E293B"
+              stroke-width="2"
+            />
+            <text
+              x="330"
+              y="168"
+              text-anchor="middle"
+              font-size="14"
+              fill="#1E293B"
+              font-weight="700"
+            >
+              Elemento HTML
+            </text>
+          </svg>
+
+          <!-- 2.2 Tags vacios -->
+          <h3 class="mt-4 mb-3">Tags vacios: no necesitan cierre</h3>
+          <div class="grid grid-2">
+            <div class="card void-tag-card">
+              <svg
+                class="void-tag-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono de imagen"
+              >
+                <rect
+                  x="4"
+                  y="8"
+                  width="32"
+                  height="24"
+                  rx="4"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="2"
+                />
+                <polygon
+                  points="10,26 18,18 24,24 30,16 36,26"
+                  fill="#F97316"
+                  opacity="0.3"
+                />
+                <circle cx="14" cy="16" r="3" fill="#F97316" opacity="0.4" />
+              </svg>
+              <p class="void-tag-card__tag">&lt;img&gt;</p>
+              <p class="void-tag-card__desc">Inserta una imagen</p>
+            </div>
+            <div class="card void-tag-card">
+              <svg
+                class="void-tag-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono de salto de linea"
+              >
+                <path
+                  d="M12 10 L12 24 Q12 30 18 30 L28 30"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <polyline
+                  points="24,26 28,30 24,34"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="void-tag-card__tag">&lt;br&gt;</p>
+              <p class="void-tag-card__desc">Salto de linea</p>
+            </div>
+            <div class="card void-tag-card">
+              <svg
+                class="void-tag-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono de campo de texto"
+              >
+                <rect
+                  x="4"
+                  y="12"
+                  width="32"
+                  height="16"
+                  rx="3"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="2"
+                />
+                <line
+                  x1="10"
+                  y1="17"
+                  x2="10"
+                  y2="23"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  opacity="0.6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.6;0;0.6"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                  />
+                </line>
+              </svg>
+              <p class="void-tag-card__tag">&lt;input&gt;</p>
+              <p class="void-tag-card__desc">Campo de formulario</p>
+            </div>
+            <div class="card void-tag-card">
+              <svg
+                class="void-tag-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono de linea horizontal"
+              >
+                <line
+                  x1="4"
+                  y1="20"
+                  x2="36"
+                  y2="20"
+                  stroke="#F97316"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="void-tag-card__tag">&lt;hr&gt;</p>
+              <p class="void-tag-card__desc">Linea horizontal</p>
+            </div>
+          </div>
+
+          <div class="callout callout-info mt-4">
+            <p>
+              Estos tags no "envuelven" nada. SON el contenido: una imagen, un
+              salto de linea, un campo. En HTML5 la barra de cierre (<code
+                >&lt;br /&gt;</code
+              >) es opcional.
+            </p>
+          </div>
+
+          <!-- 2.3 Visualizador de anidamiento (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Cajas adentro de cajas</h3>
+          <div class="nesting-demo">
+            <div class="nesting-demo__panels">
+              <!-- Panel correcto -->
+              <div class="nesting-panel nesting-panel--correct">
+                <h4 class="nesting-panel__title nesting-panel__title--correct">
+                  Correcto
+                </h4>
+                <div class="nesting-panel__boxes">
+                  <div class="nesting-box nesting-box--div" data-nest="1">
+                    <span class="nesting-box__label">&lt;div&gt;</span>
+                    <div class="nesting-box nesting-box--section" data-nest="2">
+                      <span class="nesting-box__label">&lt;section&gt;</span>
+                      <div class="nesting-box nesting-box--h2" data-nest="3">
+                        <span class="nesting-box__label">&lt;h2&gt;</span>
+                        <span class="nesting-box__text"
+                          >Titulo del articulo</span
+                        >
+                      </div>
+                      <div class="nesting-box nesting-box--p" data-nest="4">
+                        <span class="nesting-box__label">&lt;p&gt;</span>
+                        <span class="nesting-box__text"
+                          >Contenido del texto</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p class="nesting-panel__note nesting-panel__note--correct">
+                  Lo que se abre primero se cierra ultimo
+                </p>
+              </div>
+
+              <!-- Panel incorrecto -->
+              <div class="nesting-panel nesting-panel--incorrect">
+                <h4
+                  class="nesting-panel__title nesting-panel__title--incorrect"
+                >
+                  Incorrecto
+                </h4>
+                <div class="nesting-panel__boxes nesting-panel__boxes--broken">
+                  <div
+                    class="nesting-box nesting-box--div nesting-box--broken-outer"
+                  >
+                    <span class="nesting-box__label">&lt;div&gt;</span>
+                    <div
+                      class="nesting-box nesting-box--section nesting-box--broken-section"
+                    >
+                      <span class="nesting-box__label">&lt;section&gt;</span>
+                      <div class="nesting-box nesting-box--h2">
+                        <span class="nesting-box__label">&lt;h2&gt;</span>
+                        <span class="nesting-box__text">Titulo</span>
+                      </div>
+                    </div>
+                    <div
+                      class="nesting-box nesting-box--p nesting-box--overflow"
+                    >
+                      <span class="nesting-box__label">&lt;p&gt;</span>
+                      <span class="nesting-box__text">Se sale del section</span>
+                    </div>
+                  </div>
+                  <svg
+                    class="nesting-x"
+                    viewBox="0 0 40 40"
+                    role="img"
+                    aria-label="Incorrecto"
+                  >
+                    <circle
+                      cx="20"
+                      cy="20"
+                      r="18"
+                      fill="#EF4444"
+                      opacity="0.15"
+                    />
+                    <line
+                      x1="12"
+                      y1="12"
+                      x2="28"
+                      y2="28"
+                      stroke="#EF4444"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="28"
+                      y1="12"
+                      x2="12"
+                      y2="28"
+                      stroke="#EF4444"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <p class="nesting-panel__note nesting-panel__note--incorrect">
+                  Los tags se cruzan: esto rompe la estructura
+                </p>
+              </div>
+            </div>
+            <div class="nesting-demo__controls">
+              <button class="btn btn-sm btn-secondary" data-nesting-animate>
+                Animar
+              </button>
+            </div>
+          </div>
+
+          <!-- 2.4 Regla de oro -->
+          <div class="callout mt-4">
+            <p>
+              Pensalo como ponerte ropa: primero la remera, despues el buzo.
+              Para sacartelos, es al reves: primero el buzo, despues la remera.
+              Los tags funcionan igual.
+            </p>
+          </div>
+
+          <!-- 2.5 Reglas de anidamiento -->
+          <h3 class="mt-4 mb-3">Reglas de anidamiento</h3>
+          <div class="grid grid-3">
+            <div class="card nesting-rule-card nesting-rule-card--error">
+              <svg
+                class="nesting-rule-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Error"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#FEF2F2"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                />
+                <line
+                  x1="10"
+                  y1="10"
+                  x2="22"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="22"
+                  y1="10"
+                  x2="10"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="nesting-rule-card__rule">
+                Un <code>&lt;p&gt;</code> no puede contener otro
+                <code>&lt;p&gt;</code> ni bloques como <code>&lt;div&gt;</code>
+              </p>
+              <p class="nesting-rule-card__consequence">
+                Si lo haces, el navegador cierra el primer
+                <code>&lt;p&gt;</code> solo y te queda HTML roto.
+              </p>
+            </div>
+            <div class="card nesting-rule-card nesting-rule-card--warning">
+              <svg
+                class="nesting-rule-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Advertencia"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#FFFBEB"
+                  stroke="#F59E0B"
+                  stroke-width="2"
+                />
+                <text
+                  x="16"
+                  y="22"
+                  text-anchor="middle"
+                  font-size="18"
+                  font-weight="700"
+                  fill="#F59E0B"
+                >
+                  !
+                </text>
+              </svg>
+              <p class="nesting-rule-card__rule">
+                <code>&lt;ul&gt;</code> y <code>&lt;ol&gt;</code> solo aceptan
+                <code>&lt;li&gt;</code> como hijos directos
+              </p>
+              <p class="nesting-rule-card__consequence">
+                Nada de poner <code>&lt;p&gt;</code> o
+                <code>&lt;div&gt;</code> sueltos adentro de una lista.
+              </p>
+            </div>
+            <div class="card nesting-rule-card nesting-rule-card--success">
+              <svg
+                class="nesting-rule-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Correcto"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="2"
+                />
+                <polyline
+                  points="10,16 14,20 22,12"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p class="nesting-rule-card__rule">
+                Un <code>&lt;li&gt;</code> puede contener casi cualquier cosa
+              </p>
+              <p class="nesting-rule-card__consequence">
+                Parrafos, links, otras listas, divs... todo vale adentro de un
+                <code>&lt;li&gt;</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 3: Elementos de texto ===== -->
+      <section id="seccion-texto" class="section" data-block="3">
+        <div class="container">
+          <span class="section__number">Bloque 3</span>
+          <h2 class="section__title">Elementos de texto</h2>
+
+          <!-- 3.1 Encabezados -->
+          <h3 class="mb-3">Los 6 niveles de encabezado</h3>
+          <div class="heading-levels">
+            <div class="heading-level heading-level--1">
+              <span class="heading-level__tag">&lt;h1&gt;</span>
+              <span class="heading-level__text">Titulo principal</span>
+            </div>
+            <div class="heading-level heading-level--2">
+              <span class="heading-level__tag">&lt;h2&gt;</span>
+              <span class="heading-level__text">Subtitulo</span>
+            </div>
+            <div class="heading-level heading-level--3">
+              <span class="heading-level__tag">&lt;h3&gt;</span>
+              <span class="heading-level__text">Sub-subtitulo</span>
+            </div>
+            <div class="heading-level heading-level--4">
+              <span class="heading-level__tag">&lt;h4&gt;</span>
+              <span class="heading-level__text">Nivel 4</span>
+            </div>
+            <div class="heading-level heading-level--5">
+              <span class="heading-level__tag">&lt;h5&gt;</span>
+              <span class="heading-level__text">Nivel 5</span>
+            </div>
+            <div class="heading-level heading-level--6">
+              <span class="heading-level__tag">&lt;h6&gt;</span>
+              <span class="heading-level__text">Nivel 6</span>
+            </div>
+          </div>
+
+          <div class="callout callout-info mt-4">
+            <p>
+              Pensalo como los titulos de un libro: <code>&lt;h1&gt;</code> es
+              el titulo del libro (uno solo por pagina),
+              <code>&lt;h2&gt;</code> son los capitulos,
+              <code>&lt;h3&gt;</code> las secciones dentro de un capitulo.
+            </p>
+          </div>
+
+          <!-- 3.2 Formato de texto -->
+          <h3 class="mt-4 mb-3">Formato de texto</h3>
+          <div class="grid grid-2">
+            <div class="card text-format-card">
+              <p class="text-format-card__title">
+                <code>&lt;strong&gt;</code> — Importancia
+              </p>
+              <p class="text-format-card__example">
+                Este texto es <strong>importante</strong>
+              </p>
+              <p class="text-format-card__note">
+                Los lectores de pantalla cambian la entonacion.
+              </p>
+            </div>
+            <div class="card text-format-card">
+              <p class="text-format-card__title">
+                <code>&lt;em&gt;</code> — Enfasis
+              </p>
+              <p class="text-format-card__example">
+                Este texto tiene <em>enfasis</em>
+              </p>
+              <p class="text-format-card__note">
+                Preferi <code>&lt;em&gt;</code> sobre <code>&lt;i&gt;</code>:
+                tiene significado semantico.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3.3 Listas -->
+          <h3 class="mt-4 mb-3">Listas</h3>
+          <div class="grid grid-2">
+            <div class="card list-demo-card">
+              <p class="list-demo-card__title">
+                <code>&lt;ul&gt;</code> — Lista con vinetas
+              </p>
+              <ul class="list-demo-card__list">
+                <li>Manzanas</li>
+                <li>Bananas</li>
+                <li>Naranjas</li>
+              </ul>
+              <p class="list-demo-card__note">
+                Se usa cuando el orden no importa.
+              </p>
+            </div>
+            <div class="card list-demo-card">
+              <p class="list-demo-card__title">
+                <code>&lt;ol&gt;</code> — Lista numerada
+              </p>
+              <ol class="list-demo-card__list list-demo-card__list--ordered">
+                <li>Prender el horno</li>
+                <li>Preparar la masa</li>
+                <li>Hornear 30 minutos</li>
+              </ol>
+              <p class="list-demo-card__note">
+                Se usa cuando el orden SI importa (pasos, instrucciones).
+              </p>
+            </div>
+          </div>
+
+          <!-- 3.4 Playground HTML #1 -->
+          <h3 class="mt-4 mb-3">Proba vos mismo</h3>
+          <p class="mb-3 text-secondary">
+            Escribi HTML a la izquierda y mira el resultado a la derecha.
+          </p>
+          <div
+            class="playground"
+            data-playground="1"
+            data-default-code="playground-1-default"
+          >
+            <div class="playground__header">
+              <div class="playground__dots">
+                <span class="playground__dot playground__dot--red"></span>
+                <span class="playground__dot playground__dot--yellow"></span>
+                <span class="playground__dot playground__dot--green"></span>
+              </div>
+              <div class="playground__tabs" role="tablist">
+                <button
+                  class="playground__tab playground__tab--active"
+                  role="tab"
+                  aria-selected="true"
+                  data-playground-tab="editor"
+                >
+                  HTML
+                </button>
+                <button
+                  class="playground__tab"
+                  role="tab"
+                  aria-selected="false"
+                  data-playground-tab="preview"
+                >
+                  Resultado
+                </button>
+              </div>
+              <div class="playground__actions">
+                <button
+                  class="btn btn-sm btn-secondary playground__btn-reset"
+                  aria-label="Reiniciar codigo"
+                >
+                  Reiniciar
+                </button>
+                <button
+                  class="btn btn-sm btn-secondary playground__btn-copy"
+                  aria-label="Copiar codigo"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="playground__body">
+              <div class="playground__editor-wrap" role="tabpanel">
+                <div class="playground__line-numbers" aria-hidden="true"></div>
+                <div class="playground__editor-container">
+                  <pre
+                    class="playground__highlight"
+                    aria-hidden="true"
+                  ><code></code></pre>
+                  <textarea
+                    class="playground__textarea"
+                    aria-label="Editor de codigo HTML"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="playground__divider" aria-hidden="true">
+                <div class="playground__divider-handle"></div>
+              </div>
+              <div class="playground__preview-wrap" role="tabpanel">
+                <span class="playground__preview-label">Vista previa</span>
+                <iframe
+                  class="playground__iframe"
+                  title="Vista previa del HTML"
+                  sandbox=""
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <template id="playground-1-default"
+            ><h1>Recetas de cocina</h1>
+            <h2>Milanesas napolitanas</h2>
+            <p>Un <strong>clasico</strong> de la cocina argentina.</p>
+            <h3>Ingredientes</h3>
+            <ul>
+              <li>Milanesas</li>
+              <li>Salsa de tomate</li>
+              <li>Jamon</li>
+              <li>Queso</li>
+            </ul>
+            <h3>Preparacion</h3>
+            <ol>
+              <li>Cocinar las milanesas</li>
+              <li>Agregar salsa, jamon y queso</li>
+              <li>Gratinar en el horno</li>
+            </ol></template
+          >
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 4: Tags semanticos ===== -->
+      <section id="seccion-semantica" class="section" data-block="4">
+        <div class="container">
+          <span class="section__number">Bloque 4</span>
+          <h2 class="section__title">Tags semanticos</h2>
+
+          <!-- 4.1 Problema disparador -->
+          <div class="question-section">
+            <p>
+              Podrias armar una pagina entera usando solo
+              <code>&lt;div&gt;</code>
+              para todo. Y funcionaria.
+            </p>
+            <p>
+              El problema: una pagina de solo divs es como un edificio donde
+              ninguna puerta tiene cartel. Vos sabes donde esta el bano... pero
+              un visitante nuevo esta perdido.
+            </p>
+          </div>
+
+          <!-- 4.2 Comparador semantico (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Toggle div vs semantico</h3>
+          <div class="semantic-compare">
+            <div
+              class="semantic-toggle"
+              role="switch"
+              aria-checked="false"
+              aria-label="Alternar entre codigo con divs y codigo semantico"
+              tabindex="0"
+            >
+              <span
+                class="semantic-toggle__label semantic-toggle__label--div semantic-toggle__label--active"
+                >Solo &lt;div&gt;</span
+              >
+              <div class="semantic-toggle__track">
+                <div class="semantic-toggle__thumb"></div>
+              </div>
+              <span
+                class="semantic-toggle__label semantic-toggle__label--semantic"
+                >Semantico</span
+              >
+            </div>
+
+            <div class="semantic-compare__panels">
+              <div class="semantic-compare__code">
+                <pre
+                  class="semantic-compare__pre semantic-compare__pre--div semantic-compare__pre--active"
+                ><code><span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"header"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"titulo"</span><span class="token-tag">&gt;</span><span class="token-text">Mi Blog</span><span class="token-tag">&lt;/div&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"nav"</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;a</span> <span class="token-attr">href</span>=<span class="token-value">"/"</span><span class="token-tag">&gt;</span><span class="token-text">Inicio</span><span class="token-tag">&lt;/a&gt;</span>
+    <span class="token-tag">&lt;a</span> <span class="token-attr">href</span>=<span class="token-value">"/contacto"</span><span class="token-tag">&gt;</span><span class="token-text">Contacto</span><span class="token-tag">&lt;/a&gt;</span>
+  <span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"contenido"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"articulo"</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"titulo-art"</span><span class="token-tag">&gt;</span><span class="token-text">Mi primer post</span><span class="token-tag">&lt;/div&gt;</span>
+    <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"texto"</span><span class="token-tag">&gt;</span><span class="token-text">Contenido del post...</span><span class="token-tag">&lt;/div&gt;</span>
+  <span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"pie"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;div</span> <span class="token-attr">class</span>=<span class="token-value">"copy"</span><span class="token-tag">&gt;</span><span class="token-text">&copy; 2026 Mi Blog</span><span class="token-tag">&lt;/div&gt;</span>
+<span class="token-tag">&lt;/div&gt;</span></code></pre>
+                <pre
+                  class="semantic-compare__pre semantic-compare__pre--semantic"
+                ><code><span class="token-tag">&lt;header&gt;</span>
+  <span class="token-tag">&lt;h1&gt;</span><span class="token-text">Mi Blog</span><span class="token-tag">&lt;/h1&gt;</span>
+  <span class="token-tag">&lt;nav&gt;</span>
+    <span class="token-tag">&lt;a</span> <span class="token-attr">href</span>=<span class="token-value">"/"</span><span class="token-tag">&gt;</span><span class="token-text">Inicio</span><span class="token-tag">&lt;/a&gt;</span>
+    <span class="token-tag">&lt;a</span> <span class="token-attr">href</span>=<span class="token-value">"/contacto"</span><span class="token-tag">&gt;</span><span class="token-text">Contacto</span><span class="token-tag">&lt;/a&gt;</span>
+  <span class="token-tag">&lt;/nav&gt;</span>
+<span class="token-tag">&lt;/header&gt;</span>
+<span class="token-tag">&lt;main&gt;</span>
+  <span class="token-tag">&lt;article&gt;</span>
+    <span class="token-tag">&lt;h2&gt;</span><span class="token-text">Mi primer post</span><span class="token-tag">&lt;/h2&gt;</span>
+    <span class="token-tag">&lt;p&gt;</span><span class="token-text">Contenido del post...</span><span class="token-tag">&lt;/p&gt;</span>
+  <span class="token-tag">&lt;/article&gt;</span>
+<span class="token-tag">&lt;/main&gt;</span>
+<span class="token-tag">&lt;footer&gt;</span>
+  <span class="token-tag">&lt;p&gt;</span><span class="token-text">&copy; 2026 Mi Blog</span><span class="token-tag">&lt;/p&gt;</span>
+<span class="token-tag">&lt;/footer&gt;</span></code></pre>
+              </div>
+
+              <div class="semantic-compare__preview">
+                <div class="semantic-compare__mini-page">
+                  <div class="mini-header">Mi Blog</div>
+                  <div class="mini-nav">Inicio | Contacto</div>
+                  <div class="mini-main">
+                    <div class="mini-title">Mi primer post</div>
+                    <div class="mini-text">Contenido del post...</div>
+                  </div>
+                  <div class="mini-footer">&copy; 2026 Mi Blog</div>
+                </div>
+                <p
+                  class="semantic-compare__verdict semantic-compare__verdict--div"
+                >
+                  El navegador no sabe que es cada parte.
+                </p>
+                <p
+                  class="semantic-compare__verdict semantic-compare__verdict--semantic"
+                >
+                  El navegador entiende la estructura.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4.3 Mapa de zonas semanticas (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Las zonas de una pagina web</h3>
+          <div class="semantic-map">
+            <svg
+              class="semantic-map__svg"
+              viewBox="0 0 400 320"
+              role="img"
+              aria-label="Mapa de zonas semanticas de una pagina web"
+            >
+              <!-- Header -->
+              <rect
+                x="10"
+                y="10"
+                width="380"
+                height="50"
+                rx="6"
+                fill="#F97316"
+                opacity="0.15"
+                stroke="#F97316"
+                stroke-width="2"
+              />
+              <g>
+                <rect
+                  x="10"
+                  y="10"
+                  width="380"
+                  height="50"
+                  rx="6"
+                  fill="transparent"
+                />
+                <text
+                  x="200"
+                  y="40"
+                  text-anchor="middle"
+                  font-size="13"
+                  fill="#F97316"
+                  font-family="monospace"
+                  font-weight="600"
+                >
+                  &lt;header&gt;
+                </text>
+              </g>
+              <!-- Nav dentro de header -->
+              <rect
+                x="25"
+                y="25"
+                width="350"
+                height="22"
+                rx="4"
+                fill="#3B82F6"
+                opacity="0.15"
+                stroke="#3B82F6"
+                stroke-width="1.5"
+              />
+              <text
+                x="200"
+                y="41"
+                text-anchor="middle"
+                font-size="9"
+                fill="#3B82F6"
+                font-family="monospace"
+                opacity="0.8"
+              >
+                &lt;nav&gt;
+              </text>
+              <!-- Main -->
+              <rect
+                x="10"
+                y="70"
+                width="280"
+                height="190"
+                rx="6"
+                fill="#10B981"
+                opacity="0.15"
+                stroke="#10B981"
+                stroke-width="2"
+              />
+              <text
+                x="150"
+                y="90"
+                text-anchor="middle"
+                font-size="13"
+                fill="#10B981"
+                font-family="monospace"
+                font-weight="600"
+              >
+                &lt;main&gt;
+              </text>
+              <!-- Article -->
+              <rect
+                x="25"
+                y="100"
+                width="250"
+                height="55"
+                rx="4"
+                fill="#F59E0B"
+                opacity="0.15"
+                stroke="#F59E0B"
+                stroke-width="1.5"
+              />
+              <text
+                x="150"
+                y="132"
+                text-anchor="middle"
+                font-size="11"
+                fill="#F59E0B"
+                font-family="monospace"
+              >
+                &lt;article&gt;
+              </text>
+              <!-- Section -->
+              <rect
+                x="25"
+                y="165"
+                width="250"
+                height="55"
+                rx="4"
+                fill="#EAB308"
+                opacity="0.15"
+                stroke="#EAB308"
+                stroke-width="1.5"
+              />
+              <text
+                x="150"
+                y="197"
+                text-anchor="middle"
+                font-size="11"
+                fill="#EAB308"
+                font-family="monospace"
+              >
+                &lt;section&gt;
+              </text>
+              <!-- Aside -->
+              <rect
+                x="300"
+                y="70"
+                width="90"
+                height="190"
+                rx="6"
+                fill="#8B5CF6"
+                opacity="0.15"
+                stroke="#8B5CF6"
+                stroke-width="2"
+              />
+              <text
+                x="345"
+                y="170"
+                text-anchor="middle"
+                font-size="13"
+                fill="#8B5CF6"
+                font-family="monospace"
+                font-weight="600"
+              >
+                &lt;aside&gt;
+              </text>
+              <!-- Footer -->
+              <rect
+                x="10"
+                y="270"
+                width="380"
+                height="40"
+                rx="6"
+                fill="#64748B"
+                opacity="0.15"
+                stroke="#64748B"
+                stroke-width="2"
+              />
+              <text
+                x="200"
+                y="295"
+                text-anchor="middle"
+                font-size="13"
+                fill="#64748B"
+                font-family="monospace"
+                font-weight="600"
+              >
+                &lt;footer&gt;
+              </text>
+              <!-- Botones transparentes para interactividad -->
+            </svg>
+            <div class="semantic-map__buttons">
+              <button class="semantic-map__btn" data-zone="header">
+                header
+              </button>
+              <button class="semantic-map__btn" data-zone="nav">nav</button>
+              <button class="semantic-map__btn" data-zone="main">main</button>
+              <button class="semantic-map__btn" data-zone="article">
+                article
+              </button>
+              <button class="semantic-map__btn" data-zone="section">
+                section
+              </button>
+              <button class="semantic-map__btn" data-zone="aside">aside</button>
+              <button class="semantic-map__btn" data-zone="footer">
+                footer
+              </button>
+            </div>
+            <div class="semantic-map__info" aria-live="polite" hidden>
+              <p class="semantic-map__info-tag"></p>
+              <p class="semantic-map__info-desc"></p>
+              <p class="semantic-map__info-example"></p>
+            </div>
+          </div>
+
+          <!-- 4.4 Tres razones -->
+          <h3 class="mt-4 mb-3">Tres razones para usar semantica</h3>
+          <div class="grid grid-3">
+            <div class="card reason-card">
+              <svg
+                class="reason-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Persona con auriculares"
+              >
+                <circle
+                  cx="20"
+                  cy="14"
+                  r="7"
+                  fill="#F97316"
+                  opacity="0.2"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M8 32 Q8 22 20 22 Q32 22 32 32"
+                  fill="#F97316"
+                  opacity="0.2"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M8 14 Q8 8 12 8"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M32 14 Q32 8 28 8"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="reason-card__title">Accesibilidad</p>
+              <p class="reason-card__text">
+                Los lectores de pantalla pueden decir "Estas en la navegacion" o
+                "Esto es el footer".
+              </p>
+            </div>
+            <div class="card reason-card">
+              <svg
+                class="reason-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Lupa"
+              >
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="10"
+                  fill="#F97316"
+                  opacity="0.2"
+                  stroke="#F97316"
+                  stroke-width="2"
+                />
+                <line
+                  x1="26"
+                  y1="26"
+                  x2="36"
+                  y2="36"
+                  stroke="#F97316"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="reason-card__title">SEO</p>
+              <p class="reason-card__text">
+                Google entiende mejor tu pagina. Sabe cual es el titulo, la
+                navegacion, el contenido.
+              </p>
+            </div>
+            <div class="card reason-card">
+              <svg
+                class="reason-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Llave inglesa"
+              >
+                <path
+                  d="M10 30 L24 16 Q28 12 32 16 Q36 20 32 24 L18 38 Z"
+                  fill="#F97316"
+                  opacity="0.2"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M30 10 L34 6 M34 6 L38 10 M34 6 L30 2"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="reason-card__title">Mantenimiento</p>
+              <p class="reason-card__text">
+                En 6 meses, <code>&lt;nav&gt;</code> se entiende mejor que
+                <code>&lt;div class="barra-de-arriba"&gt;</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4.5 Cuando SI usar div -->
+          <div class="callout callout-info mt-4">
+            <p>
+              El <code>&lt;div&gt;</code> no esta prohibido. Usalo cuando
+              necesitas agrupar cosas SOLO para estilos (CSS) y no hay un tag
+              semantico que corresponda. Es un contenedor generico, sin
+              significado.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 5: Atributos ===== -->
+      <section id="seccion-atributos" class="section" data-block="5">
+        <div class="container">
+          <span class="section__number">Bloque 5</span>
+          <h2 class="section__title">Atributos</h2>
+
+          <!-- 5.1 Analogia -->
+          <div class="callout callout-info">
+            <p>
+              Un tag HTML es como una prenda de ropa. El atributo es la etiqueta
+              cosida adentro: talle, material, instrucciones de lavado. No
+              cambia QUE es la prenda, pero agrega informacion importante.
+            </p>
+          </div>
+
+          <!-- 5.2 Sintaxis visual -->
+          <h3 class="mt-4 mb-3">Anatomia de un atributo</h3>
+          <svg
+            class="attribute-svg"
+            viewBox="0 0 650 160"
+            role="img"
+            aria-label="Diagrama: anatomia de un atributo HTML"
+          >
+            <text
+              x="325"
+              y="35"
+              text-anchor="middle"
+              font-size="16"
+              font-family="monospace"
+              fill="#1E293B"
+            >
+              <tspan fill="#F97316">&lt;img</tspan>
+              <tspan fill="#3B82F6">src</tspan>
+              =
+              <tspan fill="#10B981">"foto.jpg"</tspan>
+              <tspan fill="#3B82F6">alt</tspan>
+              =
+              <tspan fill="#10B981">"Mi foto"</tspan>
+              <tspan fill="#F97316">&gt;</tspan>
+            </text>
+            <!-- Labels -->
+            <line
+              x1="115"
+              y1="48"
+              x2="115"
+              y2="62"
+              stroke="#F97316"
+              stroke-width="1.5"
+            />
+            <text
+              x="115"
+              y="78"
+              text-anchor="middle"
+              font-size="10"
+              fill="#F97316"
+              font-weight="600"
+            >
+              Nombre del tag
+            </text>
+
+            <line
+              x1="200"
+              y1="48"
+              x2="200"
+              y2="62"
+              stroke="#3B82F6"
+              stroke-width="1.5"
+            />
+            <text
+              x="200"
+              y="78"
+              text-anchor="middle"
+              font-size="10"
+              fill="#3B82F6"
+              font-weight="600"
+            >
+              Nombre del atributo
+            </text>
+
+            <line
+              x1="310"
+              y1="48"
+              x2="310"
+              y2="62"
+              stroke="#10B981"
+              stroke-width="1.5"
+            />
+            <text
+              x="310"
+              y="78"
+              text-anchor="middle"
+              font-size="10"
+              fill="#10B981"
+              font-weight="600"
+            >
+              Valor del atributo
+            </text>
+
+            <line
+              x1="430"
+              y1="48"
+              x2="430"
+              y2="62"
+              stroke="#3B82F6"
+              stroke-width="1.5"
+            />
+            <text
+              x="430"
+              y="78"
+              text-anchor="middle"
+              font-size="10"
+              fill="#3B82F6"
+              font-weight="600"
+            >
+              Otro atributo
+            </text>
+
+            <line
+              x1="530"
+              y1="48"
+              x2="530"
+              y2="62"
+              stroke="#10B981"
+              stroke-width="1.5"
+            />
+            <text
+              x="530"
+              y="78"
+              text-anchor="middle"
+              font-size="10"
+              fill="#10B981"
+              font-weight="600"
+            >
+              Otro valor
+            </text>
+
+            <text
+              x="325"
+              y="110"
+              text-anchor="middle"
+              font-size="11"
+              fill="#64748B"
+            >
+              Los atributos siempre van en el tag de APERTURA. El valor va entre
+              comillas dobles.
+            </text>
+          </svg>
+
+          <!-- 5.3 Tabla de atributos comunes (INTERACTIVA) -->
+          <h3 class="mt-4 mb-3">Atributos comunes</h3>
+          <div
+            class="attr-table"
+            role="table"
+            aria-label="Tabla de atributos HTML comunes"
+          >
+            <div class="attr-table__header" role="row">
+              <span role="columnheader">Atributo</span>
+              <span role="columnheader">Donde se usa</span>
+              <span role="columnheader">Que hace</span>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="href"
+            >
+              <span class="attr-table__attr" role="cell">href</span>
+              <span class="attr-table__where" role="cell">&lt;a&gt;</span>
+              <span class="attr-table__what" role="cell"
+                >La URL a donde lleva el link</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code
+                  >&lt;a href="https://google.com"&gt;Ir a
+                  Google&lt;/a&gt;</code
+                >
+                <p>Puede ser una URL absoluta o relativa.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="src"
+            >
+              <span class="attr-table__attr" role="cell">src</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;img&gt;, &lt;script&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >La ruta del archivo (imagen, script)</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;img src="fotos/mi-gato.jpg"&gt;</code>
+                <p>Puede ser ruta relativa o absoluta.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="alt"
+            >
+              <span class="attr-table__attr" role="cell">alt</span>
+              <span class="attr-table__where" role="cell">&lt;img&gt;</span>
+              <span class="attr-table__what" role="cell"
+                >Texto alternativo (accesibilidad)</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code
+                  >&lt;img src="foto.jpg" alt="Gato negro durmiendo"&gt;</code
+                >
+                <p>OBLIGATORIO. Lo leen los lectores de pantalla.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="class"
+            >
+              <span class="attr-table__attr" role="cell">class</span>
+              <span class="attr-table__where" role="cell">Cualquier tag</span>
+              <span class="attr-table__what" role="cell"
+                >Asigna clases CSS para estilos</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;p class="destacado"&gt;Texto&lt;/p&gt;</code>
+                <p>Se puede repetir. Varios elementos con la misma clase.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="id"
+            >
+              <span class="attr-table__attr" role="cell">id</span>
+              <span class="attr-table__where" role="cell">Cualquier tag</span>
+              <span class="attr-table__what" role="cell"
+                >Identificador unico en la pagina</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;div id="contacto"&gt;...&lt;/div&gt;</code>
+                <p>UNICO. No repetir en la pagina.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="type"
+            >
+              <span class="attr-table__attr" role="cell">type</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;input&gt;, &lt;button&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >Tipo de input o boton</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;input type="email"&gt;</code>
+                <p>Cambia el comportamiento y el teclado en celulares.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="placeholder"
+            >
+              <span class="attr-table__attr" role="cell">placeholder</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;input&gt;, &lt;textarea&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >Texto gris de ejemplo</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;input placeholder="tu@email.com"&gt;</code>
+                <p>Desaparece cuando escribis. NO reemplaza al label.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="name"
+            >
+              <span class="attr-table__attr" role="cell">name</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;input&gt;, &lt;select&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >Nombre del campo para envio</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;input name="correo"&gt;</code>
+                <p>Sin name, el dato no se envia.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="required"
+            >
+              <span class="attr-table__attr" role="cell">required</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;input&gt;, &lt;select&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >Campo obligatorio</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;input required&gt;</code>
+                <p>Atributo booleano: no necesita valor.</p>
+              </div>
+            </div>
+            <div
+              class="attr-table__row"
+              role="row"
+              tabindex="0"
+              aria-expanded="false"
+              data-attr="disabled"
+            >
+              <span class="attr-table__attr" role="cell">disabled</span>
+              <span class="attr-table__where" role="cell"
+                >&lt;input&gt;, &lt;button&gt;</span
+              >
+              <span class="attr-table__what" role="cell"
+                >Desactiva el elemento</span
+              >
+              <div class="attr-table__detail" hidden>
+                <code>&lt;button disabled&gt;Enviar&lt;/button&gt;</code>
+                <p>El usuario no puede interactuar.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5.4 class vs id -->
+          <h3 class="mt-4 mb-3">class vs id</h3>
+          <div class="grid grid-2">
+            <div class="card class-vs-id-card class-vs-id-card--class">
+              <p class="class-vs-id-card__title">
+                <code>class</code> — Reutilizable
+              </p>
+              <svg
+                class="class-vs-id-card__icon"
+                viewBox="0 0 40 24"
+                role="img"
+                aria-label="Dos cuadrados iguales"
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="16"
+                  height="16"
+                  rx="3"
+                  fill="#3B82F6"
+                  opacity="0.2"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="22"
+                  y="2"
+                  width="16"
+                  height="16"
+                  rx="3"
+                  fill="#3B82F6"
+                  opacity="0.2"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p class="class-vs-id-card__text">
+                Se puede repetir. Varios elementos con la misma clase.
+              </p>
+              <div class="class-vs-id-card__example">
+                <code>&lt;p class="destacado"&gt;</code> y
+                <code>&lt;p class="destacado"&gt;</code> — Esto esta bien.
+              </div>
+              <p class="class-vs-id-card__use">
+                Uso principal: para estilos CSS compartidos.
+              </p>
+            </div>
+            <div class="card class-vs-id-card class-vs-id-card--id">
+              <p class="class-vs-id-card__title"><code>id</code> — Unico</p>
+              <svg
+                class="class-vs-id-card__icon"
+                viewBox="0 0 40 24"
+                role="img"
+                aria-label="Cuadrado con estrella"
+              >
+                <rect
+                  x="10"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="3"
+                  fill="#F97316"
+                  opacity="0.2"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="20"
+                  y="17"
+                  text-anchor="middle"
+                  font-size="14"
+                  fill="#F97316"
+                >
+                  *
+                </text>
+              </svg>
+              <p class="class-vs-id-card__text">
+                Solo un elemento puede tener un id determinado.
+              </p>
+              <div class="class-vs-id-card__example">
+                <code>&lt;div id="contacto"&gt;</code> — Si lo repetis, JS y CSS
+                se confunden.
+              </div>
+              <p class="class-vs-id-card__use">
+                Uso principal: para identificar UN elemento especifico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 6: Links e imagenes ===== -->
+      <section id="seccion-links" class="section" data-block="6">
+        <div class="container">
+          <span class="section__number">Bloque 6</span>
+          <h2 class="section__title">Links e imagenes</h2>
+
+          <!-- 6.1 Links -->
+          <h3 class="mb-3">Tres tipos de links</h3>
+          <div class="grid grid-3">
+            <div class="card link-type-card link-type-card--external">
+              <svg
+                class="link-type-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Globo terraqueo"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="16"
+                  fill="#EFF6FF"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+                <ellipse
+                  cx="20"
+                  cy="20"
+                  rx="10"
+                  ry="16"
+                  fill="none"
+                  stroke="#3B82F6"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+                <line
+                  x1="4"
+                  y1="20"
+                  x2="36"
+                  y2="20"
+                  stroke="#3B82F6"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+              </svg>
+              <p class="link-type-card__label">URL absoluta</p>
+              <code class="link-type-card__code"
+                >&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code
+              >
+              <p class="link-type-card__note">
+                Direccion completa. Para cosas de OTROS sitios.
+              </p>
+            </div>
+            <div class="card link-type-card link-type-card--internal">
+              <svg
+                class="link-type-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Carpeta"
+              >
+                <rect
+                  x="4"
+                  y="14"
+                  width="32"
+                  height="22"
+                  rx="3"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M4 14 L4 10 Q4 8 6 8 L16 8 L20 12 L4 12"
+                  fill="#10B981"
+                  opacity="0.3"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <p class="link-type-card__label">Ruta relativa</p>
+              <code class="link-type-card__code"
+                >&lt;a href="contacto.html"&gt;Contacto&lt;/a&gt;</code
+              >
+              <p class="link-type-card__note">
+                Relativa a donde estas. Para cosas de TU sitio.
+              </p>
+            </div>
+            <div class="card link-type-card link-type-card--anchor">
+              <svg
+                class="link-type-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Ancla"
+              >
+                <circle
+                  cx="20"
+                  cy="12"
+                  r="5"
+                  fill="#F5F3FF"
+                  stroke="#8B5CF6"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="20"
+                  y1="17"
+                  x2="20"
+                  y2="32"
+                  stroke="#8B5CF6"
+                  stroke-width="2"
+                />
+                <path
+                  d="M12 26 Q12 32 20 32 Q28 32 28 26"
+                  fill="none"
+                  stroke="#8B5CF6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="16"
+                  y1="22"
+                  x2="24"
+                  y2="22"
+                  stroke="#8B5CF6"
+                  stroke-width="2"
+                />
+              </svg>
+              <p class="link-type-card__label">Ancla</p>
+              <code class="link-type-card__code"
+                >&lt;a href="#formulario"&gt;Ir al formulario&lt;/a&gt;</code
+              >
+              <p class="link-type-card__note">
+                Salta a un elemento con ese id en la misma pagina.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6.2 Rutas relativas vs absolutas -->
+          <h3 class="mt-4 mb-3">Dar indicaciones</h3>
+          <div class="grid grid-2">
+            <div class="card route-card route-card--absolute">
+              <svg
+                class="route-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Mapa con pin"
+              >
+                <rect
+                  x="4"
+                  y="4"
+                  width="32"
+                  height="32"
+                  rx="4"
+                  fill="#EFF6FF"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M20 10 Q26 10 26 16 Q26 22 20 28 Q14 22 14 16 Q14 10 20 10"
+                  fill="#3B82F6"
+                  opacity="0.3"
+                  stroke="#3B82F6"
+                  stroke-width="1.5"
+                />
+                <circle cx="20" cy="16" r="3" fill="#3B82F6" />
+              </svg>
+              <p class="route-card__text">Av. Corrientes 1234, Buenos Aires</p>
+              <p class="route-card__label">Funciona desde cualquier lugar</p>
+            </div>
+            <div class="card route-card route-card--relative">
+              <svg
+                class="route-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Persona senalando"
+              >
+                <circle
+                  cx="20"
+                  cy="12"
+                  r="6"
+                  fill="#10B981"
+                  opacity="0.3"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M14 22 Q14 34 20 34 Q26 34 26 22"
+                  fill="#10B981"
+                  opacity="0.2"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="28"
+                  y1="24"
+                  x2="36"
+                  y2="20"
+                  stroke="#10B981"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="route-card__text">La puerta de al lado</p>
+              <p class="route-card__label">
+                Solo funciona si sabes donde estoy yo
+              </p>
+            </div>
+          </div>
+
+          <div class="callout mt-4">
+            <p>
+              Para cosas de tu sitio → ruta relativa (mas portable). Para cosas
+              de otros sitios → ruta absoluta.
+            </p>
+          </div>
+
+          <!-- 6.3 Imagenes y alt text -->
+          <h3 class="mt-4 mb-3">Imagenes</h3>
+          <div class="code-block">
+            <div class="code-block__header">
+              <span class="code-block__filename">imagen.html</span>
+              <button
+                class="code-block__copy btn btn-sm btn-secondary"
+                aria-label="Copiar codigo"
+              >
+                Copiar
+              </button>
+            </div>
+            <pre
+              class="code-block__pre"
+            ><code><span class="token-tag">&lt;img</span> <span class="token-attr">src</span>=<span class="token-value">"fotos/mi-gato.jpg"</span> <span class="token-attr">alt</span>=<span class="token-value">"Gato negro durmiendo en el sillon"</span> <span class="token-tag">/&gt;</span></code></pre>
+          </div>
+          <p class="text-secondary mt-2">
+            <code>src</code> es la ruta de la imagen. <code>alt</code> es lo que
+            se muestra si no carga y lo que leen los lectores de pantalla.
+          </p>
+
+          <!-- 6.4 Visualizador de alt text (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Que pasa cuando la imagen no carga</h3>
+          <div class="alt-demo">
+            <div class="alt-demo__container">
+              <!-- Estado: imagen cargada -->
+              <div
+                class="alt-demo__state alt-demo__state--loaded alt-demo__state--active"
+              >
+                <div class="alt-demo__image">
+                  <svg
+                    viewBox="0 0 400 250"
+                    role="img"
+                    aria-label="Paisaje con montanas y lago"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="400"
+                      height="250"
+                      rx="8"
+                      fill="#87CEEB"
+                    />
+                    <polygon points="60,250 160,100 260,250" fill="#228B22" />
+                    <polygon points="180,250 300,80 400,250" fill="#2E8B57" />
+                    <polygon
+                      points="240,250 340,120 400,200 400,250"
+                      fill="#3CB371"
+                    />
+                    <circle cx="320" cy="60" r="30" fill="#FFD700" />
+                    <ellipse
+                      cx="200"
+                      cy="230"
+                      rx="180"
+                      ry="30"
+                      fill="#4682B4"
+                      opacity="0.7"
+                    />
+                    <polygon
+                      points="100,250 200,130 300,250"
+                      fill="#556B2F"
+                      opacity="0.3"
+                    />
+                  </svg>
+                </div>
+                <p class="alt-demo__label">Todo bien. La imagen se ve.</p>
+                <button
+                  class="btn btn-sm btn-secondary alt-demo__btn"
+                  data-alt-action="break"
+                >
+                  Romper la imagen
+                </button>
+              </div>
+              <!-- Estado: imagen rota -->
+              <div class="alt-demo__state alt-demo__state--broken">
+                <div class="alt-demo__image alt-demo__image--broken">
+                  <svg
+                    viewBox="0 0 400 250"
+                    role="img"
+                    aria-label="Icono de imagen rota"
+                  >
+                    <rect
+                      x="0"
+                      y="0"
+                      width="400"
+                      height="250"
+                      rx="8"
+                      fill="#F8FAFC"
+                      stroke="#E2E8F0"
+                      stroke-width="2"
+                    />
+                    <rect
+                      x="150"
+                      y="60"
+                      width="100"
+                      height="80"
+                      rx="4"
+                      fill="#E2E8F0"
+                    />
+                    <path
+                      d="M160 130 L190 100 L210 115 L240 90 L250 130 Z"
+                      fill="#CBD5E1"
+                    />
+                    <circle cx="180" cy="85" r="8" fill="#CBD5E1" />
+                    <line
+                      x1="170"
+                      y1="155"
+                      x2="230"
+                      y2="155"
+                      stroke="#CBD5E1"
+                      stroke-width="2"
+                    />
+                    <line
+                      x1="180"
+                      y1="170"
+                      x2="220"
+                      y2="170"
+                      stroke="#CBD5E1"
+                      stroke-width="2"
+                    />
+                  </svg>
+                  <p class="alt-demo__alt-text">
+                    Atardecer en las montanas con un lago en primer plano
+                  </p>
+                </div>
+                <p class="alt-demo__label alt-demo__label--broken">
+                  La imagen no cargo. El alt describe lo que deberia verse.
+                </p>
+                <button
+                  class="btn btn-sm btn-secondary alt-demo__btn"
+                  data-alt-action="fix"
+                >
+                  Reparar la imagen
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6.5 Tabla de buen alt vs mal alt -->
+          <h3 class="mt-4 mb-3">Buen alt vs mal alt</h3>
+          <div class="alt-comparison">
+            <div class="alt-comparison__row alt-comparison__row--header">
+              <span>Tipo de imagen</span>
+              <span>Mal alt</span>
+              <span>Buen alt</span>
+            </div>
+            <div class="alt-comparison__row">
+              <span>Foto de paisaje</span>
+              <span class="alt-comparison__bad"><code>alt="foto"</code></span>
+              <span class="alt-comparison__good"
+                ><code
+                  >alt="Atardecer en las montanas con lago en primer
+                  plano"</code
+                ></span
+              >
+            </div>
+            <div class="alt-comparison__row">
+              <span>Logo de empresa</span>
+              <span class="alt-comparison__bad"><code>alt="logo"</code></span>
+              <span class="alt-comparison__good"
+                ><code>alt="Logo de MercadoLibre"</code></span
+              >
+            </div>
+            <div class="alt-comparison__row">
+              <span>Icono decorativo</span>
+              <span class="alt-comparison__bad"><code>alt="icono"</code></span>
+              <span class="alt-comparison__good"
+                ><code>alt=""</code> (vacio — es decorativo)</span
+              >
+            </div>
+            <div class="alt-comparison__row">
+              <span>Grafico de datos</span>
+              <span class="alt-comparison__bad"
+                ><code>alt="grafico"</code></span
+              >
+              <span class="alt-comparison__good"
+                ><code
+                  >alt="Ventas mensuales: enero 100, febrero 150, marzo
+                  200"</code
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 7: Formularios ===== -->
+      <section id="seccion-formularios" class="section" data-block="7">
+        <div class="container">
+          <span class="section__number">Bloque 7</span>
+          <h2 class="section__title">Formularios</h2>
+
+          <!-- 7.1 Intro -->
+          <p class="mb-4">
+            Cada vez que te registras, te logueas, buscas algo o compras online,
+            estas usando un formulario HTML. Son la parte mas interactiva de la
+            web.
+          </p>
+
+          <!-- 7.2 Estructura basica -->
+          <h3 class="mb-3">Estructura basica del formulario</h3>
+          <div class="code-block">
+            <div class="code-block__header">
+              <span class="code-block__filename">formulario.html</span>
+              <button
+                class="code-block__copy btn btn-sm btn-secondary"
+                aria-label="Copiar codigo"
+              >
+                Copiar
+              </button>
+            </div>
+            <pre
+              class="code-block__pre"
+            ><code><span class="token-tag">&lt;form&gt;</span>                                    <span class="token-comment">&lt;!-- Agrupa todos los campos --&gt;</span>
+  <span class="token-tag">&lt;label</span> <span class="token-attr">for</span>=<span class="token-value">"nombre"</span><span class="token-tag">&gt;</span><span class="token-text">Nombre:</span><span class="token-tag">&lt;/label&gt;</span>    <span class="token-comment">&lt;!-- Etiqueta del campo --&gt;</span>
+  <span class="token-tag">&lt;input</span> <span class="token-attr">type</span>=<span class="token-value">"text"</span> <span class="token-attr">id</span>=<span class="token-value">"nombre"</span>          <span class="token-comment">&lt;!-- El campo --&gt;</span>
+         <span class="token-attr">name</span>=<span class="token-value">"nombre"</span><span class="token-tag">&gt;</span>
+  <span class="token-tag">&lt;button</span> <span class="token-attr">type</span>=<span class="token-value">"submit"</span><span class="token-tag">&gt;</span><span class="token-text">Enviar</span><span class="token-tag">&lt;/button&gt;</span>   <span class="token-comment">&lt;!-- Boton de envio --&gt;</span>
+<span class="token-tag">&lt;/form&gt;</span></code></pre>
+          </div>
+
+          <div class="callout callout-info mt-4">
+            <p>
+              El <code>for</code> del label y el <code>id</code> del input
+              tienen que coincidir. Asi el lector de pantalla sabe que "Nombre"
+              es la etiqueta de ese campo. Ademas, si haces click en el texto
+              "Nombre", el cursor salta al campo.
+            </p>
+          </div>
+
+          <!-- 7.3 Demo de tipos de input (INTERACTIVO) -->
+          <h3 class="mt-4 mb-3">Cambia el tipo y mira que pasa</h3>
+          <div class="input-demo">
+            <div class="input-demo__types">
+              <button
+                class="input-demo__type input-demo__type--active"
+                data-input-type="text"
+              >
+                text
+              </button>
+              <button class="input-demo__type" data-input-type="email">
+                email
+              </button>
+              <button class="input-demo__type" data-input-type="password">
+                password
+              </button>
+              <button class="input-demo__type" data-input-type="number">
+                number
+              </button>
+              <button class="input-demo__type" data-input-type="date">
+                date
+              </button>
+              <button class="input-demo__type" data-input-type="tel">
+                tel
+              </button>
+              <button class="input-demo__type" data-input-type="url">
+                url
+              </button>
+              <button class="input-demo__type" data-input-type="checkbox">
+                checkbox
+              </button>
+              <button class="input-demo__type" data-input-type="radio">
+                radio
+              </button>
+            </div>
+            <div class="input-demo__area">
+              <label class="input-demo__label" for="input-demo-field"
+                >Tu campo de prueba:</label
+              >
+              <div class="input-demo__field-wrap">
+                <input
+                  type="text"
+                  id="input-demo-field"
+                  class="input-demo__input"
+                />
+              </div>
+              <p class="input-demo__explanation">
+                Campo de texto comun. El tipo por defecto.
+              </p>
+              <div class="input-demo__code">
+                <code>&lt;input type="text"&gt;</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7.4 Playground HTML #2 -->
+          <h3 class="mt-4 mb-3">Arma tu propio formulario</h3>
+          <p class="mb-3 text-secondary">
+            Proba agregar campos, cambiar types, poner required.
+          </p>
+          <div
+            class="playground"
+            data-playground="2"
+            data-default-code="playground-2-default"
+          >
+            <div class="playground__header">
+              <div class="playground__dots">
+                <span class="playground__dot playground__dot--red"></span>
+                <span class="playground__dot playground__dot--yellow"></span>
+                <span class="playground__dot playground__dot--green"></span>
+              </div>
+              <div class="playground__tabs" role="tablist">
+                <button
+                  class="playground__tab playground__tab--active"
+                  role="tab"
+                  aria-selected="true"
+                  data-playground-tab="editor"
+                >
+                  HTML
+                </button>
+                <button
+                  class="playground__tab"
+                  role="tab"
+                  aria-selected="false"
+                  data-playground-tab="preview"
+                >
+                  Resultado
+                </button>
+              </div>
+              <div class="playground__actions">
+                <button
+                  class="btn btn-sm btn-secondary playground__btn-reset"
+                  aria-label="Reiniciar codigo"
+                >
+                  Reiniciar
+                </button>
+                <button
+                  class="btn btn-sm btn-secondary playground__btn-copy"
+                  aria-label="Copiar codigo"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="playground__body">
+              <div class="playground__editor-wrap" role="tabpanel">
+                <div class="playground__line-numbers" aria-hidden="true"></div>
+                <div class="playground__editor-container">
+                  <pre
+                    class="playground__highlight"
+                    aria-hidden="true"
+                  ><code></code></pre>
+                  <textarea
+                    class="playground__textarea"
+                    aria-label="Editor de codigo HTML"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="playground__divider" aria-hidden="true">
+                <div class="playground__divider-handle"></div>
+              </div>
+              <div class="playground__preview-wrap" role="tabpanel">
+                <span class="playground__preview-label">Vista previa</span>
+                <iframe
+                  class="playground__iframe"
+                  title="Vista previa del HTML"
+                  sandbox=""
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <template id="playground-2-default"
+            ><form>
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="asunto">Asunto:</label>
+              <select id="asunto" name="asunto">
+                <option value="">Elegir...</option>
+                <option value="consulta">Consulta</option>
+                <option value="reclamo">Reclamo</option>
+              </select>
+
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+
+              <button type="submit">Enviar</button>
+            </form></template
+          >
+
+          <!-- 7.5 Errores comunes -->
+          <h3 class="mt-4 mb-3">Errores comunes con formularios</h3>
+          <div class="grid grid-3">
+            <div class="card form-error-card form-error-card--red">
+              <svg
+                class="form-error-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Error"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#FEF2F2"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                />
+                <line
+                  x1="10"
+                  y1="10"
+                  x2="22"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="22"
+                  y1="10"
+                  x2="10"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="form-error-card__error">
+                No usar <code>&lt;label&gt;</code> o no conectar con
+                <code>for</code>
+              </p>
+              <p class="form-error-card__consequence">
+                El lector de pantalla dice "campo de texto" sin saber que campo
+                es.
+              </p>
+            </div>
+            <div class="card form-error-card form-error-card--amber">
+              <svg
+                class="form-error-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Advertencia"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#FFFBEB"
+                  stroke="#F59E0B"
+                  stroke-width="2"
+                />
+                <text
+                  x="16"
+                  y="22"
+                  text-anchor="middle"
+                  font-size="18"
+                  font-weight="700"
+                  fill="#F59E0B"
+                >
+                  !
+                </text>
+              </svg>
+              <p class="form-error-card__error">
+                Usar placeholder en vez de label
+              </p>
+              <p class="form-error-card__consequence">
+                El placeholder desaparece al escribir. El usuario se olvida que
+                campo era.
+              </p>
+            </div>
+            <div class="card form-error-card form-error-card--red">
+              <svg
+                class="form-error-card__icon"
+                viewBox="0 0 32 32"
+                role="img"
+                aria-label="Error"
+              >
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="14"
+                  fill="#FEF2F2"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                />
+                <line
+                  x1="10"
+                  y1="10"
+                  x2="22"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="22"
+                  y1="10"
+                  x2="10"
+                  y2="22"
+                  stroke="#EF4444"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p class="form-error-card__error">
+                No poner <code>name</code> en los inputs
+              </p>
+              <p class="form-error-card__consequence">
+                Sin name, el dato no se envia al submitear.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 8: Comentarios en HTML ===== -->
+      <section id="seccion-comentarios" class="section" data-block="8">
+        <div class="container">
+          <span class="section__number">Bloque 8</span>
+          <h2 class="section__title">Comentarios en HTML</h2>
+
+          <!-- 8.1 Sintaxis -->
+          <div class="code-block">
+            <div class="code-block__header">
+              <span class="code-block__filename">comentarios.html</span>
+              <button
+                class="code-block__copy btn btn-sm btn-secondary"
+                aria-label="Copiar codigo"
+              >
+                Copiar
+              </button>
+            </div>
+            <pre
+              class="code-block__pre"
+            ><code><span class="token-comment">&lt;!-- Esto es un comentario. El usuario no lo ve. --&gt;</span>
+
+<span class="token-tag">&lt;h1&gt;</span><span class="token-text">Titulo visible</span><span class="token-tag">&lt;/h1&gt;</span>
+<span class="token-comment">&lt;!-- TODO: agregar subtitulo --&gt;</span>
+<span class="token-tag">&lt;p&gt;</span><span class="token-text">Parrafo visible</span><span class="token-tag">&lt;/p&gt;</span></code></pre>
+          </div>
+
+          <!-- 8.2 Cuando usar y cuando no -->
+          <h3 class="mt-4 mb-3">Cuando usar y cuando no</h3>
+          <div class="grid grid-2">
+            <div class="card comment-card comment-card--do">
+              <h4 class="comment-card__title">Cuando usar</h4>
+              <ul class="comment-card__list">
+                <li>Para explicar algo no obvio.</li>
+                <li>
+                  Para marcar secciones en archivos largos:
+                  <code>&lt;!-- Seccion contacto --&gt;</code>
+                </li>
+                <li>Para desactivar codigo temporalmente.</li>
+                <li>
+                  Para TODOs:
+                  <code>&lt;!-- TODO: agregar validacion --&gt;</code>
+                </li>
+              </ul>
+            </div>
+            <div class="card comment-card comment-card--dont">
+              <h4 class="comment-card__title">Cuando NO usar</h4>
+              <ul class="comment-card__list">
+                <li>
+                  Para explicar lo obvio:
+                  <code>&lt;!-- Este es el titulo --&gt;</code> arriba de un
+                  <code>&lt;h1&gt;</code>.
+                </li>
+                <li>Para dejar codigo muerto por meses.</li>
+                <li>
+                  Para poner datos privados (cualquiera puede ver el codigo
+                  fuente).
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8.3 Callout advertencia -->
+          <div class="callout callout-warning mt-4">
+            <p>
+              Los comentarios son invisibles en la PAGINA, pero cualquiera puede
+              verlos con click derecho > "Ver codigo fuente". Nunca pongas
+              contrasenas ni datos privados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOQUE 9: Cierre y proximos pasos ===== -->
+      <section id="seccion-cierre" class="section">
+        <div class="container">
+          <span class="section__number">Cierre</span>
+          <h2 class="section__title">Cierre y proximos pasos</h2>
+
+          <!-- 9.1 Resumen en 8 frases -->
+          <h3 class="mb-3">Resumen en 8 frases</h3>
+          <div class="summary-cards">
+            <div class="summary-card">
+              <span class="summary-card__number">1</span>
+              <p>
+                Todo HTML arranca con <code>&lt;!DOCTYPE html&gt;</code>,
+                <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>,
+                <code>&lt;body&gt;</code>.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">2</span>
+              <p>
+                Los tags se abren, tienen contenido, y se cierran. Los tags
+                vacios (como <code>&lt;img&gt;</code>) no tienen cierre.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">3</span>
+              <p>
+                Anidamiento: lo que se abre primero se cierra ultimo. Como
+                ponerte ropa.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">4</span>
+              <p>
+                Para texto: <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>,
+                <code>&lt;p&gt;</code>, <code>&lt;strong&gt;</code>,
+                <code>&lt;em&gt;</code>, <code>&lt;ul&gt;</code>/<code
+                  >&lt;ol&gt;</code
+                >
+                con <code>&lt;li&gt;</code>.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">5</span>
+              <p>
+                Los tags semanticos (<code>&lt;header&gt;</code>,
+                <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>,
+                <code>&lt;footer&gt;</code>) le dan significado a cada zona.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">6</span>
+              <p>
+                Los atributos agregan info extra: <code>nombre="valor"</code> en
+                el tag de apertura.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">7</span>
+              <p>
+                Links (<code>&lt;a href&gt;</code>) conectan paginas. Imagenes
+                (<code>&lt;img src alt&gt;</code>) muestran contenido visual.
+              </p>
+            </div>
+            <div class="summary-card">
+              <span class="summary-card__number">8</span>
+              <p>
+                Formularios (<code>&lt;form&gt;</code>,
+                <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>,
+                <code>&lt;button&gt;</code>) reciben datos del usuario.
+              </p>
+            </div>
+          </div>
+
+          <!-- 9.2 Tarea para la proxima clase -->
+          <h3 class="mt-4 mb-3">Tarea para la proxima clase</h3>
+          <div id="checklist-tarea-html" class="persistent-checklist">
+            <p class="persistent-checklist__progress">0/5 completadas</p>
+            <div class="persistent-checklist__bar">
+              <div class="persistent-checklist__bar-fill"></div>
+            </div>
+            <ul class="checklist">
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-html-cv"
+                />
+                <label class="checklist__label" for="tarea-html-cv"
+                  >Crear una pagina "Mi CV" con estructura HTML completa</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-html-semantic"
+                />
+                <label class="checklist__label" for="tarea-html-semantic"
+                  >Usar tags semanticos: <code>&lt;header&gt;</code>,
+                  <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>,
+                  <code>&lt;footer&gt;</code></label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-html-elements"
+                />
+                <label class="checklist__label" for="tarea-html-elements"
+                  >Incluir encabezados, parrafos, al menos una lista y una
+                  imagen</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-html-form"
+                />
+                <label class="checklist__label" for="tarea-html-form"
+                  >Armar un formulario de contacto con name, email, mensaje y
+                  boton</label
+                >
+              </li>
+              <li class="checklist__item">
+                <input
+                  type="checkbox"
+                  class="checklist__checkbox"
+                  id="tarea-html-validate"
+                />
+                <label class="checklist__label" for="tarea-html-validate"
+                  >Validar el HTML en validator.w3.org</label
+                >
+              </li>
+            </ul>
+            <div class="checklist__completion">
+              Genial! Estas listo/a para la proxima clase.
+            </div>
+          </div>
+
+          <!-- 9.3 Recursos -->
+          <h3 class="mt-4 mb-3">Recursos</h3>
+          <div class="resources-grid">
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono documentacion"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="13"
+                  y="12"
+                  width="14"
+                  height="18"
+                  rx="2"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="16"
+                  y1="17"
+                  x2="24"
+                  y2="17"
+                  stroke="#F97316"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="21"
+                  x2="24"
+                  y2="21"
+                  stroke="#F97316"
+                  stroke-width="1"
+                />
+                <line
+                  x1="16"
+                  y1="25"
+                  x2="22"
+                  y2="25"
+                  stroke="#F97316"
+                  stroke-width="1"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">MDN — Introduccion a HTML</p>
+                <p class="text-secondary">Tutorial base de Mozilla</p>
+              </div>
+            </a>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono estructura"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="12"
+                  y="10"
+                  width="16"
+                  height="4"
+                  rx="1"
+                  fill="#F97316"
+                  opacity="0.4"
+                />
+                <rect
+                  x="12"
+                  y="17"
+                  width="16"
+                  height="8"
+                  rx="1"
+                  fill="#F97316"
+                  opacity="0.3"
+                />
+                <rect
+                  x="12"
+                  y="28"
+                  width="16"
+                  height="4"
+                  rx="1"
+                  fill="#F97316"
+                  opacity="0.4"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">
+                  MDN — Estructura de documentos
+                </p>
+                <p class="text-secondary">Guia de tags semanticos</p>
+              </div>
+            </a>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono referencia"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="20"
+                  y="26"
+                  text-anchor="middle"
+                  font-size="14"
+                  font-weight="700"
+                  fill="#F97316"
+                >
+                  &lt;/&gt;
+                </text>
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">
+                  MDN — Referencia de elementos
+                </p>
+                <p class="text-secondary">Lista completa de tags</p>
+              </div>
+            </a>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono formularios"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="12"
+                  y="14"
+                  width="16"
+                  height="5"
+                  rx="2"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="12"
+                  y="22"
+                  width="16"
+                  height="5"
+                  rx="2"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="16"
+                  y="30"
+                  width="8"
+                  height="4"
+                  rx="2"
+                  fill="#F97316"
+                  opacity="0.4"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">MDN — Formularios web</p>
+                <p class="text-secondary">Controles de formulario</p>
+              </div>
+            </a>
+            <a
+              href="https://www.w3.org/WAI/tutorials/images/decision-tree/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono alt text"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#FFF7ED"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <rect
+                  x="11"
+                  y="13"
+                  width="18"
+                  height="14"
+                  rx="2"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1.5"
+                />
+                <circle cx="17" cy="19" r="2" fill="#F97316" opacity="0.4" />
+                <polyline
+                  points="14,25 19,20 23,23 27,18 29,22"
+                  fill="none"
+                  stroke="#F97316"
+                  stroke-width="1"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">
+                  W3C — Decision tree para alt text
+                </p>
+                <p class="text-secondary">
+                  Que poner en el alt segun la imagen
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://validator.w3.org/"
+              target="_blank"
+              rel="noopener"
+              class="resource-card"
+            >
+              <svg
+                class="resource-card__icon"
+                viewBox="0 0 40 40"
+                role="img"
+                aria-label="Icono validador"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="18"
+                  fill="#ECFDF5"
+                  stroke="#10B981"
+                  stroke-width="1.5"
+                />
+                <polyline
+                  points="14,20 18,24 26,16"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="resource-card__text">
+                <p class="resource-card__title">Validador HTML del W3C</p>
+                <p class="text-secondary">
+                  Verificar que tu HTML no tiene errores
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="clase-footer">
+      <nav aria-label="Navegacion entre clases">
+        <a href="02-git.html">&larr; Clase 2: Git</a>
+      </nav>
+      <p class="mt-2">Frontend desde Cero — Clase 3: Fundamentos de HTML</p>
+    </footer>
+
+    <script src="js/html.js"></script>
+  </body>
+</html>
