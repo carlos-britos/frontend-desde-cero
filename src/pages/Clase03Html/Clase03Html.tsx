@@ -936,36 +936,109 @@ export function Clase03Html() {
             <h3 className="mt-4 mb-3">Anatomia de un atributo</h3>
             <svg
               className="attribute-svg"
-              viewBox="0 0 650 160"
+              viewBox="0 0 650 180"
               role="img"
               aria-label="Diagrama: anatomia de un atributo HTML"
             >
+              {/* <img */}
               <text
-                x="325"
-                y="35"
+                x="100"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#F97316"
+              >
+                &lt;img
+              </text>
+              {/* src= */}
+              <text
+                x="175"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#3B82F6"
+              >
+                src
+              </text>
+              <text
+                x="203"
+                y="30"
                 textAnchor="middle"
                 fontSize="16"
                 fontFamily="monospace"
                 fill="#1E293B"
               >
-                <tspan fill="#F97316">&lt;img</tspan>{" "}
-                <tspan fill="#3B82F6">src</tspan>=
-                <tspan fill="#10B981">"foto.jpg"</tspan>{" "}
-                <tspan fill="#3B82F6">alt</tspan>=
-                <tspan fill="#10B981">"Mi foto"</tspan>
-                <tspan fill="#F97316">&gt;</tspan>
+                =
               </text>
+              {/* "foto.jpg" */}
+              <text
+                x="275"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#10B981"
+              >
+                "foto.jpg"
+              </text>
+              {/* alt= */}
+              <text
+                x="380"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#3B82F6"
+              >
+                alt
+              </text>
+              <text
+                x="408"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#1E293B"
+              >
+                =
+              </text>
+              {/* "Mi foto" */}
+              <text
+                x="480"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#10B981"
+              >
+                "Mi foto"
+              </text>
+              {/* > */}
+              <text
+                x="540"
+                y="30"
+                textAnchor="middle"
+                fontSize="16"
+                fontFamily="monospace"
+                fill="#F97316"
+              >
+                &gt;
+              </text>
+
+              {/* Nombre del tag -> <img */}
               <line
-                x1="115"
-                y1="48"
-                x2="115"
-                y2="62"
+                x1="100"
+                y1="42"
+                x2="100"
+                y2="70"
                 stroke="#F97316"
                 strokeWidth="1.5"
               />
               <text
-                x="115"
-                y="78"
+                x="100"
+                y="84"
                 textAnchor="middle"
                 fontSize="10"
                 fill="#F97316"
@@ -973,17 +1046,19 @@ export function Clase03Html() {
               >
                 Nombre del tag
               </text>
+
+              {/* Nombre del atributo -> src */}
               <line
-                x1="200"
-                y1="48"
-                x2="200"
-                y2="62"
+                x1="175"
+                y1="42"
+                x2="175"
+                y2="90"
                 stroke="#3B82F6"
                 strokeWidth="1.5"
               />
               <text
-                x="200"
-                y="78"
+                x="175"
+                y="104"
                 textAnchor="middle"
                 fontSize="10"
                 fill="#3B82F6"
@@ -991,17 +1066,19 @@ export function Clase03Html() {
               >
                 Nombre del atributo
               </text>
+
+              {/* Valor del atributo -> "foto.jpg" */}
               <line
-                x1="310"
-                y1="48"
-                x2="310"
-                y2="62"
+                x1="275"
+                y1="42"
+                x2="275"
+                y2="70"
                 stroke="#10B981"
                 strokeWidth="1.5"
               />
               <text
-                x="310"
-                y="78"
+                x="275"
+                y="84"
                 textAnchor="middle"
                 fontSize="10"
                 fill="#10B981"
@@ -1009,17 +1086,19 @@ export function Clase03Html() {
               >
                 Valor del atributo
               </text>
+
+              {/* Otro atributo -> alt */}
               <line
-                x1="430"
-                y1="48"
-                x2="430"
-                y2="62"
+                x1="380"
+                y1="42"
+                x2="380"
+                y2="90"
                 stroke="#3B82F6"
                 strokeWidth="1.5"
               />
               <text
-                x="430"
-                y="78"
+                x="380"
+                y="104"
                 textAnchor="middle"
                 fontSize="10"
                 fill="#3B82F6"
@@ -1027,17 +1106,19 @@ export function Clase03Html() {
               >
                 Otro atributo
               </text>
+
+              {/* Otro valor -> "Mi foto" */}
               <line
-                x1="530"
-                y1="48"
-                x2="530"
-                y2="62"
+                x1="480"
+                y1="42"
+                x2="480"
+                y2="70"
                 stroke="#10B981"
                 strokeWidth="1.5"
               />
               <text
-                x="530"
-                y="78"
+                x="480"
+                y="84"
                 textAnchor="middle"
                 fontSize="10"
                 fill="#10B981"
@@ -1045,9 +1126,10 @@ export function Clase03Html() {
               >
                 Otro valor
               </text>
+
               <text
                 x="325"
-                y="110"
+                y="140"
                 textAnchor="middle"
                 fontSize="11"
                 fill="#64748B"

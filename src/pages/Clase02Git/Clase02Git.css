@@ -992,7 +992,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--git-blue);
+  /* background: var(--git-blue); */
   color: #fff;
   display: flex;
   align-items: center;
