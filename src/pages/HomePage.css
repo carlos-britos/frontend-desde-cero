@@ -1,0 +1,143 @@
+/* Hero */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+  padding: 4rem 1.5rem;
+}
+
+.hero__content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero__badge {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.hero__accent {
+  color: var(--color-primary);
+}
+
+.hero__subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  font-size: 1.1rem;
+  padding: 0.9rem 2rem;
+}
+
+/* Clases section */
+.clases-section {
+  padding: 5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clases-section__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.clases-section__subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+}
+
+.clases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .clases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* About section */
+.about-section {
+  padding: 4rem 1.5rem;
+  background: #f1f5f9;
+}
+
+.about-section__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-item {
+  text-align: center;
+}
+
+.about-item__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.75rem;
+  background: var(--color-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-item__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.about-item__title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.about-item__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
