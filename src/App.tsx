@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { Clase01Introduccion } from "./pages/Clase01Introduccion/Clase01Introduccion";
 import { Clase02Git } from "./pages/Clase02Git/Clase02Git";
+import { Clase03Html } from "./pages/Clase03Html/Clase03Html";
 
 function App() {
   return (
@@ -15,10 +16,7 @@ function App() {
             element={<Clase01Introduccion />}
           />
           <Route path="clase/02-git" element={<Clase02Git />} />
-          <Route
-            path="clase/03-html"
-            element={<div>Clase 03 - En construcción</div>}
-          />
+          <Route path="clase/03-html" element={<Clase03Html />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
