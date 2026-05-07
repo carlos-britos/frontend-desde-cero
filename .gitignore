@@ -1,4 +1,24 @@
-
 # Symlinks al vault de Obsidian (local only)
 notas
 diario
+
+# Dependencies
+node_modules
+
+# Build
+dist
+dist-ssr
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?
