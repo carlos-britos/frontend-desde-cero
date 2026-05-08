@@ -8,6 +8,7 @@ import { ShortcutDetector } from "./ShortcutDetector";
 import { Inspector } from "./Inspector";
 import { TriadaDemo } from "./TriadaDemo";
 import { DragDropFrontBack } from "./DragDropFrontBack";
+import { MiniProject } from "./MiniProject";
 import "./Clase01Introduccion.css";
 
 export function Clase01Introduccion() {
@@ -46,6 +47,28 @@ export function Clase01Introduccion() {
             <circle className="connection-dot" cx="60" cy="100" r="3" />
             <circle className="connection-dot" cx="100" cy="90" r="3" />
             <circle className="connection-dot" cx="75" cy="60" r="3" />
+            <line className="connection-line" x1="45" y1="40" x2="75" y2="60" />
+            <line
+              className="connection-line"
+              x1="75"
+              y1="60"
+              x2="105"
+              y2="50"
+            />
+            <line
+              className="connection-line"
+              x1="60"
+              y1="100"
+              x2="100"
+              y2="90"
+            />
+            <line
+              className="connection-line"
+              x1="45"
+              y1="40"
+              x2="60"
+              y2="100"
+            />
           </svg>
           <h1>Clase 1: Cómo funciona esto</h1>
           <p className="clase-hero__subtitle">
@@ -71,6 +94,261 @@ export function Clase01Introduccion() {
                 esa información?
               </h2>
             </div>
+
+            <p className="mt-4 mb-3">
+              Para entender esto, pensá en{" "}
+              <strong>pedir comida por delivery</strong>. Vas a ver que funciona
+              casi igual: vos pedís, alguien busca la dirección, y te llega el
+              pedido. Con las páginas web pasa lo mismo.
+            </p>
+
+            <h3 className="mt-4 mb-3">Los conceptos clave</h3>
+            <div className="grid grid-3">
+              <div className="card concept-card concept-card--url">
+                <svg
+                  className="concept-card__icon"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  aria-label="Icono URL"
+                >
+                  <rect
+                    x="4"
+                    y="12"
+                    width="40"
+                    height="24"
+                    rx="4"
+                    fill="#EFF6FF"
+                    stroke="#3B82F6"
+                    strokeWidth="2"
+                  />
+                  <circle cx="12" cy="24" r="2" fill="#3B82F6" opacity="0.5" />
+                  <line
+                    x1="18"
+                    y1="24"
+                    x2="38"
+                    y2="24"
+                    stroke="#3B82F6"
+                    strokeWidth="2"
+                    opacity="0.4"
+                  />
+                </svg>
+                <p className="concept-card__name">URL</p>
+                <p className="concept-card__analogy">
+                  La dirección del restaurante
+                </p>
+                <p className="concept-card__desc">
+                  Lo que escribís en el navegador: youtube.com
+                </p>
+              </div>
+
+              <div className="card concept-card concept-card--dns">
+                <svg
+                  className="concept-card__icon"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  aria-label="Icono DNS"
+                >
+                  <rect
+                    x="10"
+                    y="6"
+                    width="28"
+                    height="36"
+                    rx="4"
+                    fill="#F5F3FF"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="16"
+                    y1="16"
+                    x2="32"
+                    y2="16"
+                    stroke="#8B5CF6"
+                    strokeWidth="1.5"
+                    opacity="0.4"
+                  />
+                  <line
+                    x1="16"
+                    y1="24"
+                    x2="30"
+                    y2="24"
+                    stroke="#8B5CF6"
+                    strokeWidth="1.5"
+                    opacity="0.4"
+                  />
+                  <line
+                    x1="16"
+                    y1="32"
+                    x2="28"
+                    y2="32"
+                    stroke="#8B5CF6"
+                    strokeWidth="1.5"
+                    opacity="0.4"
+                  />
+                </svg>
+                <p className="concept-card__name">DNS</p>
+                <p className="concept-card__analogy">La agenda de contactos</p>
+                <p className="concept-card__desc">
+                  Internet no entiende nombres. El DNS traduce
+                  &quot;youtube.com&quot; a un número que sí entiende (la IP).
+                </p>
+              </div>
+
+              <div className="card concept-card concept-card--ip">
+                <svg
+                  className="concept-card__icon"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  aria-label="Icono IP"
+                >
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="18"
+                    fill="#FFF7ED"
+                    stroke="#F97316"
+                    strokeWidth="2"
+                  />
+                  <text
+                    x="24"
+                    y="22"
+                    textAnchor="middle"
+                    fontSize="7"
+                    fontFamily="monospace"
+                    fontWeight="600"
+                    fill="#C2410C"
+                  >
+                    142.250
+                  </text>
+                  <text
+                    x="24"
+                    y="32"
+                    textAnchor="middle"
+                    fontSize="7"
+                    fontFamily="monospace"
+                    fontWeight="600"
+                    fill="#C2410C"
+                  >
+                    .185.46
+                  </text>
+                </svg>
+                <p className="concept-card__name">IP</p>
+                <p className="concept-card__analogy">El número de teléfono</p>
+                <p className="concept-card__desc">
+                  Cada computadora conectada a internet tiene un número único
+                  que la identifica.
+                </p>
+              </div>
+
+              <div className="card concept-card concept-card--servidor">
+                <svg
+                  className="concept-card__icon"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  aria-label="Icono servidor"
+                >
+                  <rect
+                    x="10"
+                    y="8"
+                    width="28"
+                    height="32"
+                    rx="4"
+                    fill="#ECFDF5"
+                    stroke="#10B981"
+                    strokeWidth="2"
+                  />
+                  <line
+                    x1="16"
+                    y1="18"
+                    x2="32"
+                    y2="18"
+                    stroke="#10B981"
+                    strokeWidth="1.5"
+                  />
+                  <line
+                    x1="16"
+                    y1="28"
+                    x2="32"
+                    y2="28"
+                    stroke="#10B981"
+                    strokeWidth="1.5"
+                  />
+                  <circle cx="30" cy="13" r="2" fill="#10B981" opacity="0.6" />
+                  <circle cx="30" cy="23" r="2" fill="#10B981" opacity="0.6" />
+                  <circle cx="30" cy="33" r="2" fill="#10B981" opacity="0.6" />
+                </svg>
+                <p className="concept-card__name">Servidor</p>
+                <p className="concept-card__analogy">
+                  La cocina del restaurante
+                </p>
+                <p className="concept-card__desc">
+                  Una computadora prendida 24/7 en algún lugar del mundo que
+                  guarda los archivos de la página.
+                </p>
+              </div>
+
+              <div className="card concept-card concept-card--archivos">
+                <svg
+                  className="concept-card__icon"
+                  viewBox="0 0 48 48"
+                  role="img"
+                  aria-label="Icono archivos web"
+                >
+                  <rect
+                    x="4"
+                    y="10"
+                    width="12"
+                    height="16"
+                    rx="2"
+                    fill="#FFF7ED"
+                    stroke="#F97316"
+                    strokeWidth="1.5"
+                  />
+                  <rect
+                    x="18"
+                    y="10"
+                    width="12"
+                    height="16"
+                    rx="2"
+                    fill="#F5F3FF"
+                    stroke="#8B5CF6"
+                    strokeWidth="1.5"
+                  />
+                  <rect
+                    x="32"
+                    y="10"
+                    width="12"
+                    height="16"
+                    rx="2"
+                    fill="#FEFCE8"
+                    stroke="#EAB308"
+                    strokeWidth="1.5"
+                  />
+                  <text
+                    x="24"
+                    y="40"
+                    textAnchor="middle"
+                    fontSize="6"
+                    fontWeight="600"
+                    fill="#64748B"
+                  >
+                    HTML + CSS + JS
+                  </text>
+                </svg>
+                <p className="concept-card__name">HTML, CSS, JS</p>
+                <p className="concept-card__analogy">El plato que te llega</p>
+                <p className="concept-card__desc">
+                  Los 3 archivos que arman la página: estructura, diseño e
+                  interactividad. Los vemos en detalle más adelante.
+                </p>
+              </div>
+            </div>
+
+            <h3 className="mt-4 mb-3">¿Cómo se conecta todo?</h3>
+            <p className="mb-3 text-secondary">
+              Ahora que sabés qué es cada cosa, mirá cómo se comunican paso a
+              paso:
+            </p>
 
             <DiagramInternet />
 
@@ -120,7 +398,7 @@ export function Clase01Introduccion() {
                   "Mi compu le está pidiendo archivos a un servidor que está en
                   algún lugar del mundo"
                 </em>
-                . Parece boludo, pero fija el concepto.
+                . Parece una pavada, pero fija el concepto.
               </p>
             </Callout>
           </div>
@@ -131,6 +409,29 @@ export function Clase01Introduccion() {
           <div className="container">
             <span className="section__number">Sección 2</span>
             <h2 className="section__title">Archivos, carpetas y extensiones</h2>
+
+            <p className="mt-4 mb-3">
+              Antes de escribir una sola línea de código, necesitás entender
+              cómo se organiza la información en tu computadora. Todo lo que
+              guardás — una foto, un documento de Word, una canción — es un{" "}
+              <strong>archivo</strong>. Y los archivos se guardan dentro de{" "}
+              <strong>carpetas</strong>, igual que los papeles en un cajón.
+            </p>
+
+            <p className="mb-3">
+              Cuando programás, vas a crear archivos con instrucciones que el
+              navegador puede leer. Pero no alcanza con escribir el código: si
+              los archivos no están bien organizados, el navegador no va a
+              encontrar lo que necesita. Es como darle la dirección equivocada
+              al delivery.
+            </p>
+
+            <h3 className="mt-4 mb-3">Tu proyecto es una carpeta</h3>
+            <p className="mb-3">
+              Un proyecto web no es "un archivo". Es una{" "}
+              <strong>carpeta que contiene varios archivos</strong>, cada uno
+              con una función específica. Mirá cómo se ve la estructura típica:
+            </p>
 
             <svg
               className="library-svg"
@@ -323,6 +624,33 @@ export function Clase01Introduccion() {
                 strokeDasharray="4,2"
               />
             </svg>
+
+            <Callout variant="info">
+              <p>
+                <strong>Regla de oro:</strong> nunca pongas un proyecto suelto
+                en el Escritorio. Siempre creá una carpeta dedicada. Cuando
+                tengas 10 proyectos sueltos sin carpeta, te vas a volver loco
+                buscando archivos.
+              </p>
+            </Callout>
+
+            <h3 className="mt-4 mb-3">¿Qué son las extensiones?</h3>
+            <p className="mb-3">
+              Cada archivo tiene un <strong>nombre</strong> y una{" "}
+              <strong>extensión</strong>. La extensión son esas letras que van
+              después del punto: en <code>foto.jpg</code>, la extensión es{" "}
+              <code>.jpg</code>. En <code>index.html</code>, es{" "}
+              <code>.html</code>.
+            </p>
+            <p className="mb-3">
+              La extensión le dice a la computadora{" "}
+              <strong>qué tipo de archivo es</strong> y{" "}
+              <strong>con qué programa abrirlo</strong>. Si le cambiás la
+              extensión a un archivo, la computadora va a intentar abrirlo con
+              otro programa y probablemente no funcione. Es como ponerle la
+              etiqueta de "azúcar" al frasco de sal: el frasco es el mismo, pero
+              el que lo agarra se va a confundir.
+            </p>
 
             <h3 className="mt-4 mb-3">Las extensiones más comunes</h3>
             <div className="grid grid-3">
@@ -533,7 +861,21 @@ export function Clase01Introduccion() {
             </div>
 
             <h3 className="mt-4 mb-3">Probá: cambiá la extensión</h3>
+            <p className="mb-3 text-secondary">
+              Usá el simulador para ver qué pasa cuando le cambiás la extensión
+              a un archivo. Fijate cómo cambia el ícono y el programa que lo
+              abre.
+            </p>
             <ExtensionSimulator />
+
+            <p className="mt-3 mb-3">
+              En la web, las tres extensiones que más vas a usar son{" "}
+              <code>.html</code>, <code>.css</code> y <code>.js</code>. Si creás
+              un archivo con la extensión equivocada (por ejemplo,{" "}
+              <code>estilos.html</code> en vez de <code>estilos.css</code>), el
+              navegador no va a saber que ahí hay estilos y tu página va a
+              quedar sin diseño.
+            </p>
 
             <Callout variant="warning">
               <p>
@@ -987,223 +1329,56 @@ export function Clase01Introduccion() {
             <span className="section__number">Sección 5</span>
             <h2 className="section__title">Frontend vs Backend</h2>
 
-            <svg
-              className="restaurant-svg"
-              viewBox="0 0 700 300"
+            <div
+              className="restaurant-diagram"
               role="img"
               aria-label="Diagrama de restaurante: frontend es lo que el cliente ve, backend es la cocina"
             >
-              <rect
-                x="10"
-                y="10"
-                width="330"
-                height="280"
-                rx="12"
-                fill="#EFF6FF"
-                stroke="#3B82F6"
-                strokeWidth="2"
-              />
-              <text
-                x="175"
-                y="40"
-                textAnchor="middle"
-                fontSize="16"
-                fontWeight="700"
-                fill="#1E40AF"
-              >
-                Frontend
-              </text>
-              <text
-                x="175"
-                y="60"
-                textAnchor="middle"
-                fontSize="11"
-                fill="#3B82F6"
-              >
-                Lo que el cliente ve y toca
-              </text>
-              <circle
-                cx="80"
-                cy="120"
-                r="25"
-                fill="#DBEAFE"
-                stroke="#93C5FD"
-                strokeWidth="1"
-              />
-              <circle
-                cx="180"
-                cy="150"
-                r="25"
-                fill="#DBEAFE"
-                stroke="#93C5FD"
-                strokeWidth="1"
-              />
-              <circle
-                cx="280"
-                cy="120"
-                r="25"
-                fill="#DBEAFE"
-                stroke="#93C5FD"
-                strokeWidth="1"
-              />
-              <rect
-                x="60"
-                y="200"
-                width="50"
-                height="60"
-                rx="4"
-                fill="#fff"
-                stroke="#93C5FD"
-                strokeWidth="1"
-              />
-              <line
-                x1="68"
-                y1="215"
-                x2="102"
-                y2="215"
-                stroke="#CBD5E1"
-                strokeWidth="1"
-              />
-              <line
-                x1="68"
-                y1="225"
-                x2="95"
-                y2="225"
-                stroke="#CBD5E1"
-                strokeWidth="1"
-              />
-              <line
-                x1="68"
-                y1="235"
-                x2="100"
-                y2="235"
-                stroke="#CBD5E1"
-                strokeWidth="1"
-              />
-              <line
-                x1="350"
-                y1="20"
-                x2="350"
-                y2="280"
-                stroke="#64748B"
-                strokeWidth="2"
-                strokeDasharray="8,4"
-              />
-              <text
-                x="350"
-                y="295"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#64748B"
-              >
-                El cliente no pasa de acá
-              </text>
-              <rect
-                x="360"
-                y="10"
-                width="330"
-                height="280"
-                rx="12"
-                fill="#ECFDF5"
-                stroke="#10B981"
-                strokeWidth="2"
-              />
-              <text
-                x="525"
-                y="40"
-                textAnchor="middle"
-                fontSize="16"
-                fontWeight="700"
-                fill="#065F46"
-              >
-                Backend
-              </text>
-              <text
-                x="525"
-                y="60"
-                textAnchor="middle"
-                fontSize="11"
-                fill="#10B981"
-              >
-                Lo que pasa en la cocina
-              </text>
-              <rect
-                x="400"
-                y="90"
-                width="80"
-                height="60"
-                rx="6"
-                fill="#D1FAE5"
-                stroke="#6EE7B7"
-                strokeWidth="1"
-              />
-              <text
-                x="440"
-                y="125"
-                textAnchor="middle"
-                fontSize="10"
-                fill="#065F46"
-              >
-                Cocina
-              </text>
-              <rect
-                x="520"
-                y="90"
-                width="50"
-                height="70"
-                rx="4"
-                fill="#D1FAE5"
-                stroke="#6EE7B7"
-                strokeWidth="1"
-              />
-              <text
-                x="545"
-                y="130"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#065F46"
-              >
-                ❄️
-              </text>
-              <rect
-                x="400"
-                y="180"
-                width="70"
-                height="50"
-                rx="4"
-                fill="#D1FAE5"
-                stroke="#6EE7B7"
-                strokeWidth="1"
-              />
-              <text
-                x="435"
-                y="210"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#065F46"
-              >
-                Inventario
-              </text>
-              <rect
-                x="520"
-                y="190"
-                width="60"
-                height="40"
-                rx="4"
-                fill="#D1FAE5"
-                stroke="#6EE7B7"
-                strokeWidth="1"
-              />
-              <text
-                x="550"
-                y="215"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#065F46"
-              >
-                Caja 💰
-              </text>
-            </svg>
+              <div className="restaurant-diagram__side restaurant-diagram__side--frontend">
+                <p className="restaurant-diagram__title restaurant-diagram__title--frontend">
+                  Frontend
+                </p>
+                <p className="restaurant-diagram__subtitle restaurant-diagram__subtitle--frontend">
+                  Lo que el cliente ve y toca
+                </p>
+                <div className="restaurant-diagram__icons">
+                  <div
+                    className="restaurant-diagram__icon restaurant-diagram__icon--frontend"
+                    aria-label="Mesa"
+                  ></div>
+                  <div
+                    className="restaurant-diagram__icon restaurant-diagram__icon--frontend"
+                    aria-label="Mesa"
+                  ></div>
+                  <div
+                    className="restaurant-diagram__icon restaurant-diagram__icon--frontend"
+                    aria-label="Mesa"
+                  ></div>
+                </div>
+                <div className="restaurant-diagram__menu">
+                  <div className="restaurant-diagram__menu-line"></div>
+                  <div className="restaurant-diagram__menu-line restaurant-diagram__menu-line--short"></div>
+                  <div className="restaurant-diagram__menu-line"></div>
+                </div>
+              </div>
+              <div className="restaurant-diagram__divider">
+                <span>El cliente no pasa de acá</span>
+              </div>
+              <div className="restaurant-diagram__side restaurant-diagram__side--backend">
+                <p className="restaurant-diagram__title restaurant-diagram__title--backend">
+                  Backend
+                </p>
+                <p className="restaurant-diagram__subtitle restaurant-diagram__subtitle--backend">
+                  Lo que pasa en la cocina
+                </p>
+                <div className="restaurant-diagram__items">
+                  <span className="restaurant-diagram__tag">Cocina</span>
+                  <span className="restaurant-diagram__tag">Heladera</span>
+                  <span className="restaurant-diagram__tag">Inventario</span>
+                  <span className="restaurant-diagram__tag">Caja</span>
+                </div>
+              </div>
+            </div>
 
             <h3 className="mt-4 mb-3">
               La triada del frontend: HTML + CSS + JS
@@ -1243,10 +1418,53 @@ export function Clase01Introduccion() {
           </div>
         </section>
 
-        {/* SECCIÓN 6: Cierre */}
-        <section id="seccion-cierre" className="section">
+        {/* SECCIÓN 6: Tu primera página web */}
+        <section id="seccion-practica" className="section">
           <div className="container">
             <span className="section__number">Sección 6</span>
+            <h2 className="section__title">Tu primera página web</h2>
+
+            <p className="mt-4 mb-3">
+              Ya sabés qué es el frontend, qué herramientas usar y cómo se
+              conecta todo. Ahora vas a <strong>hacer tu primera página</strong>{" "}
+              con tus propias manos. Seguí los pasos y mirá cómo el resultado
+              cambia en el navegador:
+            </p>
+
+            <MiniProject />
+
+            <h3 className="mt-4 mb-3">Inspeccioná tu propia página</h3>
+            <p className="mb-3">
+              Ahora abrí DevTools en <strong>tu</strong> página (F12 o click
+              derecho → Inspeccionar) y probá cambiar cosas. Los cambios son
+              temporales — si recargás, vuelve todo al original:
+            </p>
+
+            <Checklist
+              storageKey="clase1-checklist-devtools-practice"
+              items={[
+                "Hacé click en el <h1> en el panel Elements y cambiá el texto",
+                "En Styles, cambiá el color del h1 a red",
+                "Cambiá el background-color del body a otro color",
+                "Recargá (F5) y comprobá que todo vuelve al original",
+              ]}
+              completionMessage="🎉 ¡Ya sabés inspeccionar y experimentar con tu propia página!"
+            />
+
+            <Callout variant="success">
+              <p>
+                <strong>¡Acabás de crear tu primera página web!</strong> Ya no
+                sos alguien que "nunca hizo una página". A partir de acá, todo
+                es ir sumando cosas sobre esta base.
+              </p>
+            </Callout>
+          </div>
+        </section>
+
+        {/* SECCIÓN 7: Cierre */}
+        <section id="seccion-cierre" className="section">
+          <div className="container">
+            <span className="section__number">Sección 7</span>
             <h2 className="section__title">Cierre y próximos pasos</h2>
 
             <svg

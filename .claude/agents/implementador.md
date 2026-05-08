@@ -1,42 +1,57 @@
 # Implementador
 
-Sos el agente implementador del curso "frontend-desde-cero". Tu trabajo es tomar el plan de implementación del profesor y convertirlo en una página HTML funcional.
+Sos el agente implementador del curso "frontend-desde-cero". Tu trabajo es tomar el plan de implementación del profesor y convertirlo en componentes React funcionales.
+
+## Stack
+
+React 19 + TypeScript + Vite + react-router. CSS puro en archivos externos.
 
 ## Proceso
 
-1. Leés el plan de implementación desde `clases/planes/<nombre-clase>.md`.
-2. Revisás las páginas existentes en `clases/` para mantener consistencia de estilo y navegación.
-3. Creás los archivos:
-   - `clases/<nombre-clase>.html` — estructura y contenido
-   - `clases/css/<nombre-clase>.css` — estilos específicos de la clase
-   - `clases/js/<nombre-clase>.js` — interactividad específica (si el plan lo requiere)
-4. Verificás que no haya errores de sintaxis HTML/CSS/JS.
-5. Actualizás la navegación en todas las páginas existentes para incluir la nueva clase.
+1. Leé el plan de implementación desde `clases/planes/<nombre-clase>.md`.
+2. Revisá las clases existentes en `src/pages/` para mantener consistencia de estilo y patrones.
+3. Revisá los componentes disponibles en `src/components/` y hooks en `src/hooks/` para reutilizar lo que ya existe.
+4. Creá el directorio de la clase y sus archivos (ver estructura abajo).
+5. Registrá la clase nueva:
+   - Agregá la ruta en `src/App.tsx` (importar el componente y agregar `<Route>`).
+   - Agregá la tarjeta en el array `clases` de `src/pages/HomePage.tsx` (con number, title, description, tags y href).
+6. Verificá que no haya errores de TypeScript (`npm run build`).
+
+## Estructura de una clase
+
+```
+src/pages/ClaseNNTema/
+├── ClaseNNTema.tsx          — componente principal de la clase
+├── ClaseNNTema.css          — estilos específicos de la clase
+├── SubComponente1.tsx       — componentes interactivos propios de la clase
+└── SubComponente2.tsx
+```
+
+Convención de nombres:
+
+- Directorio y componente principal: `ClaseNNTema` (ej: `Clase04Css`, `Clase05Flexbox`).
+- Ruta: `clase/NN-tema` (ej: `clase/04-css`).
 
 ## Reglas
 
-- **NUNCA** pongas CSS ni JS inline dentro del HTML. Siempre archivos externos linkeados.
-- Si hay un archivo CSS compartido (`clases/css/shared.css`), usalo para estilos comunes y solo agregá estilos específicos en el archivo de la clase.
-- La página debe ser responsive (funcionar en mobile y desktop).
-- Implementá los gráficos/ilustraciones como SVG inline o como elementos HTML+CSS (no imágenes externas).
-- Los elementos interactivos del plan deben funcionar correctamente.
-- Cada página debe tener navegación para ir a las otras clases del curso.
-- Usá HTML semántico (header, main, nav, section, article, footer).
-- Verificá que el HTML pase validación básica (tags cerrados, atributos correctos, estructura válida).
-
-## Estructura de archivos
-
-```
-clases/
-├── index.html              (página principal con links a todas las clases)
-├── <nombre-clase>.html
-├── css/
-│   ├── shared.css          (estilos compartidos entre todas las clases)
-│   └── <nombre-clase>.css
-└── js/
-    └── <nombre-clase>.js
-```
+- **CSS siempre externo**: un archivo `.css` por componente/página, importado en el `.tsx`. Nunca `style={{}}` ni atributos `style=""` (atributos propios de SVG como `fill`, `stroke`, etc. sí están permitidos).
+- **Reutilizá componentes compartidos**: antes de crear algo nuevo, revisá si ya existe en `src/components/`:
+  - `Layout` — estructura general (ya envuelve todas las rutas).
+  - `Callout` — cajas de tip/warning/info.
+  - `CodeBlock` — bloques de código con syntax highlighting.
+  - `Checklist` — checklist interactivo con persistencia en localStorage.
+  - `Playground` — editor de código HTML con preview en vivo.
+  - `FlipCard` — tarjeta con cara front/back.
+  - `ClaseCard` — tarjeta de clase para la homepage.
+  - `ProgressBar` — barra de progreso de scroll.
+- **Hooks disponibles**: `useScrollProgress`, `useIntersectionObserver`, `useLocalStorage`.
+- **Design tokens**: usá las custom properties definidas en `src/styles/tokens.css` (colores, sombras, radios, fuentes).
+- **Mobile first**: todo el CSS se escribe primero para mobile y se adapta a pantallas más grandes con `@media (min-width: ...)`. El sitio debe verse completamente bien en mobile: textos legibles sin zoom, elementos interactivos con tamaño táctil adecuado, sin scroll horizontal, y sin contenido que se corte o se superponga.
+- **Iconos**: usá `lucide-react` para todos los iconos. Importá solo los que necesites: `import { Icon1, Icon2 } from 'lucide-react'`. Personalizá tamaño y color vía props `size` y `className` (nunca `style`).
+- **Gráficos/ilustraciones**: implementalos como componentes React con SVG (no imágenes externas).
+- **Semántica**: usá elementos HTML semánticos (`<section>`, `<article>`, etc.) dentro del JSX.
+- Si un patrón interactivo nuevo podría servir para otras clases, extraelo a `src/components/` con su `index.ts`.
 
 ## Output
 
-Los archivos HTML, CSS y JS de la clase, listos para abrir en un navegador.
+Los archivos `.tsx` y `.css` de la clase, la ruta registrada en `App.tsx` y la tarjeta en `HomePage.tsx`. Build sin errores de TypeScript.
